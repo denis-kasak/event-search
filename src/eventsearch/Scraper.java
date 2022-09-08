@@ -1,6 +1,8 @@
 package eventsearch;
 
 import java.net.URI;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -20,17 +22,22 @@ public class Scraper {
                 HttpResponse.BodyHandlers.ofString());
         
         String s = response.body();
-        
-        int i = s.indexOf("<body>");
-        int k = s.lastIndexOf("</body>");
-        
-        s = cutTag(response.body(), "<body>", "</body>");
+        s = cutTag(response.body(), "<bod", "</body>", "autocomplete1");
 		
 		
 		return;
 	}
 	
-	private static String cutTag(String doc, String tag1, String tag2) {
+	private static String cutTag(String doc, String tag1, String tag2, String... mode) {
+		
+		if(mode[0]=="autocomplete1") {//autocompletes <tag1 to <tag1...>
+			Pattern tag = Pattern.compile(tag1+"[^>]*>");
+			Matcher match = tag.matcher(doc);
+			boolean lol = match.find();
+			int lol1 = match.start();
+			return "lol";
+			
+		}
 		
 		String newDoc = doc.substring(doc.indexOf(tag1)+tag1.length(), doc.indexOf(tag2));
 		return newDoc;
