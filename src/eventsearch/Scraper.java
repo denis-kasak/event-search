@@ -1,6 +1,7 @@
 package eventsearch;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.net.http.HttpClient;
@@ -12,8 +13,7 @@ public class Scraper {
 
 	public static void debug() throws Exception {
 
-		Scraper.cutTag(Scraper.getHtmlDoc("https://berlinischegalerie.de/ausstellungen/"), "<bod", "</body>",
-				"autocomplete1");
+		Scraper.cutTag(Scraper.getHtmlDoc(), "<bod", "</body>", "autocomplete1");
 	}
 
 	private static String getHtmlDoc(String link) throws IOException, InterruptedException {
@@ -39,7 +39,22 @@ public class Scraper {
 			}
 		}
 
+		if (tag2 == null) {
+
+			return doc.substring(doc.indexOf(tag1) + tag1.length());
+
+		}
+
 		return doc.substring(doc.indexOf(tag1) + tag1.length(), doc.indexOf(tag2));
+	}
+
+	private static ArrayList<String> getBg() throws IOException, InterruptedException { // returns all events from
+																						// Berlinische Galerie
+
+		ArrayList<String> events = new ArrayList<String>();
+		String doc = getHtmlDoc("https://berlinischegalerie.de/ausstellungen/");
+
+		return (events);
 	}
 
 }
