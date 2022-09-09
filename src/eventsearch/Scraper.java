@@ -13,7 +13,8 @@ public class Scraper {
 
 	public static void debug() throws Exception {
 
-		Scraper.cutTag(Scraper.getHtmlDoc(), "<bod", "</body>", "autocomplete1");
+		getBg();
+
 	}
 
 	private static String getHtmlDoc(String link) throws IOException, InterruptedException {
@@ -27,32 +28,22 @@ public class Scraper {
 		return response.body();
 	}
 
-	private static String cutTag(String doc, String tag1, String tag2, String... mode) throws Exception {
+	private static String cutTag(String doc, String pattern1) throws Exception {
 
-		if (mode[0] == "autocomplete1") {// autocompletes <tag1 to <tag1...>
-			Pattern tag = Pattern.compile(tag1 + "[^>]*>");
-			Matcher match = tag.matcher(doc);
-			if (match.find()) {
-				tag1 = doc.substring(match.start(), match.end());
-			} else {
-				throw new Exception("Couldn't autocomplete tag1");
-			}
-		}
+		Pattern patt1 = Pattern.compile(pattern1);
+		Matcher match1 = patt1.matcher(doc);
+		boolean test = match1.find();
 
-		if (tag2 == null) {
-
-			return doc.substring(doc.indexOf(tag1) + tag1.length());
-
-		}
-
-		return doc.substring(doc.indexOf(tag1) + tag1.length(), doc.indexOf(tag2));
+		return doc.substring(match1.end());
 	}
 
-	private static ArrayList<String> getBg() throws IOException, InterruptedException { // returns all events from
-																						// Berlinische Galerie
-
+	private static ArrayList<String> getBg() throws Exception { // returns all events from
+																// Berlinische Galerie
 		ArrayList<String> events = new ArrayList<String>();
 		String doc = getHtmlDoc("https://berlinischegalerie.de/ausstellungen/");
+
+		doc = cutTag(doc, "<div class=\"o-grid-floaty__text\"> ");
+		doc = cutTag(doc, "<span>");
 
 		return (events);
 	}
