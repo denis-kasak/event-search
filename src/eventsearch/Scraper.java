@@ -6,7 +6,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,7 +14,6 @@ public class Scraper {
 	public static void debug() throws Exception {
 
 		BerlinischeGalerie.getEvents();
-
 	}
 
 	public static String getHtmlDoc(String link) throws IOException, InterruptedException {
@@ -49,5 +47,4 @@ public class Scraper {
 
 		return info.trim();
 	}
-
 }
