@@ -3,10 +3,10 @@ package eventsearch;
 import java.util.ArrayList;
 
 public abstract class EventOwner {
+	
+	public abstract ArrayList<ArrayList<String>> getEvents() throws Exception;
 
-	abstract ArrayList<ArrayList<String>> getEvents();
-
-	abstract ArrayList<String> segment();
+	protected abstract ArrayList<String> segment(String doc);
 
 	
 }
