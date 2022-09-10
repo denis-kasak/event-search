@@ -25,26 +25,4 @@ public class Scraper {
 
 		return response.body();
 	}
-
-	public static String cutToInfo(String doc, ArrayList<String> anchors) throws Exception {
-
-		for (String i : anchors) {
-			Pattern patt1 = Pattern.compile(i);
-			Matcher match1 = patt1.matcher(doc);
-			match1.find();
-			doc = doc.substring(match1.end());
-		}
-
-		return doc;
-	}
-
-	public static String cutEnd(String doc, String anchor) {
-
-		Pattern patt1 = Pattern.compile(anchor);
-		Matcher match1 = patt1.matcher(doc);
-		match1.find();
-		String info = doc.substring(0, match1.start());
-
-		return info.trim();
-	}
 }
