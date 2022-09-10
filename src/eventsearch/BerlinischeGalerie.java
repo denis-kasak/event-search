@@ -54,9 +54,5 @@ public class BerlinischeGalerie extends EventOwner{
 		return events;
 	}
 
-	public static void getEvents() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
