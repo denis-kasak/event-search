@@ -28,13 +28,26 @@ public class Scraper {
 		return response.body();
 	}
 
-	private static String cutTag(String doc, String pattern1) throws Exception {
+	private static String cutToInfo(String doc, String[] anchors) throws Exception {
 
-		Pattern patt1 = Pattern.compile(pattern1);
+		for (int i = 0; i < anchors.length; i++) {
+			Pattern patt1 = Pattern.compile(anchors[i]);
+			Matcher match1 = patt1.matcher(doc);
+			boolean test = match1.find();
+			doc = doc.substring(match1.end());
+		}
+
+		return doc;
+	}
+	
+	private static String cutEnd(String doc, String anchor) {
+		
+		Pattern patt1 = Pattern.compile(anchor);
 		Matcher match1 = patt1.matcher(doc);
 		boolean test = match1.find();
-
-		return doc.substring(match1.end());
+		doc = doc.substring(0,match1.start());
+		
+		return doc;
 	}
 
 	private static ArrayList<String> getBg() throws Exception { // returns all events from
@@ -42,9 +55,10 @@ public class Scraper {
 		ArrayList<String> events = new ArrayList<String>();
 		String doc = getHtmlDoc("https://berlinischegalerie.de/ausstellungen/");
 
-		doc = cutTag(doc, "<div class=\"o-grid-floaty__text\"> ");
-		doc = cutTag(doc, "<span>");
-
+		String[] pattern = { "<div class=\"o-grid-floaty__text\">", "<span>" };
+		doc = cutToInfo(doc, pattern);
+		String author = cutEnd(doc, "</span>");
+		
 		return (events);
 	}
 
