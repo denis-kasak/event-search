@@ -7,16 +7,32 @@ import java.util.regex.Pattern;
 public class BerlinischeGalerie extends EventOwner {
 
 	public BerlinischeGalerie() throws Exception {
+
 		String doc = Scraper.getHtmlDoc("https://berlinischegalerie.de/ausstellungen/");
 		ArrayList<String> segments = new ArrayList<String>();
 		segments = segment(doc);
-		getEvents(segments);
+		formatEvents(getEvents(segments));
 
 	}
 
-	public ArrayList<ArrayList<String>> getEvents(ArrayList<String> segments) throws Exception { // returns all events
-																									// from
-		// Berlinische Galerie
+	private ArrayList<ArrayList<String>> formatEvents(ArrayList<ArrayList<String>> events) {
+		
+		for(int i=0; i<events.size();i++ ) {
+			for(int j=0; j<events.get(i).size();j++) {
+				if(events.get(i).get(j).equals("bis")) {
+					events.get(i).set(j, "bis "+events.get(i).get(j+1));
+					events.get(i).remove(j+1);
+				}
+				
+			}
+		}
+		
+		
+		return events;
+	}
+
+	public ArrayList<ArrayList<String>> getEvents(ArrayList<String> segments) throws Exception {
+
 		ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
 
 		for (String i : segments) {
@@ -47,6 +63,7 @@ public class BerlinischeGalerie extends EventOwner {
 	}
 
 	protected ArrayList<String> segment(String doc) {
+
 		ArrayList<String> segments = new ArrayList<String>();
 
 		Pattern pattern = Pattern.compile("<div class=\"o-grid-floaty__text\">");
