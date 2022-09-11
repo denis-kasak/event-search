@@ -8,19 +8,25 @@ import java.net.URI;
 
 public class Scraper {
 
-	public static void debug() throws Exception {
+	public static void debug(){
 
 		BerlinischeGalerie.getEvents();
 	}
 
-	public static String getHtmlDoc(String link) throws IOException, InterruptedException {
+	public static String getHtmlDoc(String link){
 		//gibt das HTML doc zum link zurück
-
+		
+		try {
 		HttpClient client = HttpClient.newHttpClient();
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(link)).GET().build();
-
 		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
 		return response.body();
+		
+		} catch (IOException | InterruptedException e) {
+			System.out.println("Konnte kein HTML Dokument von Berlinische Galerie empfangen.");
+			return null;
+		}
+
+		
 	}
 }

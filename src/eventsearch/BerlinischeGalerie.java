@@ -6,23 +6,28 @@ import java.util.regex.Pattern;
 
 public class BerlinischeGalerie {
 
-	static public ArrayList<ArrayList<String>> getEvents() throws Exception {
-		//gibt eine Liste aktueller Events zurück
+	static public ArrayList<ArrayList<String>> getEvents() {
+		// gibt eine Liste aktueller Events zurück
 
 		String doc = Scraper.getHtmlDoc("https://berlinischegalerie.de/ausstellungen/");
-		
-		ArrayList<String> segments = new ArrayList<String>();
-		segments = segmentDoc(doc);
-		
-		ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
-		events = buildEvents(segments);
-		events = formatEvents(events);
 
-		return events;
+		if (doc != null) {
+			ArrayList<String> segments = new ArrayList<String>();
+			segments = segmentDoc(doc);
+
+			ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
+			events = buildEvents(segments);
+			events = formatEvents(events);
+
+			return events;
+		} else {
+			return new ArrayList<ArrayList<String>>();
+		}
 	}
 
 	static private ArrayList<String> segmentDoc(String doc) {
-		//schneidet relevante Segmente aus großem HTML doc aus und packt sie in segments
+		// schneidet relevante Segmente aus großem HTML doc aus und packt sie in
+		// segments
 
 		ArrayList<String> segments = new ArrayList<String>();
 
@@ -46,7 +51,7 @@ public class BerlinischeGalerie {
 	}
 
 	static private ArrayList<ArrayList<String>> buildEvents(ArrayList<String> segments) {
-		//holt sich alle Werte zwischen HTML Tags aus segments und packt sie in Event
+		// holt sich alle Werte zwischen HTML Tags aus segments und packt sie in Event
 
 		ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
 		for (String i : segments) {
@@ -75,7 +80,7 @@ public class BerlinischeGalerie {
 	}
 
 	static private ArrayList<ArrayList<String>> formatEvents(ArrayList<ArrayList<String>> events) {
-		//formattiert "bis <neue Zeile> <Datum>" zu "bis <Datum>" 
+		// formattiert "bis <neue Zeile> <Datum>" zu "bis <Datum>"
 
 		for (int i = 0; i < events.size(); i++) {
 			for (int j = 0; j < events.get(i).size(); j++) {
