@@ -51,6 +51,7 @@ public class BerlinischeGalerie {
 		ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
 		for (String i : segments) {
 			ArrayList<String> event = new ArrayList<String>();
+			event.add("Berlinische Galerie");
 			Pattern pattern = Pattern.compile("<[^>]*>");
 			Matcher match = pattern.matcher(i);
 			match.find();
