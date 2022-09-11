@@ -8,4 +8,7 @@ Event Search ist ein innovatives, smartes und neues Tool zur einfachen Gestaltun
 - Code ist mit Kommentaren dokumentiert
 - Code ist sauber -> Code der nicht verwendet wird, wird gelöscht
 
-## Nach akzeptiertem Merge Request, wird das UML Diagramm aktualisiert
+## Nach akzeptiertem Merge Request
+muss das UML Diagramm aktualisiert werden.
+https://drive.google.com/file/d/1dN8y1UihNtaL6kfpeZyZj4r2AIkkUAOG/view?usp=sharing
+Diese Datei kann bei Draw.io bearbeitet werden.
