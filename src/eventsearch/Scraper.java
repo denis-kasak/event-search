@@ -13,7 +13,7 @@ public class Scraper {
 
 	public static void debug() throws Exception {
 
-		BerlinischeGalerie bg = new BerlinischeGalerie();
+		BerlinischeGalerie.getEvents();
 	}
 
 	public static String getHtmlDoc(String link) throws IOException, InterruptedException {

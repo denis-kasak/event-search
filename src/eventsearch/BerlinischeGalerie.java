@@ -4,65 +4,22 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BerlinischeGalerie extends EventOwner {
+public class BerlinischeGalerie{
 
-	public BerlinischeGalerie() throws Exception {
+	static public ArrayList<ArrayList<String>> getEvents() throws Exception {
 
 		String doc = Scraper.getHtmlDoc("https://berlinischegalerie.de/ausstellungen/");
 		ArrayList<String> segments = new ArrayList<String>();
-		segments = segment(doc);
-		formatEvents(getEvents(segments));
-
-	}
-
-	private ArrayList<ArrayList<String>> formatEvents(ArrayList<ArrayList<String>> events) {
-		
-		for(int i=0; i<events.size();i++ ) {
-			for(int j=0; j<events.get(i).size();j++) {
-				if(events.get(i).get(j).equals("bis")) {
-					events.get(i).set(j, "bis "+events.get(i).get(j+1));
-					events.get(i).remove(j+1);
-				}
-				
-			}
-		}
-		
-		
-		return events;
-	}
-
-	public ArrayList<ArrayList<String>> getEvents(ArrayList<String> segments) throws Exception {
-
+		segments = segmentDoc(doc);
 		ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
 
-		for (String i : segments) {
-			ArrayList<String> event = new ArrayList<String>();
-			Pattern pattern = Pattern.compile("<[^>]*>");
-			Matcher match = pattern.matcher(i);
-			match.find();
-			int begin = match.end();
-			while (match.find()) {
-				int end = match.start();
-
-				if (match.end() == i.length()) {
-					break;
-				}
-				if (i.substring(begin, end).trim().equals("")) {
-					begin = match.end();
-					continue;
-				} else {
-					event.add(i.substring(begin, end).trim());
-					begin = match.end();
-				}
-			}
-			events.add(event);
-
-		}
+		events = buildEvents(segments);
+		events = formatEvents(events);
 
 		return events;
 	}
 
-	protected ArrayList<String> segment(String doc) {
+	static private ArrayList<String> segmentDoc(String doc) {
 
 		ArrayList<String> segments = new ArrayList<String>();
 
@@ -83,6 +40,45 @@ public class BerlinischeGalerie extends EventOwner {
 			}
 		}
 		return segments;
+	}
+
+	static private ArrayList<ArrayList<String>> buildEvents(ArrayList<String> segments) {
+		ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
+		for (String i : segments) {
+			ArrayList<String> event = new ArrayList<String>();
+			Pattern pattern = Pattern.compile("<[^>]*>");
+			Matcher match = pattern.matcher(i);
+			match.find();
+			int begin = match.end();
+			while (match.find()) {
+				int end = match.start();
+				if (match.end() == i.length()) {
+					break;
+				}
+				if (i.substring(begin, end).trim().equals("")) {
+					begin = match.end();
+					continue;
+				} else {
+					event.add(i.substring(begin, end).trim());
+					begin = match.end();
+				}
+			}
+			events.add(event);
+		}
+		return events;
+	}
+
+	static private ArrayList<ArrayList<String>> formatEvents(ArrayList<ArrayList<String>> events) {
+
+		for (int i = 0; i < events.size(); i++) {
+			for (int j = 0; j < events.get(i).size(); j++) {
+				if (events.get(i).get(j).equals("bis")) {
+					events.get(i).set(j, "bis " + events.get(i).get(j + 1));
+					events.get(i).remove(j + 1);
+				}
+			}
+		}
+		return events;
 	}
 
 }
