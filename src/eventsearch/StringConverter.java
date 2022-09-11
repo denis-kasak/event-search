@@ -7,6 +7,7 @@ import java.io.*;
 public class StringConverter {
 	
 	public static void listeInDatei(List liste, File datei) {
+		//Speichert eine beliebige List als Text in gegebener File
         PrintWriter printWriter = null;
         try {
             printWriter = new PrintWriter(new FileWriter(datei));
