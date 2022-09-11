@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class BerlinischeGalerie {
 
 	static public ArrayList<ArrayList<String>> getEvents() {
-		// gibt eine Liste aktueller Events zurück
+		// gibt eine Liste aktueller Events zurückgifsdghishih
 
 		String doc = Scraper.getHtmlDoc("https://berlinischegalerie.de/ausstellungen/");
 
