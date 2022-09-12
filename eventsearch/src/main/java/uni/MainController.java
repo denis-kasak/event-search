@@ -5,7 +5,9 @@
 package uni;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ToggleButton;
 
 /**
  *
@@ -14,7 +16,24 @@ import javafx.fxml.FXML;
 
 public class MainController {
     @FXML
+    private ToggleButton tglAlle;
+    
+    @FXML
     private void test(){
         System.out.println("test erfolgreich");
+    }
+    
+    @FXML
+    private void search(){
+        
+        //hole Toggle Filter Informationen
+        
+        ArrayList<String> filter = new ArrayList<String>();
+        
+        if(tglAlle.isSelected()){
+            System.out.println("yesssss");
+        }
+        
+        //Model.showEvents([bool Toggle1, bool Toggle2, bool Toggle3])
     }
 }

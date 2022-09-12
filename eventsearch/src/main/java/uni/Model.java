@@ -4,10 +4,16 @@
  */
 package uni;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author d-kas
  */
 public class Model {
+    
+    public static void showEvents(ArrayList<String> filter){
+        
+    }
     
 }
