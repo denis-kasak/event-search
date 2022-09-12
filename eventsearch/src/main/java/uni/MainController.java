@@ -17,6 +17,12 @@ import javafx.scene.control.ToggleButton;
 public class MainController {
     @FXML
     private ToggleButton tglAlle;
+    @FXML
+    private ToggleButton tglMuseum;
+    @FXML
+    private ToggleButton tglKino;
+    @FXML
+    private ToggleButton tglMarkt;
     
     @FXML
     private void test(){
@@ -26,14 +32,21 @@ public class MainController {
     @FXML
     private void search(){
         
-        //hole Toggle Filter Informationen
-        
         ArrayList<String> filter = new ArrayList<String>();
         
         if(tglAlle.isSelected()){
-            System.out.println("yesssss");
+            filter.add("all");
+        } else{
+            if(tglMuseum.isSelected()){
+                filter.add("museum");
+            }
+            if(tglKino.isSelected()){
+                filter.add("kino");
+            }
+            if(tglMarkt.isSelected()){
+                filter.add("markt");
+            }
         }
-        
-        //Model.showEvents([bool Toggle1, bool Toggle2, bool Toggle3])
+        Model.showEvents(filter);
     }
 }
