@@ -31,7 +31,7 @@
                   <ToggleButton mnemonicParsing="false" text="Museum" />
                   <ToggleButton mnemonicParsing="false" text="Kino" />
                   <ToggleButton mnemonicParsing="false" text="Markt" />
-                  <Button mnemonicParsing="false" text="Suchen" />
+                  <Button mnemonicParsing="false" onAction="#test" text="Suchen" />
                </items>
             </ToolBar>
             <ImageView fitHeight="498.0" fitWidth="930.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
