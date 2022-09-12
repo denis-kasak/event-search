@@ -27,11 +27,11 @@
                <items>
                   <Label text="Geben Sie das Datum und die Filter an:" />
                   <DatePicker />
-                  <ToggleButton fx:id="tglAlle" mnemonicParsing="false" text="Alle" />
+                  <ToggleButton fx:id="tglAlle" mnemonicParsing="false" text="Alle" onAction="#toggleAll"/>
                   <ToggleButton fx:id="tglMuseum" mnemonicParsing="false" text="Museen" />
                   <ToggleButton fx:id="tglKino" mnemonicParsing="false" text="Kinos" />
                   <ToggleButton fx:id="tglMarkt" mnemonicParsing="false" text="Märkte" />
-                  <Button fx:id="BtnSuche" mnemonicParsing="false" onAction="#search" text="Suchen" />
+                  <Button fx:id="btnSuche" mnemonicParsing="false" onAction="#search" text="Suchen" />
                </items>
             </ToolBar>
             <ImageView fitHeight="498.0" fitWidth="930.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">

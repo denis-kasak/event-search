@@ -4,7 +4,6 @@
  */
 package uni;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
@@ -14,7 +13,8 @@ import javafx.scene.control.ToggleButton;
  * @author d-kas
  */
 
-public class MainController {
+
+public class MainController{
     @FXML
     private ToggleButton tglAlle;
     @FXML
@@ -23,11 +23,6 @@ public class MainController {
     private ToggleButton tglKino;
     @FXML
     private ToggleButton tglMarkt;
-    
-    @FXML
-    private void test(){
-        System.out.println("test erfolgreich");
-    }
     
     @FXML
     private void search(){
@@ -47,6 +42,20 @@ public class MainController {
                 filter.add("markt");
             }
         }
-        Model.showEvents(filter);
+        //Model.showEvents(filter);
+    }
+    
+    @FXML
+    private void toggleAll(){
+        if(tglAlle.isSelected()){
+            tglKino.setSelected(true);
+            tglMuseum.setSelected(true);
+            tglMarkt.setSelected(true);
+        }else{
+            tglKino.setSelected(false);
+            tglMuseum.setSelected(false);
+            tglMarkt.setSelected(false);
+        }
+        
     }
 }

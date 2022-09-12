@@ -5,15 +5,15 @@
 package uni;
 
 import java.util.ArrayList;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.fxml.FXML;
+import javafx.scene.control.ToggleButton;
 
 /**
  *
  * @author d-kas
  */
 public class Model {
-    
-    public static void showEvents(ArrayList<String> filter){
-        
-    }
     
 }
