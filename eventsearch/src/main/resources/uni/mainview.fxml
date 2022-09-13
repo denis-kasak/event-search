@@ -8,39 +8,47 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="1084.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" prefHeight="647.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.MainController">
    <children>
-      <StackPane layoutX="31.0" layoutY="103.0" prefHeight="511.0" prefWidth="1020.0" style="-fx-padding: 10; -fx-background-color: black;" />
-      <ImageView fitHeight="512.0" fitWidth="1018.0" layoutX="32.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" style="-fx-padding: 10; -fx-background-color: black;">
-         <image>
-            <Image url="@BerlinKarte.png" />
-         </image>
-      </ImageView>
-      <ToolBar layoutX="-3.0" layoutY="-3.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="1088.0">
-         <items>
-            <Label prefHeight="47.0" prefWidth="352.0" text="Wählen Sie das Datum und der Art der Veranstaltung aus:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <DatePicker prefHeight="27.0" prefWidth="163.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </DatePicker>
-            <ToggleButton fx:id="tglAlle" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" stylesheets="@design.css" text="Alles" />
-            <ToggleButton fx:id="tglMuseum" mnemonicParsing="false" prefHeight="28.0" prefWidth="64.0" styleClass="toggle-button-museen" stylesheets="@design.css" text="Museen" />
-            <ToggleButton fx:id="tglKino"  mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" styleClass="toggle-button-kinos" stylesheets="@design.css" text="Kinos" />
-            <ToggleButton fx:id="tglMarkt" mnemonicParsing="false" prefHeight="27.0" prefWidth="84.0" styleClass="toggle-button-floh" stylesheets="@design.css" text="Flohmärkte" />
-            <Button fx:id="btnSearch" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Suchen" textAlignment="CENTER" />
-         </items>
-         <padding>
-            <Insets left="60.0" />
-         </padding>
-      </ToolBar>
+      <AnchorPane fx:id="imgRoot" layoutX="34.0" layoutY="103.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="103.0">
+         <children>
+            <Pane prefHeight="567.0" prefWidth="1136.0" style="-fx-background-image: url(BerlinKarte.png)" />
+            <ImageView fx:id="imgBerlin" pickOnBounds="true" preserveRatio="true" style="-fx-padding: 10; -fx-background-color: black;">
+               <image>
+                  <Image url="@BerlinKarte.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane style="-fx-background-color: ff0000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ToolBar fx:id="toolbar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="1088.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <items>
+                  <Label prefHeight="47.0" prefWidth="363.0" text="Wählen Sie das Datum und die Art der Veranstaltung aus:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <DatePicker prefHeight="27.0" prefWidth="163.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </DatePicker>
+                  <ToggleButton fx:id="tglAlle" mnemonicParsing="false" onAction="#toggleAll" prefHeight="26.0" prefWidth="66.0" stylesheets="@design.css" text="Alles" />
+                  <ToggleButton fx:id="tglMuseum" mnemonicParsing="false" prefHeight="28.0" prefWidth="64.0" styleClass="toggle-button-museen" stylesheets="@design.css" text="Museen" />
+                  <ToggleButton fx:id="tglKino" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" styleClass="toggle-button-kinos" stylesheets="@design.css" text="Kinos" />
+                  <ToggleButton fx:id="tglMarkt" mnemonicParsing="false" prefHeight="27.0" prefWidth="84.0" styleClass="toggle-button-floh" stylesheets="@design.css" text="Flohmärkte" />
+                  <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="86.0" text="Suchen" textAlignment="CENTER" />
+               </items>
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+            </ToolBar>
+         </children>
+      </AnchorPane>
    </children>
-</Pane>
+</AnchorPane>

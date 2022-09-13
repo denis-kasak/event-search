@@ -4,9 +4,17 @@
  */
 package uni;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToolBar;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  *
@@ -14,7 +22,7 @@ import javafx.scene.control.ToggleButton;
  */
 
 
-public class MainController{
+public class MainController implements Initializable{
     @FXML
     private ToggleButton tglAlle;
     @FXML
@@ -23,6 +31,17 @@ public class MainController{
     private ToggleButton tglKino;
     @FXML
     private ToggleButton tglMarkt;
+    @FXML
+    private AnchorPane imgRoot;
+    @FXML
+    private ImageView imgBerlin;
+    @FXML
+    private Stage stage;
+    
+    
+    
+    public void initialize(URL location, ResourceBundle resources) {
+        }
     
     @FXML
     private void search(){
@@ -42,7 +61,7 @@ public class MainController{
                 filter.add("markt");
             }
         }
-        //Model.showEvents(filter);
+        System.out.println(filter);
     }
     
     @FXML
@@ -58,4 +77,6 @@ public class MainController{
         }
         
     }
+
+    
 }
