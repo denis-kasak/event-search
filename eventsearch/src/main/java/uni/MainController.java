@@ -4,6 +4,7 @@
  */
 package uni;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -12,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToolBar;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -20,9 +22,8 @@ import javafx.stage.Stage;
  *
  * @author d-kas
  */
+public class MainController implements Initializable {
 
-
-public class MainController implements Initializable{
     @FXML
     private ToggleButton tglAlle;
     @FXML
@@ -39,48 +40,45 @@ public class MainController implements Initializable{
     private Stage stage;
     @FXML
     private AnchorPane anchorImg;
-    
-    
-    
+
     public void initialize(URL location, ResourceBundle resources) {
-        anchorImg.setPreserveRatio(true);
-        
-        }
-    
+        imgBerlin.fitWidthProperty().bind(imgRoot.widthProperty());
+        imgBerlin.fitHeightProperty().bind(imgRoot.heightProperty());
+    }
+
     @FXML
-    private void search(){
-        
+    private void search() {
+
         ArrayList<String> filter = new ArrayList<String>();
-        
-        if(tglAlle.isSelected()){
+
+        if (tglAlle.isSelected()) {
             filter.add("all");
-        } else{
-            if(tglMuseum.isSelected()){
+        } else {
+            if (tglMuseum.isSelected()) {
                 filter.add("museum");
             }
-            if(tglKino.isSelected()){
+            if (tglKino.isSelected()) {
                 filter.add("kino");
             }
-            if(tglMarkt.isSelected()){
+            if (tglMarkt.isSelected()) {
                 filter.add("markt");
             }
         }
         System.out.println(filter);
     }
-    
+
     @FXML
-    private void toggleAll(){
-        if(tglAlle.isSelected()){
+    private void toggleAll() {
+        if (tglAlle.isSelected()) {
             tglKino.setSelected(true);
             tglMuseum.setSelected(true);
             tglMarkt.setSelected(true);
-        }else{
+        } else {
             tglKino.setSelected(false);
             tglMuseum.setSelected(false);
             tglMarkt.setSelected(false);
         }
-        
+
     }
 
-    
 }
