@@ -7,13 +7,18 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.beans.binding.DoubleBinding;
 import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 import uni.MainController;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
+
+    @FXML
+    AnchorPane root;
 
     private static Scene scene;
 

@@ -37,13 +37,13 @@ public class MainController implements Initializable {
     @FXML
     private ImageView imgBerlin;
     @FXML
-    private Stage stage;
-    @FXML
-    private AnchorPane anchorImg;
-
+    private AnchorPane root;
+    
     public void initialize(URL location, ResourceBundle resources) {
         imgBerlin.fitWidthProperty().bind(imgRoot.widthProperty());
         imgBerlin.fitHeightProperty().bind(imgRoot.heightProperty());
+        
+        
     }
 
     @FXML
