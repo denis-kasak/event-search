@@ -1,0 +1,55 @@
+.toggle-button{
+    -fx-background-color: 
+        linear-gradient(#9BD3F7, #9bd4f7d1),
+        linear-gradient(#9fdaff, #9fdaffe7),
+        linear-gradient(#abddfce7, #abddfccb),
+        linear-gradient(#abddfce7 0%, #9fdaffe7 50%, #9bd4f7d1 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30; 
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold; 
+    -fx-padding: 5 5 5 5;
+}
+
+.toggle-button-museen{
+    -fx-background-color: 
+        linear-gradient(#9A97ED, #9a97edf7),
+        linear-gradient(#9a97edf2, #9a97eded),
+        linear-gradient(#a29ffc, #a29ffc),
+        linear-gradient(#a29ffc 0%, #9a97edef 50%, #9a97edf9 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30; 
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold; 
+    -fx-padding: 5 5 5 5;
+}
+
+.toggle-button-kinos{
+    -fx-background-color: 
+        linear-gradient(#AFC58C, #afc58ce1),
+        linear-gradient(#bfd79a, #bfd79ada),
+        linear-gradient(#c6e09f, #c6e09fed),
+        linear-gradient(#c6e09f 0%, #bfd79ada 50%, #afc58ce1 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30; 
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold; 
+    -fx-padding: 5 5 5 5;
+}
+
+.toggle-button-floh{
+    -fx-background-color: 
+        linear-gradient(#F9B280, #f9b280e5),
+        linear-gradient(#f5bc93e5, #f5bc93d2),
+        linear-gradient(#f7cdafe5, #f7cdafd3),
+        linear-gradient(#f7cdafe5 0%, #f5bc93d2 50%, #f9b280e5 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 30; 
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold; 
+    -fx-padding: 5 5 5 5;
+}
