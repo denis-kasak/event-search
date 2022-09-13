@@ -37,10 +37,14 @@ public class MainController implements Initializable{
     private ImageView imgBerlin;
     @FXML
     private Stage stage;
+    @FXML
+    private AnchorPane anchorImg;
     
     
     
     public void initialize(URL location, ResourceBundle resources) {
+        anchorImg.setPreserveRatio(true);
+        
         }
     
     @FXML
