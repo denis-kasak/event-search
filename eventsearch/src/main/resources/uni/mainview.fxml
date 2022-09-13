@@ -15,9 +15,9 @@
    <children>
       <AnchorPane layoutY="70.0" prefHeight="578.0" prefWidth="1088.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
          <children>
-            <AnchorPane fx:id="imgRoot" layoutX="60.0" prefHeight="578.0" prefWidth="1088.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="imgRoot" layoutX="60.0" prefHeight="578.0" prefWidth="1088.0" stylesheets="@design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fx:id="imgBerlin" fitHeight="${imgRoot.prefHeight}" fitWidth="${imgRoot.prefWidth}" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgBerlin" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
                      <image>
                         <Image url="@BerlinKarte.png" />
                      </image>
