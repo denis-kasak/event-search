@@ -53,3 +53,10 @@
     -fx-font-weight: bold; 
     -fx-padding: 5 5 5 5;
 }
+
+.anchor-image{
+    -fx-background-image: url("./BerlinKarte.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:cover;
+        
+}
