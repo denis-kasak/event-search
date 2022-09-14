@@ -14,7 +14,7 @@
 
 <AnchorPane fx:id="root" prefHeight="647.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.MainController">
    <children>
-      <AnchorPane layoutY="70.0" prefHeight="578.0" prefWidth="1088.0" style="-fx-background-color: 000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+      <AnchorPane layoutY="70.0" prefHeight="578.0" prefWidth="1088.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
          <children>
             <AnchorPane fx:id="imgRoot" layoutX="60.0" prefHeight="578.0" prefWidth="1088.0" stylesheets="@design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -39,7 +39,7 @@
       </AnchorPane>
       <AnchorPane style="-fx-background-color: ff0000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ToolBar fx:id="toolbar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="1088.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ToolBar fx:id="toolbar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="1088.0" style="-fx-spacing: 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <items>
                   <Label prefHeight="47.0" prefWidth="363.0" text="Wählen Sie das Datum und die Art der Veranstaltung aus:">
                      <font>
@@ -51,7 +51,7 @@
                         <Insets />
                      </opaqueInsets>
                   </DatePicker>
-                  <ToggleButton fx:id="tglAlle" mnemonicParsing="false" onAction="#toggleAll" prefHeight="26.0" prefWidth="66.0" stylesheets="@design.css" text="Alles" />
+                  <ToggleButton fx:id="tglAlle" mnemonicParsing="false" onAction="#toggleAll" prefHeight="28.0" prefWidth="70.0" stylesheets="@design.css" text="Alles" />
                   <ToggleButton fx:id="tglMuseum" mnemonicParsing="false" prefHeight="28.0" prefWidth="64.0" styleClass="toggle-button-museen" stylesheets="@design.css" text="Museen" />
                   <ToggleButton fx:id="tglKino" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" styleClass="toggle-button-kinos" stylesheets="@design.css" text="Kinos" />
                   <ToggleButton fx:id="tglMarkt" mnemonicParsing="false" prefHeight="27.0" prefWidth="84.0" styleClass="toggle-button-floh" stylesheets="@design.css" text="Flohmärkte" />
