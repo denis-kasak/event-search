@@ -13,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
 /**
@@ -30,8 +29,6 @@ public class MainController implements Initializable {
     private ToggleButton tglKino;
     @FXML
     private ToggleButton tglMarkt;
-    @FXML
-    private AnchorPane imgRoot;
     @FXML
     private ImageView imgBerlin;
     @FXML
