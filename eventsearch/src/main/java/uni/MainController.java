@@ -69,14 +69,12 @@ public class MainController implements Initializable {
     private void correctPane(double stackWidth, double stackHeight) {
         System.out.println("correctPane");
         if ((float) stackWidth / stackHeight > 1.78) {
-            System.out.println("1");
             //Platz fürs Bild ist zu breit
             //Höhe Bild = Höhe StackPane
             paneButtons.setMaxSize(stackPaneImg.heightProperty().multiply(1.78).doubleValue(),stackPaneImg.heightProperty().doubleValue());
             paneButtons.setMinSize(stackPaneImg.heightProperty().multiply(1.78).doubleValue(),stackPaneImg.heightProperty().doubleValue());
 
         } else if ((float) stackWidth / stackHeight < 1.78) {
-            System.out.println("2");
             //Platz fürs Bild ist zu hoch
             //Breite Bild = Breite StackPane
             paneButtons.setMaxSize(stackPaneImg.widthProperty().doubleValue(),stackPaneImg.widthProperty().divide(1.78).doubleValue());
@@ -85,11 +83,6 @@ public class MainController implements Initializable {
 
         }
 
-    }
-
-    @FXML
-    private void setOnZoom() {
-        System.out.println("lol");
     }
 
     @FXML
