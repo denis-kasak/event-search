@@ -16,12 +16,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("mainview"));
+        scene = new Scene(loadFXML("mainview"),1200,700);
         stage.setScene(scene);
         stage.setMaximized(true);
-
-        
-
         stage.show();
     }
 
@@ -31,7 +28,6 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        MainController controller = new MainController();
         return fxmlLoader.load();
     }
 
