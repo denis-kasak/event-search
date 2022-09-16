@@ -18,11 +18,11 @@
          <children>
             <AnchorPane fx:id="imgRoot" layoutX="60.0" prefHeight="578.0" prefWidth="1088.0" stylesheets="@design.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <StackPane layoutX="1.0" layoutY="1.0" style="-fx-background-color: 000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <StackPane fx:id="stackPaneImg" layoutX="1.0" layoutY="1.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ImageView fx:id="imgBerlin" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgBerlin" fitHeight="450.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@BerlinKarte.png" />
+                              <Image url="@Karte_16_9.jpg" />
                            </image>
                         </ImageView>
                      </children>

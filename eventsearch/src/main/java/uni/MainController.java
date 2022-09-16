@@ -4,21 +4,17 @@
  */
 package uni;
 
-import java.io.File;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToolBar;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.scene.layout.StackPane;
 
 /**
  *
@@ -40,11 +36,14 @@ public class MainController implements Initializable {
     private ImageView imgBerlin;
     @FXML
     private DatePicker datepicker;
+    @FXML private StackPane stackPaneImg;
 
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
         //BEI NULL POINTER CHECKEN, DASS AUCH ID IN FXML GEPFLEGT IST
-        imgBerlin.fitWidthProperty().bind(imgRoot.widthProperty());
-        imgBerlin.fitHeightProperty().bind(imgRoot.heightProperty());
+        
+        imgBerlin.fitWidthProperty().bind(stackPaneImg.widthProperty());
+        imgBerlin.fitHeightProperty().bind(stackPaneImg.heightProperty());
 
         datepicker.setValue(LocalDate.now());
 
