@@ -12,7 +12,6 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
@@ -24,10 +23,9 @@ import javafx.scene.layout.StackPane;
  * @author d-kas
  */
 public class MainController implements Initializable {
-    
-    
+
     private float mapRatio = (float) 1.78; //Breite:Höhe -> mapRatio:1
-            
+
     @FXML
     private ToggleButton tglAlle;
     @FXML
@@ -42,7 +40,8 @@ public class MainController implements Initializable {
     private DatePicker datepicker;
     @FXML
     private StackPane stackPaneImg;
-    @FXML private AnchorPane paneButtons;
+    @FXML
+    private AnchorPane paneButtons;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -56,14 +55,14 @@ public class MainController implements Initializable {
         stackPaneImg.widthProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldPaneWidth, Number newPaneWidth) {
-                correctPane((double)newPaneWidth, stackPaneImg.heightProperty().doubleValue());
+                correctPane((double) newPaneWidth, stackPaneImg.heightProperty().doubleValue());
 
             }
         });
         stackPaneImg.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldPaneHeight, Number newPaneHeight) {
-                correctPane( stackPaneImg.widthProperty().doubleValue(),(double)newPaneHeight);
+                correctPane(stackPaneImg.widthProperty().doubleValue(), (double) newPaneHeight);
             }
         });
 
@@ -73,18 +72,15 @@ public class MainController implements Initializable {
         if ((float) stackWidth / stackHeight > 1.78) {
             //Platz fürs Bild ist zu breit
             //Höhe Bild = Höhe StackPane
-            paneButtons.setMaxSize(stackPaneImg.heightProperty().multiply(mapRatio).doubleValue(),stackPaneImg.heightProperty().doubleValue());
-            paneButtons.setMinSize(stackPaneImg.heightProperty().multiply(mapRatio).doubleValue(),stackPaneImg.heightProperty().doubleValue());
-
+            paneButtons.setMaxSize(stackPaneImg.heightProperty().multiply(mapRatio).doubleValue(), stackPaneImg.heightProperty().doubleValue());
+            paneButtons.setMinSize(stackPaneImg.heightProperty().multiply(mapRatio).doubleValue(), stackPaneImg.heightProperty().doubleValue());
         } else if ((float) stackWidth / stackHeight < 1.78) {
             //Platz fürs Bild ist zu hoch
             //Breite Bild = Breite StackPane
-            paneButtons.setMaxSize(stackPaneImg.widthProperty().doubleValue(),stackPaneImg.widthProperty().divide(mapRatio).doubleValue());
-            paneButtons.setMinSize(stackPaneImg.widthProperty().doubleValue(),stackPaneImg.widthProperty().divide(mapRatio).doubleValue());
-            
+            paneButtons.setMaxSize(stackPaneImg.widthProperty().doubleValue(), stackPaneImg.widthProperty().divide(mapRatio).doubleValue());
+            paneButtons.setMinSize(stackPaneImg.widthProperty().doubleValue(), stackPaneImg.widthProperty().divide(mapRatio).doubleValue());
 
         }
-
     }
 
     @FXML
