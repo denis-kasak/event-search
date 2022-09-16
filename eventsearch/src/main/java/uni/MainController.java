@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
@@ -34,6 +35,7 @@ public class MainController implements Initializable {
     @FXML
     private DatePicker datepicker;
     @FXML private StackPane stackPaneImg;
+    @FXML private Scene scene;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,9 +45,19 @@ public class MainController implements Initializable {
         imgBerlin.fitHeightProperty().bind(stackPaneImg.heightProperty());
 
         datepicker.setValue(LocalDate.now());
+        
+        
 
     }
+    
+    
 
+    @FXML
+    private void setOnZoom(){
+        System.out.println("lol");
+    }
+    
+    
     @FXML
     private void search() {
 

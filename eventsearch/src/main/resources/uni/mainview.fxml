@@ -18,7 +18,7 @@
          <children>
             <StackPane fx:id="stackPaneImg" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fx:id="imgBerlin" fitHeight="450.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgBerlin" fitHeight="450.0" fitWidth="800.0" onZoom="#setOnZoom" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Karte_16_9.jpg" />
                      </image>

@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 
@@ -15,9 +17,6 @@ import javafx.scene.layout.AnchorPane;
  */
 public class App extends Application {
 
-    @FXML
-    AnchorPane root;
-
     private static Scene scene;
 
     @Override
@@ -25,6 +24,21 @@ public class App extends Application {
         scene = new Scene(loadFXML("mainview"));
         stage.setScene(scene);
         stage.setMaximized(true);
+
+        scene.widthProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
+                System.out.println("Width: " + newSceneWidth);
+                
+            }
+        });
+        scene.heightProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
+                System.out.println("Height: " + newSceneHeight);
+            }
+        });
+
         stage.show();
     }
 
