@@ -23,7 +23,7 @@
                         <Image url="@Karte_16_9.jpg" />
                      </image>
                   </ImageView>
-                  <AnchorPane fx:id="paneButtons" prefHeight="246.0" prefWidth="629.0" />
+                  <AnchorPane fx:id="paneButtons" prefHeight="450.0" prefWidth="800.0" />
                </children>
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
