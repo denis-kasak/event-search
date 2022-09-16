@@ -39,18 +39,15 @@ public class MainController implements Initializable {
     @FXML
     private ImageView imgBerlin;
     @FXML
-    private AnchorPane root;
-    
-    @FXML private DatePicker datepicker;
-    
+    private DatePicker datepicker;
+
     public void initialize(URL location, ResourceBundle resources) {
         //BEI NULL POINTER CHECKEN, DASS AUCH ID IN FXML GEPFLEGT IST
         imgBerlin.fitWidthProperty().bind(imgRoot.widthProperty());
         imgBerlin.fitHeightProperty().bind(imgRoot.heightProperty());
-        
+
         datepicker.setValue(LocalDate.now());
-        
-        
+
     }
 
     @FXML
