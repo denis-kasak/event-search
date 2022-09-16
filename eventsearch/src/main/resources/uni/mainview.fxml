@@ -20,11 +20,15 @@
                <children>
                   <StackPane fx:id="stackPaneImg" layoutX="1.0" layoutY="1.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ImageView fx:id="imgBerlin" fitHeight="450.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Karte_16_9.jpg" />
-                           </image>
-                        </ImageView>
+                        <AnchorPane prefWidth="688.0">
+                           <children>
+                              <ImageView fx:id="imgBerlin" fitHeight="450.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Karte_16_9.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
                      </children>
                      <padding>
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
