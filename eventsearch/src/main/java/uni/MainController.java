@@ -24,7 +24,10 @@ import javafx.scene.layout.StackPane;
  * @author d-kas
  */
 public class MainController implements Initializable {
-
+    
+    
+    private float mapRatio = (float) 1.78; //Breite:Höhe -> mapRatio:1
+            
     @FXML
     private ToggleButton tglAlle;
     @FXML
@@ -67,18 +70,17 @@ public class MainController implements Initializable {
     }
 
     private void correctPane(double stackWidth, double stackHeight) {
-        System.out.println("correctPane");
         if ((float) stackWidth / stackHeight > 1.78) {
             //Platz fürs Bild ist zu breit
             //Höhe Bild = Höhe StackPane
-            paneButtons.setMaxSize(stackPaneImg.heightProperty().multiply(1.78).doubleValue(),stackPaneImg.heightProperty().doubleValue());
-            paneButtons.setMinSize(stackPaneImg.heightProperty().multiply(1.78).doubleValue(),stackPaneImg.heightProperty().doubleValue());
+            paneButtons.setMaxSize(stackPaneImg.heightProperty().multiply(mapRatio).doubleValue(),stackPaneImg.heightProperty().doubleValue());
+            paneButtons.setMinSize(stackPaneImg.heightProperty().multiply(mapRatio).doubleValue(),stackPaneImg.heightProperty().doubleValue());
 
         } else if ((float) stackWidth / stackHeight < 1.78) {
             //Platz fürs Bild ist zu hoch
             //Breite Bild = Breite StackPane
-            paneButtons.setMaxSize(stackPaneImg.widthProperty().doubleValue(),stackPaneImg.widthProperty().divide(1.78).doubleValue());
-            paneButtons.setMinSize(stackPaneImg.widthProperty().doubleValue(),stackPaneImg.widthProperty().divide(1.78).doubleValue());
+            paneButtons.setMaxSize(stackPaneImg.widthProperty().doubleValue(),stackPaneImg.widthProperty().divide(mapRatio).doubleValue());
+            paneButtons.setMinSize(stackPaneImg.widthProperty().doubleValue(),stackPaneImg.widthProperty().divide(mapRatio).doubleValue());
             
 
         }
