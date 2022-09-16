@@ -14,15 +14,16 @@
 
 <AnchorPane fx:id="root" prefHeight="647.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.MainController">
    <children>
-      <AnchorPane layoutY="70.0" prefHeight="578.0" prefWidth="1088.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+      <AnchorPane layoutY="70.0" prefHeight="578.0" prefWidth="1088.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
          <children>
-            <StackPane fx:id="stackPaneImg" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <StackPane fx:id="stackPaneImg" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <ImageView fx:id="imgBerlin" fitHeight="450.0" fitWidth="800.0" onZoom="#setOnZoom" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Karte_16_9.jpg" />
                      </image>
                   </ImageView>
+                  <AnchorPane fx:id="paneButtons" prefHeight="246.0" prefWidth="629.0" />
                </children>
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />

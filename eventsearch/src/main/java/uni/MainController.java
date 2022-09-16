@@ -8,12 +8,15 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
 /**
@@ -34,30 +37,61 @@ public class MainController implements Initializable {
     private ImageView imgBerlin;
     @FXML
     private DatePicker datepicker;
-    @FXML private StackPane stackPaneImg;
-    @FXML private Scene scene;
+    @FXML
+    private StackPane stackPaneImg;
+    @FXML private AnchorPane paneButtons;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //BEI NULL POINTER CHECKEN, DASS AUCH ID IN FXML GEPFLEGT IST
-        
+
         imgBerlin.fitWidthProperty().bind(stackPaneImg.widthProperty());
         imgBerlin.fitHeightProperty().bind(stackPaneImg.heightProperty());
 
         datepicker.setValue(LocalDate.now());
-        
-        
+
+        stackPaneImg.widthProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number oldPaneWidth, Number newPaneWidth) {
+                correctPane((double)newPaneWidth, stackPaneImg.heightProperty().doubleValue());
+
+            }
+        });
+        stackPaneImg.heightProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number oldPaneHeight, Number newPaneHeight) {
+                correctPane( stackPaneImg.widthProperty().doubleValue(),(double)newPaneHeight);
+            }
+        });
 
     }
-    
-    
+
+    private void correctPane(double stackWidth, double stackHeight) {
+        System.out.println("correctPane");
+        if ((float) stackWidth / stackHeight > 1.78) {
+            System.out.println("1");
+            //Platz fürs Bild ist zu breit
+            //Höhe Bild = Höhe StackPane
+            paneButtons.setMaxSize(stackPaneImg.heightProperty().multiply(1.78).doubleValue(),stackPaneImg.heightProperty().doubleValue());
+            paneButtons.setMinSize(stackPaneImg.heightProperty().multiply(1.78).doubleValue(),stackPaneImg.heightProperty().doubleValue());
+
+        } else if ((float) stackWidth / stackHeight < 1.78) {
+            System.out.println("2");
+            //Platz fürs Bild ist zu hoch
+            //Breite Bild = Breite StackPane
+            paneButtons.setMaxSize(stackPaneImg.widthProperty().doubleValue(),stackPaneImg.widthProperty().divide(1.78).doubleValue());
+            paneButtons.setMinSize(stackPaneImg.widthProperty().doubleValue(),stackPaneImg.widthProperty().divide(1.78).doubleValue());
+            
+
+        }
+
+    }
 
     @FXML
-    private void setOnZoom(){
+    private void setOnZoom() {
         System.out.println("lol");
     }
-    
-    
+
     @FXML
     private void search() {
 
