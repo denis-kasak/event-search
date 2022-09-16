@@ -6,11 +6,13 @@ package uni;
 
 import java.io.File;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToolBar;
 import javafx.scene.image.Image;
@@ -39,9 +41,14 @@ public class MainController implements Initializable {
     @FXML
     private AnchorPane root;
     
+    @FXML private DatePicker datepicker;
+    
     public void initialize(URL location, ResourceBundle resources) {
+        //BEI NULL POINTER CHECKEN, DASS AUCH ID IN FXML GEPFLEGT IST
         imgBerlin.fitWidthProperty().bind(imgRoot.widthProperty());
         imgBerlin.fitHeightProperty().bind(imgRoot.heightProperty());
+        
+        datepicker.setValue(LocalDate.now());
         
         
     }

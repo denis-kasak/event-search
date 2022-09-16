@@ -46,7 +46,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <DatePicker prefHeight="27.0" prefWidth="163.0">
+                  <DatePicker fx:id="datepicker" prefHeight="27.0" prefWidth="163.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
