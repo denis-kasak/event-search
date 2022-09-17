@@ -16,6 +16,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
 /**
@@ -42,6 +43,10 @@ public class MainController implements Initializable {
     private StackPane stackPaneImg;
     @FXML
     private AnchorPane paneButtons;
+    @FXML
+    private HBox hboxToolbar;
+    @FXML
+    private AnchorPane paneRoot;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,6 +56,8 @@ public class MainController implements Initializable {
         imgBerlin.fitHeightProperty().bind(stackPaneImg.heightProperty());
 
         datepicker.setValue(LocalDate.now());
+        
+        hboxToolbar.prefWidthProperty().bind(paneRoot.widthProperty());
 
         stackPaneImg.widthProperty().addListener(new ChangeListener<Number>() {
             @Override
