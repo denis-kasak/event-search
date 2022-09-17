@@ -92,7 +92,11 @@
 }
 
 HBox {
-    -fx-background-color: linear-gradient(#f4f4f6f1, #f4f4f6ce);
+    -fx-background-color: linear-gradient(#f4f4f6f1, #f4f4f69f);
     -fx-background-radius: 10;
     -fx-spacing: 10,10,10,10;
+}
+
+.button {
+    -fx-focus-color: rgb(158, 157, 157);
 }
