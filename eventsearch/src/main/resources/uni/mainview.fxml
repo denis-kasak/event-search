@@ -18,12 +18,23 @@
          <children>
             <StackPane fx:id="stackPaneImg" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fx:id="imgBerlin" fitHeight="450.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgBerlin" fitHeight="428.0" fitWidth="803.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Karte_16_9.jpg" />
+                        <Image url="@BerlinKarte.png" />
                      </image>
                   </ImageView>
-                  <AnchorPane fx:id="paneButtons" prefHeight="450.0" prefWidth="800.0" />
+                  <AnchorPane fx:id="paneButtons" prefHeight="450.0" prefWidth="800.0">
+                     <children>
+                        <Button layoutX="533.0" layoutY="209.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button layoutX="510.0" layoutY="204.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button layoutX="526.0" layoutY="379.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button layoutX="523.0" layoutY="351.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-kinos" stylesheets="@design.css" />
+                        <Button layoutX="550.0" layoutY="329.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-kinos" stylesheets="@design.css" />
+                        <Button layoutX="535.0" layoutY="232.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button layoutX="526.0" layoutY="241.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button layoutX="499.0" layoutY="204.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button layoutX="178.0" layoutY="268.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                     </children></AnchorPane>
                </children>
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
@@ -34,16 +45,16 @@
             <Insets bottom="34.0" left="34.0" right="34.0" top="34.0" />
          </padding>
       </AnchorPane>
-      <HBox fx:id="hboxToolbar" alignment="CENTER" layoutY="-8.0" prefHeight="81.0" prefWidth="1088.0" style="-fx-border-color: #f4f4f6ab#f4f4f6ab; -fx-border-radius: 10;" stylesheets="@design.css">
+      <HBox fx:id="hboxToolbar" alignment="CENTER" layoutY="-8.0" prefHeight="81.0" prefWidth="1088.0" style="-fx-border-color: #f4f4f6ab#f4f4f6ab; -fx-border-radius: 10; -fx-effect: shadow;" stylesheets="@design.css">
          <children>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="556.0">
                <children>
-                  <Label prefHeight="47.0" prefWidth="363.0" text="Wählen Sie das Datum und die Art der Veranstaltung aus:">
+                  <Label prefHeight="47.0" prefWidth="363.0" style="-fx-font-family: serif;" text="Wählen Sie das Datum und die Art der Veranstaltung aus:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="datepicker" prefHeight="27.0" prefWidth="163.0">
+                  <DatePicker fx:id="datepicker" prefHeight="27.0" prefWidth="163.0" style="-fx-font-family: serif;">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>

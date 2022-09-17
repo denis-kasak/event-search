@@ -10,6 +10,7 @@
     -fx-font-size: 13px;
     -fx-font-weight: bold; 
     -fx-padding: 5 5 5 5;
+    -fx-font-family: serif;
 }
 .toggle-button:selected {
     -fx-background-color:
@@ -34,6 +35,7 @@
     -fx-font-size: 13px;
     -fx-font-weight: bold; 
     -fx-padding: 5 5 5 5;
+    -fx-font-family: serif;
 }
 .toggle-button-museen:selected {
     -fx-background-color:
@@ -57,6 +59,7 @@
     -fx-font-size: 13px;
     -fx-font-weight: bold; 
     -fx-padding: 5 5 5 5;
+    -fx-font-family: serif;
 }
 .toggle-button-kinos:selected {
     -fx-background-color:
@@ -80,6 +83,7 @@
     -fx-font-size: 13px;
     -fx-font-weight: bold; 
     -fx-padding: 5 5 5 5;
+    -fx-font-family: serif;
 }
 .toggle-button-floh:selected {
     -fx-background-color:
@@ -99,4 +103,73 @@ HBox {
 
 .button {
     -fx-focus-color: rgb(158, 157, 157);
+    -fx-font-family: serif;
+}
+
+.button-museen {
+    -fx-background-color: 
+        linear-gradient(#9A97ED, #9a97edf7),
+        linear-gradient(#9a97edf2, #9a97eded),
+        linear-gradient(#a29ffc, #a29ffc),
+        linear-gradient(#a29ffc 0%, #9a97edef 50%, rgba(154, 151, 237, 0.976) 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 60;
+    -fx-border-color: grey;
+    -fx-border-radius:60;
+    -fx-font-size: 5;
+}
+.button-museen:selected {
+    -fx-background-color:
+        -fx-shadow-highlight-color,
+        linear-gradient(to bottom, derive(-fx-color,-30%) 0%, derive(-fx-color,-30%) 100%),
+        linear-gradient(to bottom, derive(-fx-color,-60%) 0%, derive(-fx-color,-35%) 50%, derive(-fx-color,-30%) 98%, derive(-fx-color,-50%) 100%),
+        linear-gradient(to right, rgba(204, 203, 232, 0.976) 0%, rgba(203, 202, 227, 0.976) 10%, rgba(217, 216, 235, 0.976) 90%, rgba(84, 84, 84, 0.976) 100%);
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: -fx-light-text-color;
+}
+
+.button-kinos{
+    -fx-background-color: 
+        linear-gradient(#AFC58C, #afc58ce1),
+        linear-gradient(#bfd79a, #bfd79ada),
+        linear-gradient(#c6e09f, #c6e09fed),
+        linear-gradient(#c6e09f 0%, #bfd79ada 50%, #82b77de1 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 60;
+    -fx-border-color: grey;
+     -fx-border-radius:60;
+     -fx-font-size: 5;
+}
+
+.button-kinos:selected {
+    -fx-background-color:
+        -fx-shadow-highlight-color,
+        linear-gradient(to bottom, derive(-fx-color,-30%) 0%, derive(-fx-color,-30%) 100%),
+        linear-gradient(to bottom, derive(-fx-color,-60%) 0%, derive(-fx-color,-35%) 50%, derive(-fx-color,-30%) 98%, derive(-fx-color,-50%) 100%),
+        linear-gradient(to right, rgba(204, 203, 232, 0.976) 0%, rgba(203, 202, 227, 0.976) 10%, rgba(217, 216, 235, 0.976) 90%, rgba(84, 84, 84, 0.976) 100%);
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: -fx-light-text-color;
+}
+
+.button-floh{
+    -fx-background-color: 
+        linear-gradient(#F9B280, #f9b280e5),
+        linear-gradient(#f5bc93e5, #f5bc93d2),
+        linear-gradient(#f7cdafe5, #f7cdafd3),
+        linear-gradient(#f7cdafe5 0%, #f5bc93d2 50%, #f9b280e5 100%),
+        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 60;
+    -fx-border-color: grey;
+    -fx-border-radius:60;
+    -fx-font-size: 5;
+}
+
+.button-floh:selected {
+    -fx-background-color:
+        -fx-shadow-highlight-color,
+        linear-gradient(to bottom, derive(-fx-color,-30%) 0%, derive(-fx-color,-30%) 100%),
+        linear-gradient(to bottom, derive(-fx-color,-60%) 0%, derive(-fx-color,-35%) 50%, derive(-fx-color,-30%) 98%, derive(-fx-color,-50%) 100%),
+        linear-gradient(to right, rgba(204, 203, 232, 0.976) 0%, rgba(203, 202, 227, 0.976) 10%, rgba(217, 216, 235, 0.976) 90%, rgba(84, 84, 84, 0.976) 100%);
+    -fx-background-insets: 0,1,2,3,0;
+    -fx-text-fill: -fx-light-text-color;
 }
