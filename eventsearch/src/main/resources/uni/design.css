@@ -90,3 +90,9 @@
     -fx-background-insets: 0,1,2,3,0;
     -fx-text-fill: -fx-light-text-color;
 }
+
+HBox {
+    -fx-background-color: linear-gradient(#f4f4f6f1, #f4f4f6ce);
+    -fx-background-radius: 10;
+    -fx-spacing: 10,10,10,10;
+}

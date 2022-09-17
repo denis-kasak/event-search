@@ -14,7 +14,7 @@
 
 <AnchorPane fx:id="paneRoot" prefHeight="647.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.MainController">
    <children>
-      <AnchorPane layoutY="70.0" prefHeight="578.0" prefWidth="1088.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+      <AnchorPane layoutY="70.0" prefHeight="578.0" prefWidth="1088.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
          <children>
             <StackPane fx:id="stackPaneImg" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -34,9 +34,9 @@
             <Insets bottom="34.0" left="34.0" right="34.0" top="34.0" />
          </padding>
       </AnchorPane>
-      <HBox fx:id="hboxToolbar" alignment="CENTER" prefHeight="70.0" prefWidth="1088.0" style="-fx-background-color: #888888;">
+      <HBox fx:id="hboxToolbar" alignment="CENTER" layoutY="-8.0" prefHeight="81.0" prefWidth="1088.0" style="-fx-border-color: #f4f4f6ab#f4f4f6ab; -fx-border-radius: 10;" stylesheets="@design.css">
          <children>
-            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="557.0">
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="556.0">
                <children>
                   <Label prefHeight="47.0" prefWidth="363.0" text="Wählen Sie das Datum und die Art der Veranstaltung aus:">
                      <font>
@@ -50,7 +50,7 @@
                   </DatePicker>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="481.0">
+            <HBox alignment="CENTER" prefHeight="71.0" prefWidth="483.0" style="-fx-spacing: 15,15,15,15;">
                <children>
                   <ToggleButton fx:id="tglAlle" mnemonicParsing="false" onAction="#toggleAll" prefHeight="28.0" prefWidth="70.0" stylesheets="@design.css" text="Alles" />
                   <ToggleButton fx:id="tglMuseum" mnemonicParsing="false" prefHeight="28.0" prefWidth="64.0" styleClass="toggle-button-museen" stylesheets="@design.css" text="Museen" />
