@@ -25,7 +25,7 @@ import javafx.scene.layout.StackPane;
  */
 public class MainController implements Initializable {
 
-    private float mapRatio = (float) 1.78; //Breite:Höhe -> mapRatio:1
+    private float mapRatio = (float) 1.85; //Breite:Höhe -> mapRatio:1
 
     @FXML
     private ToggleButton tglAlle;
@@ -76,12 +76,12 @@ public class MainController implements Initializable {
     }
 
     private void correctPane(double stackWidth, double stackHeight) {
-        if ((float) stackWidth / stackHeight > 1.78) {
+        if ((float) stackWidth / stackHeight > mapRatio) {
             //Platz fürs Bild ist zu breit
             //Höhe Bild = Höhe StackPane
             paneButtons.setMaxSize(stackPaneImg.heightProperty().multiply(mapRatio).doubleValue(), stackPaneImg.heightProperty().doubleValue());
             paneButtons.setMinSize(stackPaneImg.heightProperty().multiply(mapRatio).doubleValue(), stackPaneImg.heightProperty().doubleValue());
-        } else if ((float) stackWidth / stackHeight < 1.78) {
+        } else if ((float) stackWidth / stackHeight < mapRatio) {
             //Platz fürs Bild ist zu hoch
             //Breite Bild = Breite StackPane
             paneButtons.setMaxSize(stackPaneImg.widthProperty().doubleValue(), stackPaneImg.widthProperty().divide(mapRatio).doubleValue());
