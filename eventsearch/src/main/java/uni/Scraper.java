@@ -19,7 +19,7 @@ public class Scraper {
 
         ArrayList<ArrayList<String>> events = BerlinischeGalerie.getEvents();
         events.addAll(Uci.getEvents());
-//        events.addAll(Smb.getEvents());
+        events.addAll(Smb.getEvents());
 
         return events;
     }
@@ -30,9 +30,9 @@ public class Scraper {
             Document doc = Jsoup.connect(link).get();
             String body = doc.outerHtml();
             return body;
-        } catch (IOException e)  {
+        } catch (IOException e) {
             System.out.println("Konnte kein HTML Dokument von Berlinische Galerie empfangen.");
             return null;
         }
-}
+    }
 }

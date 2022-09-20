@@ -52,52 +52,49 @@ public class Smb {
                 }
             }
         }
-        
-        for(int i = 0; i<segments.size(); i++){
+
+        for (int i = 0; i < segments.size(); i++) {
             String segment = segments.get(i);
-            
+
             Pattern pattern1 = Pattern.compile("<h4>");
             Matcher match1 = pattern1.matcher(segment);
             match1.find();
             Pattern pattern2 = Pattern.compile("</p>");
             Matcher match2 = pattern2.matcher(segment);
             match2.find();
-            segment = segment.substring(match1.start(), match2.start());
-            
-            segments.set(i, segment);      
+            segment = segment.substring(match1.start(), match2.end());
+
+            segments.set(i, segment);
         }
         return segments;
-        
 
     }
 
     static private ArrayList<ArrayList<String>> buildEvents(ArrayList<String> segments) {
-// holt sich alle Werte zwischen HTML Tags aus segments und packt sie in Event
+    // holt sich alle Werte zwischen HTML Tags aus segments und packt sie in Event
 
-		ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
-		for (String i : segments) {
-			ArrayList<String> event = new ArrayList<String>();
-			Pattern pattern = Pattern.compile("<[^>]*>");
-			Matcher match = pattern.matcher(i);
-			match.find();
-			int begin = match.end();
-			while (match.find()) {
-				int end = match.start();
-				if (match.end() == i.length()) {
-					break;
-				}
-				if (i.substring(begin, end).trim().equals("")) {
-					begin = match.end();
-					continue;
-				} else {
-					event.add(i.substring(begin, end).trim());
-					begin = match.end();
-				}
-			}
-			events.add(event);
-		}
-		return events;
+        ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
+        for (String i : segments) {
+            ArrayList<String> event = new ArrayList<String>();
+            Pattern pattern = Pattern.compile("<[^>]*>");
+            Matcher match = pattern.matcher(i);
 
+            match.find();
+            int begin = match.end(); //Anfang von Info
+            while (match.find()) {
+                int end = match.start(); //Ende von Info
+                String info = i.substring(begin, end).trim();
+                if (info.equals("")) {
+                    begin = match.end();
+                    continue;
+                } else {
+                    event.add(info);
+                    begin = match.end();
+                }
+            }
+            events.add(event);
+        }
+        return events;
     }
 
     static private ArrayList<ArrayList<String>> formatEvents(ArrayList<ArrayList<String>> events) {
