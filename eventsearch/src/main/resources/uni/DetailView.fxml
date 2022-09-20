@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="680.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="62.0" prefWidth="680.0">
+         <children>
+            <AnchorPane prefHeight="62.0" prefWidth="680.0" styleClass="HBox-Event" stylesheets="@design.css">
+               <children>
+                  <Label layoutX="283.0" layoutY="17.0" text="Event Details" textAlignment="CENTER">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <AnchorPane layoutX="-2.0" layoutY="62.0" prefHeight="490.0" prefWidth="677.0" style="-fx-background-color: white;">
+         <children>
+            <ScrollBar layoutX="656.0" layoutY="34.0" orientation="VERTICAL" prefHeight="456.0" prefWidth="26.0" />
+            <HBox layoutX="2.0" layoutY="-5.0" prefHeight="39.0" prefWidth="680.0" styleClass="HBox-Museum" stylesheets="@design.css" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

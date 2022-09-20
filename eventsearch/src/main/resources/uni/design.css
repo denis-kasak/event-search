@@ -95,7 +95,7 @@
     -fx-text-fill: -fx-light-text-color;
 }
 
-HBox {
+.HBox {
     -fx-background-color: linear-gradient(#f4f4f6f1, #f4f4f69f);
     -fx-background-radius: 10;
     -fx-spacing: 10,10,10,10;
@@ -172,4 +172,38 @@ HBox {
         linear-gradient(to right, rgba(204, 203, 232, 0.976) 0%, rgba(203, 202, 227, 0.976) 10%, rgba(217, 216, 235, 0.976) 90%, rgba(84, 84, 84, 0.976) 100%);
     -fx-background-insets: 0,1,2,3,0;
     -fx-text-fill: -fx-light-text-color;
+}
+
+
+.HBox-Event{
+    -fx-background-color: 
+    linear-gradient(#9BD3F7, #9bd4f7d1);
+    -fx-border-color: #88a6b9be;
+    -fx-border-width: 2;
+    -fx-spacing: 10,10,10,10;
+}
+
+.HBox-Museum {
+    -fx-background-color: 
+    linear-gradient(#b9b8e3, #a8a6e6f7);
+    -fx-border-color: #a6a4e7f7;
+    -fx-border-width: 2;
+}
+
+.label {
+    -fx-text-fill:"Museum";
+}
+
+.HBox-Kinos {
+    -fx-background-color: 
+    linear-gradient(#c6e09f, #c6e09fed);
+    -fx-border-color: #b6d489e6;
+    -fx-border-width: 2;
+}
+
+.HBox-Floh {
+    -fx-background-color: 
+    linear-gradient(#f2b88ee5, #f5bc93d2);
+    -fx-border-color: #e5a374e5;
+    -fx-border-width: 2;
 }
