@@ -33,7 +33,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) throws IOException {
-        
+        Smb.getEvents();
         ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
         events = Scraper.getEvents();
         launch();
