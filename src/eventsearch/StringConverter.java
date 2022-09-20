@@ -1,20 +1,27 @@
-package eventsearch;
 import java.util.*;
 import java.util.List;
+import java.util.stream.Stream;
+import java.util.*;
+import java.awt.*;
 import java.io.*;
-
+import java.net.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class StringConverter {
-	
-	public static void listeInDatei(List liste, File datei) {
-		//Speichert eine beliebige List als Text in gegebener File
-        PrintWriter printWriter = null;
+	public static void writeEvents(List<ArrayList> EventListe) { 	        
+		
+		//String fileSeparator = System.getProperty("file.separator");
+		String relativPath = ..\;
+		//String relativPath2 = "C:\\Users\\marce\\Documents\\Test.txt";
+		
+		PrintWriter printWriter = null;
         try {
-            printWriter = new PrintWriter(new FileWriter(datei));
-            Iterator iter = liste.iterator();
-            while(iter.hasNext() ) {
-                Object o = iter.next();
-                printWriter.println(o);
+            printWriter = new PrintWriter(new File(relativPath));
+            Iterator iter = EventListe.iterator();
+            while(iter.hasNext() ) {					// läuft die ArrayListe durch, solange es ein nächstes Element gibt,
+                Object nächstesElement = iter.next(); 	// speichert dieses Element in "nächstesElement" 
+                printWriter.println(nächstesElement); 	// und schreib das "nächsteElement" wiederum in die Text-Datei
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -23,4 +30,12 @@ public class StringConverter {
         }
     } // listeInDatei
 	
-}																
+	public static void readEvents(String realtivPath) {
+		try (Stream<String> stream = Files.lines(Paths.get(realtivPath))) {
+		    stream.forEach(System.out::println);
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+		
+	}
+}
