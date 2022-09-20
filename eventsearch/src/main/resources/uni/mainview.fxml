@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="paneRoot" prefHeight="647.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.MainController">
+   <children>
+      <AnchorPane layoutY="70.0" prefHeight="578.0" prefWidth="1088.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <StackPane fx:id="stackPaneImg" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fx:id="imgBerlin" fitHeight="428.0" fitWidth="803.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@BerlinKarte.png" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane fx:id="paneButtons" prefHeight="450.0" prefWidth="800.0">
+                     <children>
+                        <Button layoutX="533.0" layoutY="209.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button layoutX="510.0" layoutY="204.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button layoutX="526.0" layoutY="379.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button layoutX="523.0" layoutY="351.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-kinos" stylesheets="@design.css" />
+                        <Button layoutX="550.0" layoutY="329.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-kinos" stylesheets="@design.css" />
+                        <Button layoutX="535.0" layoutY="232.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button layoutX="526.0" layoutY="241.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button layoutX="499.0" layoutY="204.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button layoutX="178.0" layoutY="268.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                     </children></AnchorPane>
+               </children>
+               <padding>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </padding>
+            </StackPane>
+         </children>
+         <padding>
+            <Insets bottom="34.0" left="34.0" right="34.0" top="34.0" />
+         </padding>
+      </AnchorPane>
+      <HBox fx:id="hboxToolbar" alignment="CENTER" layoutY="-8.0" prefHeight="81.0" prefWidth="1088.0" style="-fx-border-color: #f4f4f6ab#f4f4f6ab; -fx-border-radius: 10; -fx-effect: shadow;" stylesheets="@design.css">
+         <children>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="556.0">
+               <children>
+                  <Label prefHeight="47.0" prefWidth="363.0" style="-fx-font-family: serif;" text="Wählen Sie das Datum und die Art der Veranstaltung aus:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="datepicker" prefHeight="27.0" prefWidth="163.0" style="-fx-font-family: serif;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </DatePicker>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="71.0" prefWidth="483.0" style="-fx-spacing: 15,15,15,15;">
+               <children>
+                  <ToggleButton fx:id="tglAlle" mnemonicParsing="false" onAction="#toggleAll" prefHeight="28.0" prefWidth="70.0" stylesheets="@design.css" text="Alles" />
+                  <ToggleButton fx:id="tglMuseum" mnemonicParsing="false" prefHeight="28.0" prefWidth="64.0" styleClass="toggle-button-museen" stylesheets="@design.css" text="Museen" />
+                  <ToggleButton fx:id="tglKino" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" styleClass="toggle-button-kinos" stylesheets="@design.css" text="Kinos" />
+                  <ToggleButton fx:id="tglMarkt" mnemonicParsing="false" prefHeight="27.0" prefWidth="84.0" styleClass="toggle-button-floh" stylesheets="@design.css" text="Flohmärkte" />
+                  <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="86.0" text="Suchen" textAlignment="CENTER" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
