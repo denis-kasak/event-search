@@ -1,10 +1,9 @@
 import java.util.*;
 import java.util.List;
 import java.util.stream.Stream;
-import java.util.*;
-import java.awt.*;
+//import java.util.*;
 import java.io.*;
-import java.net.*;
+//import java.net.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -12,7 +11,7 @@ public class StringConverter {
 	public static void writeEvents(List<ArrayList> EventListe) { 	        
 		
 		//String fileSeparator = System.getProperty("file.separator");
-		String relativPath = ..\;
+		String relativPath = "..\\resources\\uni";
 		//String relativPath2 = "C:\\Users\\marce\\Documents\\Test.txt";
 		
 		PrintWriter printWriter = null;
