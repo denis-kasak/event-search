@@ -185,14 +185,11 @@
 
 .HBox-Museum {
     -fx-background-color: 
-    linear-gradient(#b9b8e3, #a8a6e6f7);
+    linear-gradient(#cfcfee, #b4b3ddf7);
     -fx-border-color: #a6a4e7f7;
     -fx-border-width: 2;
 }
 
-.label {
-    -fx-text-fill:"Museum";
-}
 
 .HBox-Kinos {
     -fx-background-color: 
@@ -207,3 +204,4 @@
     -fx-border-color: #e5a374e5;
     -fx-border-width: 2;
 }
+
