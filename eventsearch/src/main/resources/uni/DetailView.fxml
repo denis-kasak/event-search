@@ -6,26 +6,61 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="680.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="681.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox prefHeight="62.0" prefWidth="680.0">
+      <AnchorPane layoutX="-3.0" layoutY="-1.0" prefHeight="545.0" prefWidth="681.0" style="-fx-background-color: white; -fx-front-family: DIN AlternateDIN Alternate;">
          <children>
-            <AnchorPane prefHeight="62.0" prefWidth="680.0" styleClass="HBox-Event" stylesheets="@design.css">
+            <HBox layoutY="1.0" prefHeight="135.0" prefWidth="663.0" styleClass="HBox-Event" stylesheets="@design.css">
                <children>
-                  <Label layoutX="283.0" layoutY="17.0" text="Event Details" textAlignment="CENTER">
+                  <AnchorPane prefHeight="141.0" prefWidth="664.0">
+                     <children>
+                        <Label layoutX="430.0" layoutY="68.0" text="DETAILS">
+                           <font>
+                              <Font name="DIN Alternate Bold" size="55.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="472.0" layoutY="6.0" prefHeight="62.0" prefWidth="161.0" text="EVENT">
+                           <font>
+                              <Font name="DIN Alternate Bold" size="55.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="41.0" layoutY="14.0" prefHeight="94.0" prefWidth="383.0" text="MUSEEN">
+                           <font>
+                              <Font name="DIN Alternate Bold" size="96.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <ScrollBar layoutX="663.0" orientation="VERTICAL" prefHeight="577.0" prefWidth="21.0" />
+            <AnchorPane layoutX="2.0" layoutY="129.0" prefHeight="447.0" prefWidth="660.0">
+               <children>
+                  <Label layoutX="31.0" layoutY="20.0" prefHeight="48.0" prefWidth="341.0" text="Berlinische Galerie ">
                      <font>
-                        <Font size="21.0" />
+                        <Font name="DIN Alternate Bold" size="31.0" />
                      </font>
                   </Label>
+                  <Label layoutX="32.0" layoutY="66.0" prefHeight="47.0" prefWidth="211.0" text="Sibylle Bergemann">
+                     <font>
+                        <Font name="DIN Alternate Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="31.0" layoutY="105.0" prefHeight="36.0" prefWidth="160.0" text="Stadt Land Hund ">
+                     <font>
+                        <Font name="DIN Alternate Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="139.0" prefHeight="25.0" prefWidth="161.0" text="Fotografien 1966-2010">
+                     <font>
+                        <Font name="DIN Alternate Bold" size="14.0" />
+                     </font></Label>
+                  <Label layoutX="32.0" layoutY="169.0" text="bis 10.10.22">
+                     <font>
+                        <Font name="DIN Alternate Bold" size="14.0" />
+                     </font></Label>
                </children>
             </AnchorPane>
-         </children>
-      </HBox>
-      <AnchorPane layoutX="-2.0" layoutY="62.0" prefHeight="490.0" prefWidth="677.0" style="-fx-background-color: white;">
-         <children>
-            <ScrollBar layoutX="656.0" layoutY="34.0" orientation="VERTICAL" prefHeight="456.0" prefWidth="26.0" />
-            <HBox layoutX="2.0" layoutY="-5.0" prefHeight="39.0" prefWidth="680.0" styleClass="HBox-Museum" stylesheets="@design.css" />
          </children>
       </AnchorPane>
    </children>

@@ -176,32 +176,6 @@
 
 
 .HBox-Event{
-    -fx-background-color: 
-    linear-gradient(#9BD3F7, #9bd4f7d1);
-    -fx-border-color: #88a6b9be;
-    -fx-border-width: 2;
+    -fx-background-color: linear-gradient(#f4f4f6f1, #f4f4f69f);
     -fx-spacing: 10,10,10,10;
 }
-
-.HBox-Museum {
-    -fx-background-color: 
-    linear-gradient(#cfcfee, #b4b3ddf7);
-    -fx-border-color: #a6a4e7f7;
-    -fx-border-width: 2;
-}
-
-
-.HBox-Kinos {
-    -fx-background-color: 
-    linear-gradient(#c6e09f, #c6e09fed);
-    -fx-border-color: #b6d489e6;
-    -fx-border-width: 2;
-}
-
-.HBox-Floh {
-    -fx-background-color: 
-    linear-gradient(#f2b88ee5, #f5bc93d2);
-    -fx-border-color: #e5a374e5;
-    -fx-border-width: 2;
-}
-
