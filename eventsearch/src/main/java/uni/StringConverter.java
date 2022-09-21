@@ -8,7 +8,7 @@ public class StringConverter {
     private static String eventsPath = ".\\src\\main\\resources\\uni\\events.txt";
 
     public static void writeEvents(ArrayList<ArrayList<String>> events) {
-
+        //wandelt events in eine String um und schreibt die String in eventsPath
         String strEvents = "";
 
         for (int i = 0; i < events.size(); i++) {
@@ -20,26 +20,23 @@ public class StringConverter {
             }
         }
 
-        saveEvents(strEvents);
-
-    }
-
-    private static void saveEvents(String events) {
-        //write to file
+        
         try {
             FileOutputStream writeData = new FileOutputStream(eventsPath);
             ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
 
-            writeStream.writeObject(events);
+            writeStream.writeObject(strEvents);
             writeStream.flush();
             writeStream.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public static ArrayList<ArrayList<String>> readEvents() {
+        //liest String aus eventsPath und wandelt sie in events um
         try {
             FileInputStream readData = new FileInputStream(eventsPath);
             ObjectInputStream readStream = new ObjectInputStream(readData);
