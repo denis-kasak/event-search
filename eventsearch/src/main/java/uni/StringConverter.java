@@ -1,42 +1,77 @@
 package uni;
 
 import java.util.*;
-import java.util.List;
-import java.util.stream.Stream;
-//import java.util.*;
 import java.io.*;
-//import java.net.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class StringConverter {
-	public static void writeEvents(List<ArrayList> EventListe) { 	        
-		
-		//String fileSeparator = System.getProperty("file.separator");
-		String relativPath = "..\\resources\\uni";
-		//String relativPath2 = "C:\\Users\\marce\\Documents\\Test.txt";
-		
-		PrintWriter printWriter = null;
-        try {
-            printWriter = new PrintWriter(new File(relativPath));
-            Iterator iter = EventListe.iterator();
-            while(iter.hasNext() ) {					// läuft die ArrayListe durch, solange es ein nächstes Element gibt,
-                Object nächstesElement = iter.next(); 	// speichert dieses Element in "nächstesElement" 
-                printWriter.println(nächstesElement); 	// und schreib das "nächsteElement" wiederum in die Text-Datei
+
+    private static String eventsPath = ".\\src\\main\\resources\\uni\\events.txt";
+
+    public static void writeEvents(ArrayList<ArrayList<String>> events) {
+
+        String strEvents = "";
+
+        for (int i = 0; i < events.size(); i++) {
+            strEvents = strEvents + "**"; //Anfang eines Events
+
+            for (int j = 0; j < events.get(i).size(); j++) {
+                strEvents = strEvents + events.get(i).get(j) + "##";//Trennzeichen. Kein Komma oder Semikolon, da diese in Details vorkommen können
+
             }
+        }
+
+        saveEvents(strEvents);
+
+    }
+
+    private static void saveEvents(String events) {
+        //write to file
+        try {
+            FileOutputStream writeData = new FileOutputStream(eventsPath);
+            ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
+
+            writeStream.writeObject(events);
+            writeStream.flush();
+            writeStream.close();
+
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            if(printWriter != null) printWriter.close();
         }
-    } // listeInDatei
-	
-	public static void readEvents(String realtivPath) {
-		try (Stream<String> stream = Files.lines(Paths.get(realtivPath))) {
-		    stream.forEach(System.out::println);
-		} catch (IOException e) {
-		    e.printStackTrace();
-		}
-		
-	}
+    }
+
+    public static ArrayList<ArrayList<String>> readEvents() {
+        try {
+            FileInputStream readData = new FileInputStream(eventsPath);
+            ObjectInputStream readStream = new ObjectInputStream(readData);
+
+            String strEvents = (String) readStream.readObject();
+            readStream.close();
+
+            ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
+
+            int counter = -1; //Zählt Events
+            for (int i = 0; i < strEvents.length(); i++) {
+                char curr1 = strEvents.charAt(i);
+                char curr2 = strEvents.charAt(i + 1);
+
+                if (curr1 == '*' && curr2 == '*') {
+                    counter++;
+                    strEvents = strEvents.substring(i + 2);
+                    ArrayList<String> event = new ArrayList<String>();
+                    events.add(event);
+                    i=-1;
+                }else{
+                    events.get(counter).add(strEvents.substring(0,strEvents.indexOf("##")));
+                    strEvents = strEvents.substring(strEvents.indexOf("##")+2);
+                    i=-1;
+                }
+            }
+            return events;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
 }
