@@ -3,7 +3,7 @@ package uni;
 import java.util.*;
 import java.io.*;
 
-public class StringConverter {
+public class FileManager {
 
     private static String eventsPath = ".\\src\\main\\resources\\uni\\events.txt";
 
