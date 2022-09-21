@@ -9,36 +9,30 @@ package uni;
  * @author d-kas
  */
 import java.io.IOException;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.URI;
 import java.util.ArrayList;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 public class Scraper {
 
-	public static ArrayList<ArrayList<String>> getEvents(){
-            
-            ArrayList<ArrayList<String>> events = BerlinischeGalerie.getEvents();
-            events.addAll(Uci.getEvents());
-            
-            return events;
+    public static ArrayList<ArrayList<String>> getEvents() {
+
+        ArrayList<ArrayList<String>> events = BerlinischeGalerie.getEvents();
+        events.addAll(Uci.getEvents());
+        events.addAll(Smb.getEvents());
+
+        return events;
+    }
+
+    public static String getHtmlDoc(String link) {
+        //gibt das HTML doc zum link zurück
+        try {
+            Document doc = Jsoup.connect(link).get();
+            String body = doc.outerHtml();
+            return body;
+        } catch (IOException e) {
+            System.out.println("Konnte kein HTML Dokument von Berlinische Galerie empfangen.");
+            return null;
         }
-
-	public static String getHtmlDoc(String link){
-		//gibt das HTML doc zum link zurück
-		
-		try {
-		HttpClient client = HttpClient.newHttpClient();
-		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(link)).GET().build();
-		HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-		return response.body();
-		
-		} catch (IOException | InterruptedException e) {
-			System.out.println("Konnte kein HTML Dokument von Berlinische Galerie empfangen.");
-			return null;
-		}
-
-		
-	}
+    }
 }
