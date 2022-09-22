@@ -16,7 +16,6 @@ public class Smb {
 
     static public ArrayList<ArrayList<String>> getEvents() {
         String doc = Scraper.getHtmlDoc("https://www.smb.museum/ausstellungen/aktuell/");
-        System.out.println(doc);
         if (doc != null) {
             ArrayList<String> segments = new ArrayList<String>();
             segments = segmentDoc(doc);
@@ -71,7 +70,7 @@ public class Smb {
     }
 
     static private ArrayList<ArrayList<String>> buildEvents(ArrayList<String> segments) {
-    // holt sich alle Werte zwischen HTML Tags aus segments und packt sie in Event
+        // holt sich alle Werte zwischen HTML Tags aus segments und packt sie in Event
 
         ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
         for (String i : segments) {
