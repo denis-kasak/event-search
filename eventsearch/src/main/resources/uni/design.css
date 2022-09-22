@@ -212,3 +212,12 @@
     -fx-border-radius: 30;
     -fx-spacing: 10,10,10,10;
 }
+
+.HBox-Details{
+    -fx-background-color: #FEFADE;
+    -fx-background-radius:30; 
+    -fx-border-color: #E8CCAE;
+    -fx-border-width:2;
+    -fx-border-radius: 30;
+    -fx-spacing: 10,10,10,10;
+}

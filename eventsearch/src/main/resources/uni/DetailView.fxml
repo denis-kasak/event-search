@@ -8,9 +8,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="681.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="-3.0" layoutY="-1.0" prefHeight="545.0" prefWidth="681.0" style="-fx-background-color: white; -fx-front-family: DIN AlternateDIN Alternate;">
+      <AnchorPane layoutX="-3.0" layoutY="-1.0" prefHeight="545.0" prefWidth="681.0" style="-fx-front-family: DIN AlternateDIN Alternate;">
          <children>
-            <HBox layoutY="1.0" prefHeight="112.0" prefWidth="663.0" styleClass="HBox-Event" stylesheets="@design.css">
+            <HBox layoutY="1.0" prefHeight="112.0" prefWidth="663.0" stylesheets="@design.css">
                <children>
                   <AnchorPane prefHeight="120.0" prefWidth="664.0">
                      <children>
@@ -67,7 +67,7 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <ScrollBar layoutX="663.0" orientation="VERTICAL" prefHeight="577.0" prefWidth="21.0" />
+            <ScrollBar layoutX="663.0" orientation="VERTICAL" prefHeight="577.0" prefWidth="17.0" />
             <AnchorPane layoutX="2.0" layoutY="129.0" prefHeight="447.0" prefWidth="660.0">
                <children>
                   <Label layoutX="31.0" layoutY="20.0" prefHeight="48.0" prefWidth="341.0" text="Berlinische Galerie ">
