@@ -5,6 +5,7 @@
 package uni;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class Model {
     private void initEvents() {
 
         //Berlinische Galerie
-        ArrayList<ArrayList<String>> events = BerlinischeGalerie.getEvents();
+        List<List<String>> events = BerlinischeGalerie.getEvents();
         museum.put("Berlinische Galerie", createOrt("Alte Jakobstraße 124-128, 10969 Berlin", 835, 667, events));
 
         //Staatliche Museen zu Berlin
@@ -35,7 +36,8 @@ public class Model {
         museum.put("Bode-Museum", createOrt("Am Kupfergraben, 10117 Berlin", 796, 350, null));
         museum.put("Friedrichswerdersche Kirche", createOrt("Werderscher Markt, 10117 Berlin", 823, 448, null));
         museum.put("Gemäldegalerie", createOrt("Matthäikirchplatz, 10785 Berlin", 479, 585, null));
-        museum.put("Hamburger Bahnhof - Museum für Gegenwart - Berlin", createOrt("Invalidenstraße 50-51, 10557 Berlin", 546, 230, null));
+        museum.put("Hamburger Bahnhof – Museum für Gegenwart – Berlin", createOrt("Invalidenstraße 50-51, 10557 Berlin", 546, 230, null));
+        museum.put("Humboldt Forum", createOrt("Schlossplatz, 10178 Berlin", 881, 427, null));
         museum.put("James-Simon-Galerie", createOrt("Bodestraße, 10178 Berlin", 818, 381, null));
         museum.put("Kunstbibliothek", createOrt("Matthäikirchplatz 6, 10785 Berlin", 487, 585, null));
         museum.put("Kunstgewerbemuseum", createOrt("Matthäikirchplatz, 10785 Berlin", 491, 569, null));
@@ -48,31 +50,40 @@ public class Model {
 
         for (int i = 0; i < events.size(); i++) {
             String ort = events.get(i).get(0); //Museum ist nicht in HashMap
-            ArrayList<String> event = new ArrayList<String>();
-            event = (ArrayList<String>) events.get(i).subList(1,events.get(i).size());
+            List<String> event = new ArrayList<String>();
+            event = events.get(i).subList(1, events.get(i).size());
+            System.out.println(i);
             
-            if(museum.get(ort).get("Events")==null){
-                ArrayList<ArrayList<String>> currEvents = new ArrayList<ArrayList<String>>();
+            if(!museum.containsKey(ort)){//ignoriere Museen, die nicht in der Map vorkommen
+                continue;
+            }
+
+            if (!museum.get(ort).containsKey("Events")) {
+                System.out.println("HHAHAHHAH");
+                List<List<String>> currEvents = new ArrayList<List<String>>();
                 currEvents.add(event);
-                museum.get(ort).replace("Events", currEvents);
-            }else{
-                ArrayList<ArrayList<String>> currEvents = new ArrayList<ArrayList<String>>();
-                currEvents = (ArrayList<ArrayList<String>>) museum.get(ort).get("Events");
+                museum.get(ort).put("Events", currEvents);
+            } else {
+                List<List<String>> currEvents = new ArrayList<List<String>>();
+                currEvents = (List<List<String>>) museum.get(ort).get("Events");
                 currEvents.add(event);
                 museum.get(ort).replace("Events", currEvents);
             }
-            
+
         }
     }
 
-    private Map<String, Object> createOrt(String adresse, int x, int y, ArrayList<ArrayList<String>> events) {
+    private Map<String, Object> createOrt(String adresse, int x, int y, List<List<String>> events) {
 
         Map<String, Object> ort = new HashMap<String, Object>();
 
         ort.put("Adresse", adresse);
         ort.put("x", x);
         ort.put("y", y);
-        ort.put("Events", events);
+        
+        if (events != null) {
+            ort.put("Events", events);
+        }
 
         return ort;
 

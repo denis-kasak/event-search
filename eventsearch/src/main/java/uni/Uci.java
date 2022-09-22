@@ -5,6 +5,7 @@
 package uni;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,29 +15,29 @@ import java.util.regex.Pattern;
  */
 public class Uci {
 
-    static public ArrayList<ArrayList<String>> getEvents() {
+    static public List<List<String>> getEvents() {
 
         String doc = Scraper.getHtmlDoc("https://www.uci-kinowelt.de/kinoprogramm/berlin-mercedes-platz/82/day");
 
         if (doc != null) {
-            ArrayList<String> segments = new ArrayList<String>();
+            List<String> segments = new ArrayList<String>();
             segments = segmentDoc(doc);
 
-            ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
+            List<List<String>> events = new ArrayList<List<String>>();
             events = buildEvents(segments);
             events = formatEvents(events);
 
             return events;
         } else {
-            return new ArrayList<ArrayList<String>>();
+            return new ArrayList<List<String>>();
         }
 
     }
 
-    static private ArrayList<String> segmentDoc(String doc) {
+    static private List<String> segmentDoc(String doc) {
         // schneidet relevante Segmente aus großem HTML doc aus und packt sie in
         // segments
-        ArrayList<String> segments = new ArrayList<String>();
+        List<String> segments = new ArrayList<String>();
 
         Pattern pattern = Pattern.compile("<div data-slide-segment=\"current-heute");
         Matcher match = pattern.matcher(doc);
@@ -58,12 +59,12 @@ public class Uci {
 
     }
 
-    static private ArrayList<ArrayList<String>> buildEvents(ArrayList<String> segments) {
+    static private List<List<String>> buildEvents(List<String> segments) {
         // holt sich alle Werte zwischen HTML Tags aus segments und packt sie in Event
 
-        ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
+        List<List<String>> events = new ArrayList<List<String>>();
         for (String i : segments) {
-            ArrayList<String> event = new ArrayList<String>();
+            List<String> event = new ArrayList<String>();
             event.add("UCI Kino Berlin - Mercedes Platz | Luxe");
 
             String title = i.substring(i.indexOf("<h3>") + 4, i.indexOf("</h3>"));
@@ -83,7 +84,7 @@ public class Uci {
 
     }
 
-    static private ArrayList<ArrayList<String>> formatEvents(ArrayList<ArrayList<String>> events) {
+    static private List<List<String>> formatEvents(List<List<String>> events) {
 
         for (int i = 0; i < events.size(); i++) {
             String title = events.get(i).get(1);

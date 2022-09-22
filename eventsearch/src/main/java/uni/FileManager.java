@@ -7,7 +7,7 @@ public class FileManager {
 
     private static String eventsPath = ".\\src\\main\\resources\\uni\\events.txt";
 
-    public static void writeEvents(ArrayList<ArrayList<String>> events) {
+    public static void writeEvents(List<List<String>> events) {
         //wandelt events in eine String um und schreibt die String in eventsPath
         String strEvents = "";
 
@@ -35,7 +35,7 @@ public class FileManager {
 
     }
 
-    public static ArrayList<ArrayList<String>> readEvents() {
+    public static List<List<String>> readEvents() {
         //liest String aus eventsPath und wandelt sie in events um
         try {
             FileInputStream readData = new FileInputStream(eventsPath);
@@ -44,7 +44,7 @@ public class FileManager {
             String strEvents = (String) readStream.readObject();
             readStream.close();
 
-            ArrayList<ArrayList<String>> events = new ArrayList<ArrayList<String>>();
+            List<List<String>> events = new ArrayList<List<String>>();
 
             int counter = -1; //Zählt Events
             for (int i = 0; i < strEvents.length(); i++) {
@@ -54,7 +54,7 @@ public class FileManager {
                 if (curr1 == '*' && curr2 == '*') {
                     counter++;
                     strEvents = strEvents.substring(i + 2);
-                    ArrayList<String> event = new ArrayList<String>();
+                    List<String> event = new ArrayList<String>();
                     events.add(event);
                     i=-1;
                 }else{
