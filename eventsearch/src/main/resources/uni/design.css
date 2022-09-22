@@ -172,6 +172,43 @@
 
 
 .HBox-Event{
-    -fx-background-color: linear-gradient(#f4f4f6f1, #f4f4f69f);
+    -fx-background-color: linear-gradient(#f4f4f6f5, #f4f4f6ba);
+    -fx-spacing: 10,10,10,10;
+}
+
+.HBox-Museen-Select{
+    -fx-background-color: 
+        linear-gradient(#d1d1ef, #b9b7e4f7);
+    -fx-background-radius:30; 
+    -fx-border-color: #a6a4e7;
+    -fx-border-width:2;
+    -fx-border-radius: 30;
+    -fx-spacing: 10,10,10,10;
+}
+
+.HBox-Unselect{
+    -fx-background-color: linear-gradient(#9b9ba2f1, #f6f6f69f);
+    -fx-background-radius:30; 
+    -fx-border-color: #8e8e949f;
+    -fx-border-width:2;
+    -fx-border-radius: 30;
+    -fx-spacing: 10,10,10,10;
+}
+
+.HBox-Kinos-Select{
+    -fx-background-color: linear-gradient(#cde1adf0, #cbf589e8);
+    -fx-background-radius:30; 
+    -fx-border-color: #afc58cf0;
+    -fx-border-width:2;
+    -fx-border-radius: 30;
+    -fx-spacing: 10,10,10,10;
+}
+
+.HBox-Floh-Select{
+    -fx-background-color: linear-gradient(#f7cdaf, #f4d1b8d3);
+    -fx-background-radius:30; 
+    -fx-border-color: #e7975fbe;
+    -fx-border-width:2;
+    -fx-border-radius: 30;
     -fx-spacing: 10,10,10,10;
 }
