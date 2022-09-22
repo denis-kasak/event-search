@@ -49,17 +49,15 @@ public class Model {
         museum.put("Pergamonmuseum. Das Panorama", createOrt("Am Kupfergraben 2, 10117 Berlin", 782, 356, null));
 
         for (int i = 0; i < events.size(); i++) {
-            String ort = events.get(i).get(0); //Museum ist nicht in HashMap
+            String ort = events.get(i).get(0);
             List<String> event = new ArrayList<String>();
             event = events.get(i).subList(1, events.get(i).size());
-            System.out.println(i);
-            
-            if(!museum.containsKey(ort)){//ignoriere Museen, die nicht in der Map vorkommen
+
+            if (!museum.containsKey(ort)) {//ignoriere Museen, die nicht in der Map vorkommen
                 continue;
             }
 
             if (!museum.get(ort).containsKey("Events")) {
-                System.out.println("HHAHAHHAH");
                 List<List<String>> currEvents = new ArrayList<List<String>>();
                 currEvents.add(event);
                 museum.get(ort).put("Events", currEvents);
@@ -80,7 +78,7 @@ public class Model {
         ort.put("Adresse", adresse);
         ort.put("x", x);
         ort.put("y", y);
-        
+
         if (events != null) {
             ort.put("Events", events);
         }
