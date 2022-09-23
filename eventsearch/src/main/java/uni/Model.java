@@ -69,6 +69,13 @@ public class Model {
             }
 
         }
+
+        
+        
+        //UCI Kino
+        events = Uci.getEvents();
+        kino.put("UCI Kino Berlin - Mercedes Platz | Luxe", createOrt("Märkische Allee 176 - 178 , 12681 Berlin", 1316, 654, events));
+        
     }
 
     private Map<String, Object> createOrt(String adresse, int x, int y, List<List<String>> events) {

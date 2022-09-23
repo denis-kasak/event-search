@@ -65,8 +65,6 @@ public class Uci {
         List<List<String>> events = new ArrayList<List<String>>();
         for (String i : segments) {
             List<String> event = new ArrayList<String>();
-            event.add("UCI Kino Berlin - Mercedes Platz | Luxe");
-
             String title = i.substring(i.indexOf("<h3>") + 4, i.indexOf("</h3>"));
             event.add(title);
             Pattern pattern = Pattern.compile("<span[^>]*>");
