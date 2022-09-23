@@ -214,10 +214,14 @@
 }
 
 .HBox-Details{
-    -fx-background-color: #FEFADE;
+    -fx-background-color: #e3eaf1;
     -fx-background-radius:30; 
-    -fx-border-color: #E8CCAE;
+    -fx-border-color: #95c1e5aa;
     -fx-border-width:2;
     -fx-border-radius: 30;
     -fx-spacing: 10,10,10,10;
+}
+
+.Text-Fields{
+    -fx-background-radius:20;
 }
