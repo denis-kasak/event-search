@@ -88,17 +88,35 @@ public class Uci {
 
         for (int i = 0; i < events.size(); i++) {
             String title = events.get(i).get(1);
-            
-            for (int j = i+1; j < events.size(); j++) {
-                if(events.get(j).get(1).equals(title)){
-                    for(int k = 2; k<events.get(j).size();k++){
+
+            for (int j = i + 1; j < events.size(); j++) {
+                if (events.get(j).get(1).equals(title)) {
+                    for (int k = 2; k < events.get(j).size(); k++) {
                         events.get(i).add(events.get(j).get(k));
                     }
                     events.remove(j);
                     break;
                 }
-                
+
             }
+        }
+
+        for (int i = 0; i < events.size(); i++) {
+            List<String> event = new ArrayList<String>();
+            event = events.get(i).subList(0, 2);
+            String time = "";
+
+            for (int j = 2; j < events.get(i).size(); j++) {
+                if (j != 2) {
+                    time = time + ", " + events.get(i).get(j);
+                } else {
+                    time = time + events.get(i).get(j);
+                }
+            }
+
+            event.add(time);
+            events.set(i, event);
+
         }
 
         return events;

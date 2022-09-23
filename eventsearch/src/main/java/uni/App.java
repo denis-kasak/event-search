@@ -28,7 +28,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        Model model = new Model();
+        Uci.getEvents();
         launch();
 
     }
