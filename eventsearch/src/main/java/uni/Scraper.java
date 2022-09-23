@@ -9,15 +9,15 @@ package uni;
  * @author d-kas
  */
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 public class Scraper {
 
-    public static ArrayList<ArrayList<String>> getEvents() {
+    public static List<List<String>> getEvents() {
 
-        ArrayList<ArrayList<String>> events = BerlinischeGalerie.getEvents();
+        List<List<String>> events = BerlinischeGalerie.getEvents();
         events.addAll(Uci.getEvents());
         events.addAll(Smb.getEvents());
 
