@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="677.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
@@ -67,8 +68,7 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <ScrollBar layoutX="663.0" orientation="VERTICAL" prefHeight="577.0" prefWidth="17.0" />
-            <AnchorPane layoutX="2.0" layoutY="129.0" prefHeight="447.0" prefWidth="660.0">
+            <AnchorPane layoutX="2.0" layoutY="125.0" prefHeight="451.0" prefWidth="677.0">
                <children>
                   <Label layoutX="31.0" layoutY="20.0" prefHeight="48.0" prefWidth="341.0" text="Berlinische Galerie ">
                      <font>
@@ -95,9 +95,18 @@
                         <Font name="DIN Alternate Bold" size="17.0" />
                      </font>
                   </Label>
+                  <Circle fill="#1f93ff00" layoutX="625.0" layoutY="461.0" radius="96.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#1f93ff00" layoutX="528.0" layoutY="489.0" radius="101.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#1f93ff00" layoutX="661.0" layoutY="387.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#1f93ff00" layoutX="680.0" layoutY="297.0" radius="101.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#1f93ff00" layoutX="575.0" layoutY="424.0" radius="101.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </AnchorPane>
+            <ScrollBar layoutX="663.0" orientation="VERTICAL" prefHeight="577.0" prefWidth="17.0" />
          </children>
       </AnchorPane>
+      <Circle fill="#1f93ff00" layoutX="25.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#1f93ff00" layoutX="-38.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#1f93ff00" layoutX="-38.0" layoutY="76.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>
