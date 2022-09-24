@@ -16,6 +16,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        MainController c = new MainController();
+        TerminController t = new TerminController(stage);
         scene = new Scene(loadFXML("mainview"), 1200, 700);
         stage.setScene(scene);
         stage.setMaximized(true);
@@ -29,7 +31,8 @@ public class App extends Application {
 
     public static void main(String[] args) {
         
-        MainController c = new MainController();
+        
+        
         launch();
 
     }
