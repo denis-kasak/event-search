@@ -93,7 +93,7 @@ public class MainController implements Initializable {
     private void showDetails(ActionEvent e) {
         Button raw = (Button) e.getSource();
         System.out.println(buttonMap.get(raw));
-
+        
     }
 
     private void initButtonMap() {
@@ -109,6 +109,7 @@ public class MainController implements Initializable {
         buttonMap.put(btnKunstBib, "Kunstbibliothek");
         buttonMap.put(btnKunstGewMuseum, "Kunstgewerbemuseum");
         buttonMap.put(btnKupfKabinett, "Kupferstichkabinett");
+        buttonMap.put(btnNeuMuseum, "Neues Museum");
         buttonMap.put(btnMuseumFoto, "Museum für Fotografie");
         buttonMap.put(btnNeuNatGalerie, "Neue Nationalgalerie");
         buttonMap.put(btnPergMuseum, "Pergamonmuseum");
