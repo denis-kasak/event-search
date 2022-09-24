@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="677.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="-3.0" layoutY="-1.0" prefHeight="545.0" prefWidth="681.0" style="-fx-front-family: DIN AlternateDIN Alternate;">
+         <children>
+            <HBox layoutY="1.0" prefHeight="112.0" prefWidth="663.0" stylesheets="@design.css">
+               <children>
+                  <AnchorPane prefHeight="120.0" prefWidth="664.0">
+                     <children>
+                        <Label layoutX="122.0" layoutY="4.0" prefHeight="65.0" prefWidth="451.0" text="EVENT DETAILS">
+                           <font>
+                              <Font name="DIN Alternate Bold" size="65.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="41.0" layoutY="14.0" prefHeight="94.0" prefWidth="383.0" text="MUSEEN" visible="false">
+                           <font>
+                              <Font name="DIN Alternate Bold" size="96.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="419.0" layoutY="72.0" prefHeight="31.0" prefWidth="138.0" styleClass="HBox-Floh-Select" stylesheets="@design.css">
+                           <children>
+                              <AnchorPane prefHeight="21.0" prefWidth="156.0">
+                                 <children>
+                                    <Label layoutX="32.0" layoutY="5.0" text="Flohmärkte">
+                                       <font>
+                                          <Font name="DIN Alternate Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="275.0" layoutY="73.0" prefHeight="31.0" prefWidth="138.0" styleClass="HBox-Kinos-Select" stylesheets="@design.css">
+                           <children>
+                              <AnchorPane prefHeight="20.0" prefWidth="134.0">
+                                 <children>
+                                    <Label layoutX="47.0" layoutY="2.0" text="Kinos">
+                                       <font>
+                                          <Font name="DIN Alternate Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="127.0" layoutY="72.0" prefHeight="31.0" prefWidth="138.0" styleClass="HBox-Museen-Select" stylesheets="@design.css">
+                           <children>
+                              <AnchorPane prefHeight="20.0" prefWidth="134.0">
+                                 <children>
+                                    <Label layoutX="41.0" layoutY="2.0" text="Museen">
+                                       <font>
+                                          <Font name="DIN Alternate Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <ScrollBar layoutX="663.0" orientation="VERTICAL" prefHeight="577.0" prefWidth="17.0" />
+            <AnchorPane layoutX="2.0" layoutY="129.0" prefHeight="447.0" prefWidth="660.0">
+               <children>
+                  <Label layoutX="31.0" layoutY="20.0" prefHeight="48.0" prefWidth="341.0" text="Berlinische Galerie ">
+                     <font>
+                        <Font name="DIN Alternate Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="66.0" prefHeight="47.0" prefWidth="211.0" text="Sibylle Bergemann">
+                     <font>
+                        <Font name="DIN Alternate Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="31.0" layoutY="105.0" prefHeight="36.0" prefWidth="160.0" text="Stadt Land Hund ">
+                     <font>
+                        <Font name="DIN Alternate Bold" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="141.0" prefHeight="28.0" prefWidth="243.0" text="Fotografien 1966-2010">
+                     <font>
+                        <Font name="DIN Alternate Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="32.0" layoutY="177.0" text="bis 10.10.22">
+                     <font>
+                        <Font name="DIN Alternate Bold" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

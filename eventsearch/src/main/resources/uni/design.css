@@ -10,7 +10,6 @@
     -fx-font-size: 13px;
     -fx-font-weight: bold; 
     -fx-padding: 5 5 5 5;
-    -fx-font-family: serif;
 }
 .toggle-button:selected {
     -fx-background-color:
@@ -35,7 +34,6 @@
     -fx-font-size: 13px;
     -fx-font-weight: bold; 
     -fx-padding: 5 5 5 5;
-    -fx-font-family: serif;
 }
 .toggle-button-museen:selected {
     -fx-background-color:
@@ -59,7 +57,6 @@
     -fx-font-size: 13px;
     -fx-font-weight: bold; 
     -fx-padding: 5 5 5 5;
-    -fx-font-family: serif;
 }
 .toggle-button-kinos:selected {
     -fx-background-color:
@@ -83,7 +80,6 @@
     -fx-font-size: 13px;
     -fx-font-weight: bold; 
     -fx-padding: 5 5 5 5;
-    -fx-font-family: serif;
 }
 .toggle-button-floh:selected {
     -fx-background-color:
@@ -95,7 +91,7 @@
     -fx-text-fill: -fx-light-text-color;
 }
 
-HBox {
+.HBox {
     -fx-background-color: linear-gradient(#f4f4f6f1, #f4f4f69f);
     -fx-background-radius: 10;
     -fx-spacing: 10,10,10,10;
@@ -172,4 +168,60 @@ HBox {
         linear-gradient(to right, rgba(204, 203, 232, 0.976) 0%, rgba(203, 202, 227, 0.976) 10%, rgba(217, 216, 235, 0.976) 90%, rgba(84, 84, 84, 0.976) 100%);
     -fx-background-insets: 0,1,2,3,0;
     -fx-text-fill: -fx-light-text-color;
+}
+
+
+.HBox-Event{
+    -fx-background-color: linear-gradient(#f4f4f6f5, #f4f4f6ba);
+    -fx-spacing: 10,10,10,10;
+}
+
+.HBox-Museen-Select{
+    -fx-background-color: 
+        linear-gradient(#d1d1ef, #b9b7e4f7);
+    -fx-background-radius:30; 
+    -fx-border-color: #a6a4e7;
+    -fx-border-width:2;
+    -fx-border-radius: 30;
+    -fx-spacing: 10,10,10,10;
+}
+
+.HBox-Unselect{
+    -fx-background-color: linear-gradient(#9b9ba2f1, #f6f6f69f);
+    -fx-background-radius:30; 
+    -fx-border-color: #8e8e949f;
+    -fx-border-width:2;
+    -fx-border-radius: 30;
+    -fx-spacing: 10,10,10,10;
+}
+
+.HBox-Kinos-Select{
+    -fx-background-color: linear-gradient(#cde1adf0, #cbf589e8);
+    -fx-background-radius:30; 
+    -fx-border-color: #afc58cf0;
+    -fx-border-width:2;
+    -fx-border-radius: 30;
+    -fx-spacing: 10,10,10,10;
+}
+
+.HBox-Floh-Select{
+    -fx-background-color: linear-gradient(#f7cdaf, #f4d1b8d3);
+    -fx-background-radius:30; 
+    -fx-border-color: #e7975fbe;
+    -fx-border-width:2;
+    -fx-border-radius: 30;
+    -fx-spacing: 10,10,10,10;
+}
+
+.HBox-Details{
+    -fx-background-color: #e3eaf1;
+    -fx-background-radius:30; 
+    -fx-border-color: #95c1e5aa;
+    -fx-border-width:2;
+    -fx-border-radius: 30;
+    -fx-spacing: 10,10,10,10;
+}
+
+.Text-Fields{
+    -fx-background-radius:20;
 }
