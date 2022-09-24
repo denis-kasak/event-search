@@ -30,8 +30,6 @@ import javafx.scene.layout.StackPane;
  */
 public class MainController implements Initializable {
 
-    private float mapRatio = (float) 1.85; //Breite:Höhe -> mapRatio:1
-
     @FXML
     private ToggleButton tglAlle;
     @FXML
@@ -52,15 +50,18 @@ public class MainController implements Initializable {
     private HBox hboxToolbar;
     @FXML
     private AnchorPane paneRoot;
-    private Map<Button, String> buttonMap;
-
     @FXML
     private Button btnBodeMuseum, btnUciLux, btnAltMuseum, btnFriedKirche, btnGemGalerie, btnHambBahnhof, btnJamSimGalerie, btnKunstBib, btnKunstGewMuseum, btnKupfKabinett, btnMuseumFoto, btnNeuNatGalerie, btnNeuMuseum, btnPergMuseum, btnPergMusPanoram, btnHumbForum, btnBerlGalerie, btnAltNatGalerie;
+
+    private Map<Button, String> buttonMap;
+    private float mapRatio = (float) 1.85; //Breite:Höhe -> mapRatio:1
+    double trueImgWidth;
+    double trueImgHeight;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //BEI NULL POINTER CHECKEN, DASS AUCH ID IN FXML GEPFLEGT IST
-        
+
         initButtonMap();
 
         imgBerlin.fitWidthProperty().bind(stackPaneImg.widthProperty());
@@ -85,13 +86,12 @@ public class MainController implements Initializable {
         });
 
     }
-    
+
     @FXML
-    private void showDetails(ActionEvent e){
+    private void showDetails(ActionEvent e) {
         Button raw = (Button) e.getSource();
         System.out.println(buttonMap.get(raw));
-        
-        
+
     }
 
     private void initButtonMap() {
@@ -121,15 +121,18 @@ public class MainController implements Initializable {
         if ((float) stackWidth / stackHeight > mapRatio) {
             //Platz fürs Bild ist zu breit
             //Höhe Bild = Höhe StackPane
-            paneButtons.setMaxSize(stackPaneImg.heightProperty().multiply(mapRatio).doubleValue(), stackPaneImg.heightProperty().doubleValue());
-            paneButtons.setMinSize(stackPaneImg.heightProperty().multiply(mapRatio).doubleValue(), stackPaneImg.heightProperty().doubleValue());
+
+            trueImgWidth = stackPaneImg.heightProperty().doubleValue() * mapRatio;
+            trueImgHeight = stackPaneImg.heightProperty().doubleValue();
         } else if ((float) stackWidth / stackHeight < mapRatio) {
             //Platz fürs Bild ist zu hoch
             //Breite Bild = Breite StackPane
-            paneButtons.setMaxSize(stackPaneImg.widthProperty().doubleValue(), stackPaneImg.widthProperty().divide(mapRatio).doubleValue());
-            paneButtons.setMinSize(stackPaneImg.widthProperty().doubleValue(), stackPaneImg.widthProperty().divide(mapRatio).doubleValue());
 
+            trueImgWidth = stackPaneImg.widthProperty().doubleValue();
+            trueImgHeight = stackPaneImg.widthProperty().doubleValue() / mapRatio;
         }
+        paneButtons.setMaxSize(trueImgWidth, trueImgHeight);
+        paneButtons.setMinSize(trueImgWidth, trueImgHeight);
     }
 
     @FXML
