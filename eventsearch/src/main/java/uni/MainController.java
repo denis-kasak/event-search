@@ -7,12 +7,16 @@ package uni;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
@@ -48,16 +52,22 @@ public class MainController implements Initializable {
     private HBox hboxToolbar;
     @FXML
     private AnchorPane paneRoot;
+    private Map<Button, String> buttonMap;
+
+    @FXML
+    private Button btnBodeMuseum, btnUciLux, btnAltMuseum, btnFriedKirche, btnGemGalerie, btnHambBahnhof, btnJamSimGalerie, btnKunstBib, btnKunstGewMuseum, btnKupfKabinett, btnMuseumFoto, btnNeuNatGalerie, btnNeuMuseum, btnPergMuseum, btnPergMusPanoram, btnHumbForum, btnBerlGalerie, btnAltNatGalerie;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //BEI NULL POINTER CHECKEN, DASS AUCH ID IN FXML GEPFLEGT IST
+        
+        initButtonMap();
 
         imgBerlin.fitWidthProperty().bind(stackPaneImg.widthProperty());
         imgBerlin.fitHeightProperty().bind(stackPaneImg.heightProperty());
 
         datepicker.setValue(LocalDate.now());
-        
+
         hboxToolbar.prefWidthProperty().bind(paneRoot.widthProperty());
 
         stackPaneImg.widthProperty().addListener(new ChangeListener<Number>() {
@@ -73,6 +83,37 @@ public class MainController implements Initializable {
                 correctPane(stackPaneImg.widthProperty().doubleValue(), (double) newPaneHeight);
             }
         });
+
+    }
+    
+    @FXML
+    private void showDetails(ActionEvent e){
+        Button raw = (Button) e.getSource();
+        System.out.println(buttonMap.get(raw));
+        
+        
+    }
+
+    private void initButtonMap() {
+        buttonMap = new HashMap<Button, String>();
+
+        buttonMap.put(btnBodeMuseum, "Bode-Museum");
+        buttonMap.put(btnUciLux, "UCI Kino Berlin - Mercedes Platz | Luxe");
+        buttonMap.put(btnAltMuseum, "Altes Museum");
+        buttonMap.put(btnFriedKirche, "Friedrichswerdersche Kirche");
+        buttonMap.put(btnGemGalerie, "Gemäldegalerie");
+        buttonMap.put(btnHambBahnhof, "Hamburger Bahnhof – Museum für Gegenwart – Berlin");
+        buttonMap.put(btnJamSimGalerie, "James-Simon-Galerie");
+        buttonMap.put(btnKunstBib, "Kunstbibliothek");
+        buttonMap.put(btnKunstGewMuseum, "Kunstgewerbemuseum");
+        buttonMap.put(btnKupfKabinett, "Kupferstichkabinett");
+        buttonMap.put(btnMuseumFoto, "Museum für Fotografie");
+        buttonMap.put(btnNeuNatGalerie, "Neue Nationalgalerie");
+        buttonMap.put(btnPergMuseum, "Pergamonmuseum");
+        buttonMap.put(btnPergMusPanoram, "Pergamonmuseum. Das Panorama");
+        buttonMap.put(btnHumbForum, "Humboldt Forum");
+        buttonMap.put(btnBerlGalerie, "Berlinsche Galerie");
+        buttonMap.put(btnAltNatGalerie, "Alte Nationalgalerie");
 
     }
 

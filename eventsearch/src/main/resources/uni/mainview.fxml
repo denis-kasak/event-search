@@ -25,27 +25,27 @@
                   </ImageView>
                   <AnchorPane fx:id="paneButtons" prefHeight="450.0" prefWidth="800.0">
                      <children>
-                        <Button fx:id="btnBodeMuseum" layoutX="510.0" layoutY="208.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnUciLux" layoutX="769.0" layoutY="350.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-kinos" stylesheets="@design.css" />
-                        <Button fx:id="btnAltMuseum" layoutX="537.0" layoutY="228.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button layoutX="478.0" layoutY="199.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
-                        <Button layoutX="498.0" layoutY="195.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
-                        <Button layoutX="178.0" layoutY="268.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
-                        <Button fx:id="btnFriedKirche" layoutX="519.0" layoutY="268.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnGemGalerie" layoutX="341.0" layoutY="330.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnHambBahnhof" layoutX="384.0" layoutY="152.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnJamSimGalerie" layoutX="520.0" layoutY="232.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnKunstBib" layoutX="355.0" layoutY="332.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnKunstGewMuseum" layoutX="356.0" layoutY="319.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnKupfKabinett" layoutX="347.0" layoutY="343.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnMuseumFoto" layoutX="160.0" layoutY="333.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnNeuNatGalerie" layoutX="359.0" layoutY="348.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnNeuMuseum" layoutX="531.0" layoutY="239.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnPergMuseum" layoutX="518.0" layoutY="218.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnPergMusPanoram" layoutX="499.0" layoutY="215.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnHumbForum" layoutX="547.0" layoutY="251.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnBerlGalerie" layoutX="526.0" layoutY="379.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnAltNatGalerie" layoutX="532.0" layoutY="216.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnBodeMuseum" layoutX="510.0" layoutY="208.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnUciLux" layoutX="769.0" layoutY="350.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-kinos" stylesheets="@design.css" />
+                        <Button fx:id="btnAltMuseum" layoutX="537.0" layoutY="228.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button layoutX="478.0" layoutY="199.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button layoutX="498.0" layoutY="195.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button layoutX="178.0" layoutY="268.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button fx:id="btnFriedKirche" layoutX="519.0" layoutY="268.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnGemGalerie" layoutX="341.0" layoutY="330.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnHambBahnhof" layoutX="384.0" layoutY="152.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnJamSimGalerie" layoutX="520.0" layoutY="232.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnKunstBib" layoutX="355.0" layoutY="332.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnKunstGewMuseum" layoutX="356.0" layoutY="319.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnKupfKabinett" layoutX="347.0" layoutY="343.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnMuseumFoto" layoutX="160.0" layoutY="333.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnNeuNatGalerie" layoutX="359.0" layoutY="348.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnNeuMuseum" layoutX="531.0" layoutY="239.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnPergMuseum" layoutX="518.0" layoutY="218.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnPergMusPanoram" layoutX="499.0" layoutY="215.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnHumbForum" layoutX="547.0" layoutY="251.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnBerlGalerie" layoutX="526.0" layoutY="379.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
+                        <Button fx:id="btnAltNatGalerie" layoutX="532.0" layoutY="216.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
                      </children></AnchorPane>
                </children>
                <padding>
