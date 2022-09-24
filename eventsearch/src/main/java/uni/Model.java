@@ -23,6 +23,40 @@ public class Model {
         initEvents();
     }
 
+    public int getX(String ort) {
+
+        if (museum.containsKey(ort)) {
+            return (int) museum.get(ort).get("x");
+
+        } else if (kino.containsKey(ort)) {
+            return (int) kino.get(ort).get("x");
+
+        } else {
+            System.out.println(ort);
+            System.out.println("FEHLER: KONNTE ORT IN MAP NICHT FINDEN");
+        }
+
+        return -1;
+
+    }
+
+    public int getY(String ort) {
+
+        if (museum.containsKey(ort)) {
+            return (int) museum.get(ort).get("y");
+
+        } else if (kino.containsKey(ort)) {
+            return (int) kino.get(ort).get("y");
+
+        } else {
+            System.out.println(ort);
+            System.out.println("FEHLER: KONNTE ORT IN MAP NICHT FINDEN");
+        }
+
+        return -1;
+
+    }
+
     private void initEvents() {
 
         //Berlinische Galerie
@@ -70,12 +104,10 @@ public class Model {
 
         }
 
-        
-        
         //UCI Kino
         events = Uci.getEvents();
         kino.put("UCI Kino Berlin - Mercedes Platz | Luxe", createOrt("Märkische Allee 176 - 178 , 12681 Berlin", 1316, 654, events));
-        
+
     }
 
     private Map<String, Object> createOrt(String adresse, int x, int y, List<List<String>> events) {

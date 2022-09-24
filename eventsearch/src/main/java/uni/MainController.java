@@ -53,6 +53,7 @@ public class MainController implements Initializable {
     @FXML
     private Button btnBodeMuseum, btnUciLux, btnAltMuseum, btnFriedKirche, btnGemGalerie, btnHambBahnhof, btnJamSimGalerie, btnKunstBib, btnKunstGewMuseum, btnKupfKabinett, btnMuseumFoto, btnNeuNatGalerie, btnNeuMuseum, btnPergMuseum, btnPergMusPanoram, btnHumbForum, btnBerlGalerie, btnAltNatGalerie;
 
+    private Model model;
     private Map<Button, String> buttonMap;
     private float mapRatio = (float) 1.85; //Breite:Höhe -> mapRatio:1
     double trueImgWidth;
@@ -61,7 +62,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //BEI NULL POINTER CHECKEN, DASS AUCH ID IN FXML GEPFLEGT IST
-
+        model = new Model();
         initButtonMap();
 
         imgBerlin.fitWidthProperty().bind(stackPaneImg.widthProperty());
@@ -71,6 +72,7 @@ public class MainController implements Initializable {
 
         hboxToolbar.prefWidthProperty().bind(paneRoot.widthProperty());
 
+        //Resize Listener
         stackPaneImg.widthProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldPaneWidth, Number newPaneWidth) {
@@ -86,7 +88,7 @@ public class MainController implements Initializable {
         });
 
     }
-
+    
     @FXML
     private void showDetails(ActionEvent e) {
         Button raw = (Button) e.getSource();
@@ -112,7 +114,7 @@ public class MainController implements Initializable {
         buttonMap.put(btnPergMuseum, "Pergamonmuseum");
         buttonMap.put(btnPergMusPanoram, "Pergamonmuseum. Das Panorama");
         buttonMap.put(btnHumbForum, "Humboldt Forum");
-        buttonMap.put(btnBerlGalerie, "Berlinsche Galerie");
+        buttonMap.put(btnBerlGalerie, "Berlinische Galerie");
         buttonMap.put(btnAltNatGalerie, "Alte Nationalgalerie");
 
     }
@@ -133,6 +135,23 @@ public class MainController implements Initializable {
         }
         paneButtons.setMaxSize(trueImgWidth, trueImgHeight);
         paneButtons.setMinSize(trueImgWidth, trueImgHeight);
+
+        int origWidth = 1567;
+        int origHeight = 847;
+        double scaleWidth = trueImgWidth / origWidth;
+        double scaleHeight = trueImgHeight / origHeight;
+        
+        for(Button b : buttonMap.keySet()){
+            String ort = buttonMap.get(b);
+            
+            int x = model.getX(ort);
+            int y = model.getY(ort);
+            
+            b.setLayoutX(x*scaleWidth);
+            b.setLayoutY(y*scaleHeight);
+            
+        }
+
     }
 
     @FXML

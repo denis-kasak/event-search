@@ -26,7 +26,7 @@
                   <AnchorPane fx:id="paneButtons" prefHeight="450.0" prefWidth="800.0">
                      <children>
                         <Button fx:id="btnBodeMuseum" layoutX="510.0" layoutY="208.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
-                        <Button fx:id="btnUciLux" layoutX="769.0" layoutY="350.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-kinos" stylesheets="@design.css" />
+                        <Button fx:id="btnUciLux" layoutX="769.0" layoutY="350.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-kinos" stylesheets="@design.css"/>
                         <Button fx:id="btnAltMuseum" layoutX="537.0" layoutY="228.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css" />
                         <Button layoutX="478.0" layoutY="199.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
                         <Button layoutX="498.0" layoutY="195.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
