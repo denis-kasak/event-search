@@ -29,9 +29,9 @@
       <Circle fill="#5fa6e417" layoutX="-65.0" layoutY="382.0" radius="124.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#96c0e300" layoutX="580.0" layoutY="275.0" radius="119.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#96c0e300" layoutX="-88.0" layoutY="255.0" radius="119.0" stroke="BLACK" strokeType="INSIDE" />
-      <VBox layoutX="59.0" layoutY="58.0" prefHeight="271.0" prefWidth="366.0" styleClass="VBox-Details" stylesheets="@design.css">
+      <VBox layoutX="40.0" layoutY="60.0" prefHeight="269.0" prefWidth="400.0" styleClass="VBox-Details" stylesheets="@design.css">
          <children>
-            <AnchorPane prefHeight="272.0" prefWidth="366.0">
+            <AnchorPane prefHeight="267.0" prefWidth="371.0">
                <children>
                   <Label layoutX="50.0" layoutY="18.0" text="TITEL:">
                      <font>
@@ -57,7 +57,7 @@
                   <TextField fx:id="txfAdresse" layoutX="132.0" layoutY="74.0" styleClass="Text-Fields" stylesheets="@design.css" />
                   <DatePicker fx:id="datePicker" layoutX="132.0" layoutY="123.0" prefHeight="27.0" prefWidth="162.0" />
                   <Spinner fx:id="timeSpinner" layoutX="133.0" layoutY="179.0" prefHeight="26.0" prefWidth="115.0" />
-                  <ComboBox fx:id="cbDauer" value= "One" layoutX="261.0" layoutY="179.0" prefHeight="27.0" prefWidth="67.0"/>
+                  <ComboBox fx:id="cbDauer" layoutX="261.0" layoutY="179.0" prefHeight="24.0" prefWidth="125.0" value="0,5 Stunden" />
                   <Button fx:id="btnSpeichern" layoutX="154.0" layoutY="226.0" mnemonicParsing="false" style="-fx-font-family: &quot;DIN ALternate&quot;;" text="Speichern">
                      <font>
                         <Font name="DIN Alternate Bold" size="15.0" />
