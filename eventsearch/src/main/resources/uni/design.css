@@ -213,7 +213,7 @@
     -fx-spacing: 10,10,10,10;
 }
 
-.HBox-Details{
+.VBox-Details{
     -fx-background-color: #e3eaf1;
     -fx-background-radius:30; 
     -fx-border-color: #95c1e5aa;
