@@ -4,15 +4,15 @@
  */
 package uni;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
+import javafx.scene.Scene;
 import javafx.stage.FileChooser;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
+import static uni.App.loadFXML;
+import static uni.App.scene;
 
 /**
  *
@@ -20,13 +20,19 @@ import javafx.stage.Stage;
  */
 public class TerminController {
 
-    
     Stage stage;
 
-    public TerminController(Stage stage){
-        this.stage = stage;
+    public TerminController(Stage stage) throws IOException {
+        stage = new Stage();
+        scene = new Scene(loadFXML("TerminView"));
+        stage.setScene(scene);
+        stage.show();
     }
-    
+
+    public void initWindow(String titel, String adresse, String datum, String ort) throws IOException {
+
+    }
+
     public void createEvent(String titel, String beschreibung, String datum, String dauer, String ort) {
         String event = "BEGIN:VCALENDAR\n"
                 + System.lineSeparator() + "VERSION:2.0"

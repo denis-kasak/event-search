@@ -12,27 +12,25 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static Scene scene;
+    public static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
         MainController c = new MainController();
         TerminController t = new TerminController(stage);
-        scene = new Scene(loadFXML("mainview"), 1200, 700);
+        scene = new Scene(loadFXML("MainView"), 1200, 700);
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();
+        t.initWindow("","","","");
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
     public static void main(String[] args) {
-        
-        
-        
         launch();
 
     }
