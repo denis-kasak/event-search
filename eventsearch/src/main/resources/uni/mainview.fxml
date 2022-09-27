@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneRoot" prefHeight="647.0" prefWidth="1088.0" style="-fx-font-family: &quot;DIN Alternate&quot;;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.MainController">
+<AnchorPane fx:id="paneRoot" prefHeight="647.0" prefWidth="1088.0" style="-fx-font-family: &quot;Trebuchet MS&quot;;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.MainController">
    <children>
       <AnchorPane layoutY="70.0" prefHeight="578.0" prefWidth="1088.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
          <children>
@@ -96,17 +96,17 @@
       </AnchorPane>
       <HBox fx:id="hboxToolbar" alignment="CENTER" layoutY="-8.0" prefHeight="81.0" prefWidth="1088.0" style="-fx-border-color: #f4f4f6ab#f4f4f6ab; -fx-border-radius: 10; -fx-effect: shadow;" stylesheets="@design.css">
          <children>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="556.0">
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="590.0">
                <children>
                   <Label prefHeight="47.0" prefWidth="344.0" text="Wählen Sie das Datum und die Art der Veranstaltung aus:">
                      <font>
-                        <Font name="Arial Bold" size="12.0" />
+                        <Font name="Trebuchet MS Bold" size="12.0" />
                      </font>
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <DatePicker fx:id="datepicker" prefHeight="27.0" prefWidth="163.0" style="-fx-font-family: &quot;DIN Alternate&quot;;">
+                  <DatePicker fx:id="datepicker" prefHeight="27.0" prefWidth="163.0" style="-fx-font-family: &quot;Trebuchet MS&quot;;">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>

@@ -231,14 +231,14 @@
     -fx-font-weight: bold;
     -fx-font-size: 30pt;
     -fx-alingment: CENTER;
-    -fx-wrap-text: true;
-    
+    -fx-wrap-text: true; 
 }
 
 .label-EventTitel{
     -fx-font-family: "Trebuchet MS";  
     -fx-font-size: 20pt;
     -fx-padding: 10 10 5 20;
+    -fx-wrap-text: true;
 }
 
 .label-EventDetails{
@@ -250,11 +250,36 @@
 .label-Adresse{
     -fx-font-family: "Trebuchet MS";  
     -fx-font-size: 15pt;
-    -fx-padding: 10 0 0 35;
+    -fx-padding: 5 0 0 35;
 }
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
+    -fx-background-image: url('background.png');
  }
  .scroll-pane {
     -fx-background-color: transparent;
+ }
+
+.hyper-link-termin{
+    -fx-font-family: "Trebuchet MS";  
+    -fx-font-size: 15pt;
+    -fx-padding: 5 0 0 30;
+    -fx-position-shape: CENTER;
+    -fx-border-color: transparent;
+}
+
+ .hyper-link-termin:hover{
+    -fx-underline: true;
+ }
+
+ .hyper-link-info{
+    -fx-font-family: "Trebuchet MS";  
+    -fx-font-size: 15pt;
+    -fx-padding: 5 0 0 30;
+    -fx-position-shape: CENTER;
+    -fx-border-color: transparent;
+ }
+
+ .hyper-link-info:hover{
+    -fx-underline: true;
  }
