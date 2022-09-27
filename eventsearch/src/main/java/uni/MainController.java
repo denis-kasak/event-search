@@ -98,37 +98,46 @@ public class MainController implements Initializable {
     }
 
     private void updateMap(boolean museum, boolean kino, boolean flohmarkt) {
+        List<String> orte = new ArrayList<String>();
 
         if (!museum) {
-            for (Map.Entry<Button, Map<String, Object>> b : buttonMap.entrySet()) {
-                b.getKey().setVisible(false);
+            orte = model.getType("museum");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(false);
             }
-        } else {
-
+        }else{
+            orte = model.getType("museum");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(true);
+            }
         }
         if (!kino) {
-            for (Map.Entry<Button, Map<String, Object>> b : buttonMap.entrySet()) {
-                b.getKey().setVisible(false);
+            orte = model.getType("kino");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(false);
             }
-        } else {
-
-        }
-        if (!flohmarkt) {
-            for (Map.Entry<Button, Map<String, Object>> b : buttonMap.entrySet()) {
-                b.getKey().setVisible(false);
+        }else{
+            orte = model.getType("kino");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(true);
             }
-        } else {
-
         }
     }
 
-    public Button getKey(String s) {
-        for (Entry<Button, String> entry : buttonMap.entrySet()) {
-            if (entry.getValue().equals(s)) {
-                return entry.getKey();
+    public List<Button> valueToKey(List<String> orte) {
+
+        List<Button> buttons = new ArrayList<Button>();
+
+        for (String s : orte) {
+
+            for (Map.Entry<Button, String> entry : buttonMap.entrySet()) {
+                if (entry.getValue().equals(s)) {
+                    buttons.add(entry.getKey());
+                }
             }
         }
-        return null;
+
+        return buttons;
     }
 
     private void initButtonMap() {
@@ -180,12 +189,12 @@ public class MainController implements Initializable {
         double scaleWidth = trueImgWidth / origWidth;
         double scaleHeight = trueImgHeight / origHeight;
 
-        for (Map.Entry<Button, Map<String, Object>> entry : buttonMap.entrySet()) {
+        for (Map.Entry<Button, String> entry : buttonMap.entrySet()) {
             Button b = entry.getKey();
-            Map<String, Object> ort = entry.getValue();
-
-            int x = (int) ort.get("x");
-            int y = (int) ort.get("y");
+            String ort = entry.getValue();
+            
+            int x = model.getX(ort);
+            int y = model.getY(ort);
             b.setLayoutX(x * scaleWidth);
             b.setLayoutY(y * scaleHeight);
         }

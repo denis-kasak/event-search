@@ -23,6 +23,21 @@ public class Model {
         initEvents();
     }
 
+    public List<String> getType(String type) {
+        List<String> orte = new ArrayList<String>();
+
+        if (type.equals("museum")) {
+            for (Map.Entry<String, Map<String, Object>> entry : museum.entrySet()) {
+                orte.add(entry.getKey());
+            }
+        } else if (type.equals("kino")) {
+            for (Map.Entry<String, Map<String, Object>> entry : kino.entrySet()) {
+                orte.add(entry.getKey());
+            }
+        }
+        return orte;
+    }
+
     public int getX(String ort) {
 
         if (museum.containsKey(ort)) {
