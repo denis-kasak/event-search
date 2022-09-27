@@ -15,16 +15,16 @@ import java.util.Map;
  */
 public class Model {
 
-    public Map<String, Map<String, Object>> museum = new HashMap<String, Map<String, Object>>();
+    public Map<String, Map<String, Object>> museum = new HashMap<>();
 
-    public Map<String, Map<String, Object>> kino = new HashMap<String, Map<String, Object>>();
+    public Map<String, Map<String, Object>> kino = new HashMap<>();
 
     public Model() {
         initEvents();
     }
 
     public List<String> getType(String type) {
-        List<String> orte = new ArrayList<String>();
+        List<String> orte = new ArrayList<>();
 
         if (type.equals("museum")) {
             for (Map.Entry<String, Map<String, Object>> entry : museum.entrySet()) {
@@ -99,7 +99,7 @@ public class Model {
 
         for (int i = 0; i < events.size(); i++) {
             String ort = events.get(i).get(0);
-            List<String> event = new ArrayList<String>();
+            List<String> event = new ArrayList<>();
             event = events.get(i).subList(1, events.get(i).size());
 
             if (!museum.containsKey(ort)) {//ignoriere Museen, die nicht in der Map vorkommen
@@ -107,11 +107,11 @@ public class Model {
             }
 
             if (!museum.get(ort).containsKey("Events")) {
-                List<List<String>> currEvents = new ArrayList<List<String>>();
+                List<List<String>> currEvents = new ArrayList<>();
                 currEvents.add(event);
                 museum.get(ort).put("Events", currEvents);
             } else {
-                List<List<String>> currEvents = new ArrayList<List<String>>();
+                List<List<String>> currEvents = new ArrayList<>();
                 currEvents = (List<List<String>>) museum.get(ort).get("Events");
                 currEvents.add(event);
                 museum.get(ort).replace("Events", currEvents);
@@ -127,7 +127,7 @@ public class Model {
 
     private Map<String, Object> createOrt(String adresse, int x, int y, List<List<String>> events) {
 
-        Map<String, Object> ort = new HashMap<String, Object>();
+        Map<String, Object> ort = new HashMap<>();
 
         ort.put("Adresse", adresse);
         ort.put("x", x);

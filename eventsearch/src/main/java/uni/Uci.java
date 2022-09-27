@@ -20,10 +20,10 @@ public class Uci {
         String doc = Scraper.getHtmlDoc("https://www.uci-kinowelt.de/kinoprogramm/berlin-mercedes-platz/82/day");
 
         if (doc != null) {
-            List<String> segments = new ArrayList<String>();
+            List<String> segments = new ArrayList<>();
             segments = segmentDoc(doc);
 
-            List<List<String>> events = new ArrayList<List<String>>();
+            List<List<String>> events = new ArrayList<>();
             events = buildEvents(segments);
             events = formatEvents(events);
 
@@ -37,7 +37,7 @@ public class Uci {
     static private List<String> segmentDoc(String doc) {
         // schneidet relevante Segmente aus großem HTML doc aus und packt sie in
         // segments
-        List<String> segments = new ArrayList<String>();
+        List<String> segments = new ArrayList<>();
 
         Pattern pattern = Pattern.compile("<div data-slide-segment=\"current-heute");
         Matcher match = pattern.matcher(doc);
@@ -62,9 +62,9 @@ public class Uci {
     static private List<List<String>> buildEvents(List<String> segments) {
         // holt sich alle Werte zwischen HTML Tags aus segments und packt sie in Event
 
-        List<List<String>> events = new ArrayList<List<String>>();
+        List<List<String>> events = new ArrayList<>();
         for (String i : segments) {
-            List<String> event = new ArrayList<String>();
+            List<String> event = new ArrayList<>();
             String title = i.substring(i.indexOf("<h3>") + 4, i.indexOf("</h3>"));
             event.add(title);
             Pattern pattern = Pattern.compile("<span[^>]*>");
@@ -100,7 +100,7 @@ public class Uci {
         }
 
         for (int i = 0; i < events.size(); i++) {
-            List<String> event = new ArrayList<String>();
+            List<String> event = new ArrayList<>();
             event = events.get(i).subList(0, 2);
             String time = "";
 

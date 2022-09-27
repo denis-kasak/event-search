@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -87,14 +86,17 @@ public class MainController implements Initializable {
                 correctPane(stackPaneImg.widthProperty().doubleValue(), (double) newPaneHeight);
             }
         });
-
+        
+        updateMap(false,false,false);
     }
 
     @FXML
     private void showDetails(ActionEvent e) {
+        
         Button raw = (Button) e.getSource();
         System.out.println(buttonMap.get(raw));
-
+        
+        
     }
 
     private void updateMap(boolean museum, boolean kino, boolean flohmarkt) {
@@ -126,7 +128,7 @@ public class MainController implements Initializable {
 
     public List<Button> valueToKey(List<String> orte) {
 
-        List<Button> buttons = new ArrayList<Button>();
+        List<Button> buttons = new ArrayList<>();
 
         for (String s : orte) {
 
@@ -141,7 +143,7 @@ public class MainController implements Initializable {
     }
 
     private void initButtonMap() {
-        buttonMap = new HashMap<Button, String>();
+        buttonMap = new HashMap<>();
 
         //Kinos
         buttonMap.put(btnUciLux, "UCI Kino Berlin - Mercedes Platz | Luxe");
@@ -204,7 +206,7 @@ public class MainController implements Initializable {
     @FXML
     private void search() {
 
-        List<String> filter = new ArrayList<String>();
+        List<String> filter = new ArrayList<>();
 
         if (tglAlle.isSelected()) {
             filter.add("museum");

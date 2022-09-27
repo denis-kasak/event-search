@@ -18,23 +18,23 @@ public class Smb {
     static public List<List<String>> getEvents() {
         String doc = Scraper.getHtmlDoc("https://www.smb.museum/ausstellungen/aktuell/");
         if (doc != null) {
-            List<String> segments = new ArrayList<String>();
+            List<String> segments = new ArrayList<>();
             segments = segmentDoc(doc);
 
-            List<List<String>> events = new ArrayList<List<String>>();
+            List<List<String>> events = new ArrayList<>();
             events = buildEvents(segments);
             events = formatEvents(events);
 
             return events;
         } else {
-            return new ArrayList<List<String>>();
+            return null;
         }
     }
 
     static private List<String> segmentDoc(String doc) {
         // schneidet relevante Segmente aus großem HTML doc aus und packt sie in
         // segments
-        List<String> segments = new ArrayList<String>();
+        List<String> segments = new ArrayList<>();
 
         Pattern pattern = Pattern.compile("<div class=\"image-teaser\"");
         Matcher match = pattern.matcher(doc);
@@ -73,9 +73,9 @@ public class Smb {
     static private List<List<String>> buildEvents(List<String> segments) {
         // holt sich alle Werte zwischen HTML Tags aus segments und packt sie in Event
 
-        List<List<String>> events = new ArrayList<List<String>>();
+        List<List<String>> events = new ArrayList<>();
         for (String i : segments) {
-            List<String> event = new ArrayList<String>();
+            List<String> event = new ArrayList<>();
             Pattern pattern = Pattern.compile("<[^>]*>");
             Matcher match = pattern.matcher(i);
 
@@ -86,7 +86,6 @@ public class Smb {
                 String info = i.substring(begin, end).trim();
                 if (info.equals("")) {
                     begin = match.end();
-                    continue;
                 } else {
                     event.add(info);
                     begin = match.end();
