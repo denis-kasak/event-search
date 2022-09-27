@@ -86,21 +86,70 @@ public class MainController implements Initializable {
                 correctPane(stackPaneImg.widthProperty().doubleValue(), (double) newPaneHeight);
             }
         });
-
+        
+        updateMap(false,false,false);
     }
-    
+
     @FXML
     private void showDetails(ActionEvent e) {
+        
         Button raw = (Button) e.getSource();
         System.out.println(buttonMap.get(raw));
         
+        
+    }
+
+    private void updateMap(boolean museum, boolean kino, boolean flohmarkt) {
+        List<String> orte = new ArrayList<String>();
+
+        if (!museum) {
+            orte = model.getType("museum");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(false);
+            }
+        }else{
+            orte = model.getType("museum");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(true);
+            }
+        }
+        if (!kino) {
+            orte = model.getType("kino");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(false);
+            }
+        }else{
+            orte = model.getType("kino");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(true);
+            }
+        }
+    }
+
+    public List<Button> valueToKey(List<String> orte) {
+
+        List<Button> buttons = new ArrayList<>();
+
+        for (String s : orte) {
+
+            for (Map.Entry<Button, String> entry : buttonMap.entrySet()) {
+                if (entry.getValue().equals(s)) {
+                    buttons.add(entry.getKey());
+                }
+            }
+        }
+
+        return buttons;
     }
 
     private void initButtonMap() {
-        buttonMap = new HashMap<Button, String>();
+        buttonMap = new HashMap<>();
 
-        buttonMap.put(btnBodeMuseum, "Bode-Museum");
+        //Kinos
         buttonMap.put(btnUciLux, "UCI Kino Berlin - Mercedes Platz | Luxe");
+
+        //Museen
+        buttonMap.put(btnBodeMuseum, "Bode-Museum");
         buttonMap.put(btnAltMuseum, "Altes Museum");
         buttonMap.put(btnFriedKirche, "Friedrichswerdersche Kirche");
         buttonMap.put(btnGemGalerie, "Gemäldegalerie");
@@ -141,16 +190,15 @@ public class MainController implements Initializable {
         int origHeight = 847;
         double scaleWidth = trueImgWidth / origWidth;
         double scaleHeight = trueImgHeight / origHeight;
-        
-        for(Button b : buttonMap.keySet()){
-            String ort = buttonMap.get(b);
+
+        for (Map.Entry<Button, String> entry : buttonMap.entrySet()) {
+            Button b = entry.getKey();
+            String ort = entry.getValue();
             
             int x = model.getX(ort);
             int y = model.getY(ort);
-            
-            b.setLayoutX(x*scaleWidth);
-            b.setLayoutY(y*scaleHeight);
-            
+            b.setLayoutX(x * scaleWidth);
+            b.setLayoutY(y * scaleHeight);
         }
 
     }
@@ -158,10 +206,12 @@ public class MainController implements Initializable {
     @FXML
     private void search() {
 
-        List<String> filter = new ArrayList<String>();
+        List<String> filter = new ArrayList<>();
 
         if (tglAlle.isSelected()) {
-            filter.add("all");
+            filter.add("museum");
+            filter.add("kino");
+            filter.add("markt");
         } else {
             if (tglMuseum.isSelected()) {
                 filter.add("museum");
@@ -177,17 +227,28 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void toggleAll() {
-        if (tglAlle.isSelected()) {
-            tglKino.setSelected(true);
-            tglMuseum.setSelected(true);
-            tglMarkt.setSelected(true);
-        } else {
-            tglKino.setSelected(false);
-            tglMuseum.setSelected(false);
-            tglMarkt.setSelected(false);
-        }
+    private void toggle(ActionEvent e) {//toggles außer "Alle"
+        ToggleButton b = (ToggleButton) e.getSource();
 
+        if (b == tglAlle) {
+            if (tglAlle.isSelected()) {
+                tglKino.setSelected(true);
+                tglMuseum.setSelected(true);
+                tglMarkt.setSelected(true);
+            } else {
+                tglKino.setSelected(false);
+                tglMuseum.setSelected(false);
+                tglMarkt.setSelected(false);
+            }
+        } else {
+
+            if (!b.isSelected() && tglAlle.isSelected()) {
+                tglAlle.setSelected(false);
+            } else if (tglKino.isSelected() && tglMuseum.isSelected() && tglMarkt.isSelected()) {
+                tglAlle.setSelected(true);
+            }
+        }
+        updateMap(tglMuseum.isSelected(), tglKino.isSelected(), tglMarkt.isSelected());
     }
 
 }

@@ -17,16 +17,19 @@
                <children>
                   <AnchorPane prefHeight="118.0" prefWidth="684.0">
                      <children>
+
                         <Label fx:id="verName" layoutX="116.0" layoutY="43.0" prefHeight="64.0" prefWidth="464.0" text="BERLINISCHE GALERIE">
                            <font>
                               <Font name="DIN Alternate Bold" size="46.0" />
                            </font>
                         </Label>
                         <Circle fill="#a1dbff4d" layoutX="-41.0" layoutY="42.0" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
+
                      </children>
                   </AnchorPane>
                </children>
             </HBox>
+
             <AnchorPane layoutY="130.0" prefHeight="446.0" prefWidth="669.0">
                <children>
                   <ScrollPane hbarPolicy="NEVER" layoutX="3.0" layoutY="-2.0" prefHeight="448.0" prefWidth="676.0" vbarPolicy="ALWAYS">
@@ -36,6 +39,7 @@
                               <VBox layoutX="43.0" layoutY="3.0" prefHeight="442.0" prefWidth="312.0">
                                  <children>
                                     <Label fx:id="eventTitel" text="Sibylle Bergemann ">
+
                                        <font>
                                           <Font name="DIN Alternate Bold" size="24.0" />
                                        </font>
@@ -43,17 +47,21 @@
                                           <Insets bottom="5.0" left="20.0" right="10.0" top="10.0" />
                                        </VBox.margin>
                                     </Label>
+
                                     <Label fx:id="eventDetail1" text="Stadt Land Hund">
                                        <font>
                                           <Font name="DIN Alternate Bold" size="20.0" />
+
                                        </font>
                                        <VBox.margin>
                                           <Insets left="35.0" top="5.0" />
                                        </VBox.margin>
                                     </Label>
+
                                     <Label fx:id="eventDetail2" text="Fotografien 1966-2010">
                                        <font>
                                           <Font name="DIN Alternate Bold" size="20.0" />
+
                                        </font>
                                        <VBox.margin>
                                           <Insets left="35.0" top="5.0" />
@@ -93,6 +101,7 @@
                                     </Label>
                                  </children>
                               </VBox>
+
                               <Circle fill="#1f93ff00" layoutX="614.0" layoutY="399.0" radius="105.0" stroke="BLACK" strokeType="INSIDE" />
                               <Circle fill="#a1dbff4d" layoutX="589.0" layoutY="454.0" radius="90.0" stroke="BLACK" strokeType="INSIDE" />
                               <Circle fill="#a1dbff4c" layoutX="667.0" layoutY="333.0" radius="77.0" stroke="BLACK" strokeType="INSIDE" />
@@ -103,6 +112,7 @@
                         </AnchorPane>
                     </content>
                   </ScrollPane>
+
                </children>
             </AnchorPane>
          </children>
