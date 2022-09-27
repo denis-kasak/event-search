@@ -26,7 +26,7 @@ public class BerlinischeGalerie {
 
             return events;
         } else {
-            return new ArrayList<List<String>>();
+            return null;
         }
     }
 

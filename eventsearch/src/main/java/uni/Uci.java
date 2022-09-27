@@ -29,7 +29,7 @@ public class Uci {
 
             return events;
         } else {
-            return new ArrayList<List<String>>();
+            return null;
         }
 
     }

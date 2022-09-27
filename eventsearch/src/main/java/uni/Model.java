@@ -15,9 +15,9 @@ import java.util.Map;
  */
 public class Model {
 
-    private Map<String, Map<String, Object>> museum = new HashMap<String, Map<String, Object>>();
+    public Map<String, Map<String, Object>> museum = new HashMap<String, Map<String, Object>>();
 
-    private Map<String, Map<String, Object>> kino = new HashMap<String, Map<String, Object>>();
+    public Map<String, Map<String, Object>> kino = new HashMap<String, Map<String, Object>>();
 
     public Model() {
         initEvents();
