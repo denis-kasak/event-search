@@ -23,6 +23,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.getIcons().add(new Image(App.class.getResourceAsStream("logo.png")));
+        stage.setTitle("Event Search");
         stage.show();
         
     }
