@@ -227,25 +227,34 @@
 }
 
 .label-VeranstalterTitel{
-    -fx-font-family: Arial;
+    -fx-font-family: "Trebuchet MS";
     -fx-font-weight: bold;
     -fx-font-size: 30pt;
+    -fx-alingment: CENTER;
+    -fx-wrap-text: true;
+    
 }
 
 .label-EventTitel{
-    -fx-font-family: Arial;  
+    -fx-font-family: "Trebuchet MS";  
     -fx-font-size: 20pt;
     -fx-padding: 10 10 5 20;
 }
 
 .label-EventDetails{
-    -fx-font-family: Arial;  
+    -fx-font-family: "Trebuchet MS";  
     -fx-font-size: 15pt;
-    -fx-padding: 10 0 0 35;
+    -fx-padding: 5 0 0 35;
 }
 
 .label-Adresse{
-    -fx-font-family: Arial;  
+    -fx-font-family: "Trebuchet MS";  
     -fx-font-size: 15pt;
     -fx-padding: 10 0 0 35;
 }
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+ }
+ .scroll-pane {
+    -fx-background-color: transparent;
+ }
