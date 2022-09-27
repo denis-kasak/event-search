@@ -88,12 +88,12 @@ public class MainController implements Initializable {
         });
 
     }
-    
+
     @FXML
     private void showDetails(ActionEvent e) {
         Button raw = (Button) e.getSource();
         System.out.println(buttonMap.get(raw));
-        
+
     }
 
     private void initButtonMap() {
@@ -141,16 +141,16 @@ public class MainController implements Initializable {
         int origHeight = 847;
         double scaleWidth = trueImgWidth / origWidth;
         double scaleHeight = trueImgHeight / origHeight;
-        
-        for(Button b : buttonMap.keySet()){
+
+        for (Button b : buttonMap.keySet()) {
             String ort = buttonMap.get(b);
-            
+
             int x = model.getX(ort);
             int y = model.getY(ort);
-            
-            b.setLayoutX(x*scaleWidth);
-            b.setLayoutY(y*scaleHeight);
-            
+
+            b.setLayoutX(x * scaleWidth);
+            b.setLayoutY(y * scaleHeight);
+
         }
 
     }
@@ -174,6 +174,16 @@ public class MainController implements Initializable {
             }
         }
         System.out.println(filter);
+    }
+
+    @FXML
+    private void toggle(ActionEvent e) {//toggles außer "Alle"
+        ToggleButton b = (ToggleButton) e.getSource();
+        if (!b.isSelected() && tglAlle.isSelected()) {
+            tglAlle.setSelected(false);
+        } else if (tglKino.isSelected() && tglMuseum.isSelected() && tglMarkt.isSelected()) {
+            tglAlle.setSelected(true);
+        }
     }
 
     @FXML

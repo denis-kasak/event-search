@@ -5,13 +5,13 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.control.Tooltip?> 
 
 <AnchorPane fx:id="paneRoot" prefHeight="647.0" prefWidth="1088.0" style="-fx-font-family: &quot;DIN Alternate&quot;;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.MainController">
    <children>
@@ -27,61 +27,61 @@
                   <AnchorPane fx:id="paneButtons" prefHeight="450.0" prefWidth="800.0">
                      <children>
                         <Button fx:id="btnBodeMuseum" layoutX="510.0" layoutY="208.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Bode-Museum" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Bode-Museum" /></tooltip>
                         </Button>
                         <Button fx:id="btnUciLux" layoutX="769.0" layoutY="350.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-kinos" stylesheets="@design.css">
-                            <tooltip><Tooltip text="UCI Luxe Mersedes Platz" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="UCI Luxe Mersedes Platz" /></tooltip>
                         </Button>
                         <Button fx:id="btnAltMuseum" layoutX="537.0" layoutY="228.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Altes Museum" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Altes Museum" /></tooltip>
                         </Button>
                         <Button layoutX="478.0" layoutY="199.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
                         <Button layoutX="498.0" layoutY="195.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
                         <Button layoutX="178.0" layoutY="268.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
                         <Button fx:id="btnFriedKirche" layoutX="519.0" layoutY="268.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Friedrichswerdersche Kirche" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Friedrichswerdersche Kirche" /></tooltip>
                         </Button>
                         <Button fx:id="btnGemGalerie" layoutX="341.0" layoutY="330.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Gemäldegalerie" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Gemäldegalerie" /></tooltip>
                         </Button>
                         <Button fx:id="btnHambBahnhof" layoutX="384.0" layoutY="152.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Hamburger Bahnhof - Museum für Gegenwart" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Hamburger Bahnhof - Museum für Gegenwart" /></tooltip>
                         </Button>
                         <Button fx:id="btnJamSimGalerie" layoutX="520.0" layoutY="232.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="James-Simon-Galerie" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="James-Simon-Galerie" /></tooltip>
                         </Button>
                         <Button fx:id="btnKunstBib" layoutX="355.0" layoutY="332.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Kunstbibliothek" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Kunstbibliothek" /></tooltip>
                         </Button>
                         <Button fx:id="btnKunstGewMuseum" layoutX="356.0" layoutY="319.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Kunstgewerbemuseum" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Kunstgewerbemuseum" /></tooltip>
                         </Button>
                         <Button fx:id="btnKupfKabinett" layoutX="347.0" layoutY="343.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Kupferstichkabinett" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Kupferstichkabinett" /></tooltip>
                         </Button>
                         <Button fx:id="btnMuseumFoto" layoutX="160.0" layoutY="333.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Museum für Fotografie" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Museum für Fotografie" /></tooltip>
                         </Button>
                         <Button fx:id="btnNeuNatGalerie" layoutX="359.0" layoutY="348.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Neue Nationalgalerie" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Neue Nationalgalerie" /></tooltip>
                         </Button>
                         <Button fx:id="btnNeuMuseum" layoutX="531.0" layoutY="239.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Neues Museum" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Neues Museum" /></tooltip>
                         </Button>
                         <Button fx:id="btnPergMuseum" layoutX="518.0" layoutY="218.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Pergamonmuseum" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Pergamonmuseum" /></tooltip>
                         </Button>
                         <Button fx:id="btnPergMusPanoram" layoutX="499.0" layoutY="215.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Pergamonmuseum. Das Panorama" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Pergamonmuseum. Das Panorama" /></tooltip>
                         </Button>
                         <Button fx:id="btnHumbForum" layoutX="547.0" layoutY="251.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Humbolt-Forum" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Humbolt-Forum" /></tooltip>
                         </Button>
                         <Button fx:id="btnBerlGalerie" layoutX="526.0" layoutY="379.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Berlinische Galerie" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Berlinische Galerie" /></tooltip>
                         </Button>
                         <Button fx:id="btnAltNatGalerie" layoutX="532.0" layoutY="216.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
-                            <tooltip><Tooltip text="Alte Nationalgalerie" style = "-fx-font-size: 14" /></tooltip>
+                            <tooltip><Tooltip style="-fx-font-size: 14" text="Alte Nationalgalerie" /></tooltip>
                         </Button>
                      </children></AnchorPane>
                </children>
@@ -113,9 +113,9 @@
             <HBox alignment="CENTER" prefHeight="71.0" prefWidth="483.0" style="-fx-spacing: 15,15,15,15;">
                <children>
                   <ToggleButton fx:id="tglAlle" mnemonicParsing="false" onAction="#toggleAll" prefHeight="28.0" prefWidth="70.0" stylesheets="@design.css" text="Alles" />
-                  <ToggleButton fx:id="tglMuseum" mnemonicParsing="false" prefHeight="28.0" prefWidth="64.0" styleClass="toggle-button-museen" stylesheets="@design.css" text="Museen" />
-                  <ToggleButton fx:id="tglKino" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" styleClass="toggle-button-kinos" stylesheets="@design.css" text="Kinos" />
-                  <ToggleButton fx:id="tglMarkt" mnemonicParsing="false" prefHeight="27.0" prefWidth="84.0" styleClass="toggle-button-floh" stylesheets="@design.css" text="Flohmärkte" />
+                  <ToggleButton fx:id="tglMuseum" mnemonicParsing="false" onAction="#toggle" prefHeight="28.0" prefWidth="64.0" styleClass="toggle-button-museen" stylesheets="@design.css" text="Museen" />
+                  <ToggleButton fx:id="tglKino" mnemonicParsing="false" onAction="#toggle" prefHeight="26.0" prefWidth="64.0" styleClass="toggle-button-kinos" stylesheets="@design.css" text="Kinos" />
+                  <ToggleButton fx:id="tglMarkt" mnemonicParsing="false" onAction="#toggle" prefHeight="27.0" prefWidth="84.0" styleClass="toggle-button-floh" stylesheets="@design.css" text="Flohmärkte" />
                   <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="86.0" style="-fx-font-family: &quot;DIN Alternate&quot;;" text="Suchen" textAlignment="CENTER" />
                </children>
             </HBox>
