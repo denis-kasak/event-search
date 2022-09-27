@@ -98,7 +98,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="556.0">
                <children>
-                  <Label prefHeight="47.0" prefWidth="371.0" text="Wählen Sie das Datum und die Art der Veranstaltung aus:">
+                  <Label prefHeight="47.0" prefWidth="371.0" style="-fx-font-family: &quot;DIN Alternate&quot;;" text="Wählen Sie das Datum und die Art der Veranstaltung aus:">
                      <font>
                         <Font name="DIN Alternate Bold" size="15.0" />
                      </font>
