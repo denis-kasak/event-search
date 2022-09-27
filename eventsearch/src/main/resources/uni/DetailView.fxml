@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,64 +13,112 @@
    <children>
       <AnchorPane layoutX="-3.0" layoutY="-1.0" prefHeight="545.0" prefWidth="681.0" style="-fx-front-family: DIN AlternateDIN Alternate;">
          <children>
-            <HBox layoutY="1.0" prefHeight="112.0" prefWidth="663.0" stylesheets="@design.css">
+            <HBox layoutY="1.0" prefHeight="119.0" prefWidth="683.0" stylesheets="@design.css">
                <children>
-                  <AnchorPane prefHeight="120.0" prefWidth="664.0">
+                  <AnchorPane prefHeight="118.0" prefWidth="684.0">
                      <children>
-                        <Label fx:id="txtTitel" layoutX="122.0" layoutY="4.0" prefHeight="106.0" prefWidth="531.0" text="Berlinische Galerie">
+
+                        <Label fx:id="verName" layoutX="116.0" layoutY="43.0" prefHeight="64.0" prefWidth="464.0" text="BERLINISCHE GALERIE">
                            <font>
-                              <Font size="62.0" />
+                              <Font name="DIN Alternate Bold" size="46.0" />
                            </font>
                         </Label>
+                        <Circle fill="#a1dbff4d" layoutX="-41.0" layoutY="42.0" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
+
                      </children>
                   </AnchorPane>
                </children>
             </HBox>
-            <AnchorPane layoutY="130.0" prefHeight="585.0" prefWidth="783.0">
+
+            <AnchorPane layoutY="130.0" prefHeight="446.0" prefWidth="669.0">
                <children>
-                  <ScrollPane hbarPolicy="NEVER" layoutX="28.0" prefHeight="448.0" prefWidth="403.0" vbarPolicy="ALWAYS">
-                     <content>
-                        <VBox fx:id="vboxListe" prefHeight="446.0" prefWidth="278.0">
+                  <ScrollPane hbarPolicy="NEVER" layoutX="3.0" layoutY="-2.0" prefHeight="448.0" prefWidth="676.0" vbarPolicy="ALWAYS">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="660.0" style="-fx-background-color: white;">
                            <children>
-                              <VBox fx:id="element" prefHeight="148.0" prefWidth="278.0">
+                              <VBox layoutX="43.0" layoutY="3.0" prefHeight="442.0" prefWidth="312.0">
                                  <children>
-                                    <Label text="Sibylle Bergemann">
+                                    <Label fx:id="eventTitel" text="Sibylle Bergemann ">
+
+                                       <font>
+                                          <Font name="DIN Alternate Bold" size="24.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="20.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+
+                                    <Label fx:id="eventDetail1" text="Stadt Land Hund">
+                                       <font>
+                                          <Font name="DIN Alternate Bold" size="20.0" />
+
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="35.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+
+                                    <Label fx:id="eventDetail2" text="Fotografien 1966-2010">
+                                       <font>
+                                          <Font name="DIN Alternate Bold" size="20.0" />
+
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="35.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="eventDetail3" text="bis 10.10.22">
+                                       <font>
+                                          <Font name="DIN Alternate Bold" size="20.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="35.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Pallavi Paul">
+                                       <VBox.margin>
+                                          <Insets left="20.0" top="10.0" />
+                                       </VBox.margin>
                                        <font>
                                           <Font name="DIN Alternate Bold" size="24.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Stadt Land Hund ">
+                                    <Label text="Im IBB-Videoraum">
                                        <font>
-                                          <Font name="DIN Alternate Bold" size="19.0" />
+                                          <Font name="DIN Alternate Bold" size="20.0" />
                                        </font>
+                                       <VBox.margin>
+                                          <Insets left="35.0" top="5.0" />
+                                       </VBox.margin>
                                     </Label>
-                                    <Label text="Fotografien 1966-2010">
+                                    <Label text="bis 17.10.22">
                                        <font>
-                                          <Font size="19.0" />
+                                          <Font name="DIN Alternate Bold" size="20.0" />
                                        </font>
-                                    </Label>
-                                    <Label text="bis 10.10.22">
-                                       <font>
-                                          <Font size="19.0" />
-                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="35.0" top="5.0" />
+                                       </VBox.margin>
                                     </Label>
                                  </children>
                               </VBox>
+
+                              <Circle fill="#1f93ff00" layoutX="614.0" layoutY="399.0" radius="105.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#a1dbff4d" layoutX="589.0" layoutY="454.0" radius="90.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#a1dbff4c" layoutX="667.0" layoutY="333.0" radius="77.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#1f93ff00" layoutX="486.0" layoutY="446.0" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#1f93ff00" layoutX="693.0" layoutY="277.0" radius="84.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#a1dbff4d" layoutX="434.0" layoutY="476.0" radius="81.0" stroke="BLACK" strokeType="INSIDE" />
                            </children>
-                        </VBox>
-                     </content>
+                        </AnchorPane>
+                    </content>
                   </ScrollPane>
-                  <Circle fill="#1f93ff00" layoutX="625.0" layoutY="461.0" radius="96.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="#2197ff24" layoutX="528.0" layoutY="489.0" radius="101.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="#1f93ff00" layoutX="650.0" layoutY="388.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="#2197ff17" layoutX="676.0" layoutY="307.0" radius="101.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="#2197ff12" layoutX="575.0" layoutY="424.0" radius="101.0" stroke="BLACK" strokeType="INSIDE" />
+
                </children>
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Circle fill="#2197ff24" layoutX="33.0" layoutY="-15.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#1f93ff00" layoutX="-38.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#2197ff21" layoutX="-38.0" layoutY="63.0" radius="87.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#c821ff00" layoutX="65.0" layoutY="-24.0" radius="83.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#a1dbff4d" layoutY="-46.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#a1dbff4d" layoutX="130.0" layoutY="-52.0" radius="88.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>
