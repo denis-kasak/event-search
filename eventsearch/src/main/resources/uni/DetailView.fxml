@@ -18,9 +18,9 @@
                   <AnchorPane prefHeight="118.0" prefWidth="684.0">
                      <children>
 
-                        <Label fx:id="verName" layoutX="116.0" layoutY="43.0" prefHeight="64.0" prefWidth="464.0" text="BERLINISCHE GALERIE">
+                        <Label fx:id="veranstalterName" layoutX="141.0" layoutY="43.0" prefHeight="59.0" prefWidth="434.0" stylesheets="@design.css" text="BERLINISCHE GALERIE" textAlignment="CENTER">
                            <font>
-                              <Font name="DIN Alternate Bold" size="46.0" />
+                              <Font name="Arial Bold" size="35.0" />
                            </font>
                         </Label>
                         <Circle fill="#a1dbff4d" layoutX="-41.0" layoutY="42.0" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
@@ -68,30 +68,6 @@
                                        </VBox.margin>
                                     </Label>
                                     <Label fx:id="eventDetail3" text="bis 10.10.22">
-                                       <font>
-                                          <Font name="DIN Alternate Bold" size="20.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets left="35.0" top="5.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <Label text="Pallavi Paul">
-                                       <VBox.margin>
-                                          <Insets left="20.0" top="10.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font name="DIN Alternate Bold" size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="Im IBB-Videoraum">
-                                       <font>
-                                          <Font name="DIN Alternate Bold" size="20.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets left="35.0" top="5.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <Label text="bis 17.10.22">
                                        <font>
                                           <Font name="DIN Alternate Bold" size="20.0" />
                                        </font>

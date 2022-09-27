@@ -225,3 +225,27 @@
 .Text-Fields{
     -fx-background-radius:20;
 }
+
+.label-VeranstalterTitel{
+    -fx-font-family: Arial;
+    -fx-font-weight: bold;
+    -fx-font-size: 30pt;
+}
+
+.label-EventTitel{
+    -fx-font-family: Arial;  
+    -fx-font-size: 20pt;
+    -fx-padding: 10 10 5 20;
+}
+
+.label-EventDetails{
+    -fx-font-family: Arial;  
+    -fx-font-size: 15pt;
+    -fx-padding: 10 0 0 35;
+}
+
+.label-Adresse{
+    -fx-font-family: Arial;  
+    -fx-font-size: 15pt;
+    -fx-padding: 10 0 0 35;
+}
