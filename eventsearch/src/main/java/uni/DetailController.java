@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -76,6 +77,8 @@ public class DetailController implements Initializable {
                         t.fillDetails(ort, event.get(0));
                         Stage stage = new Stage();
                         stage.setScene(scene);
+                        stage.getIcons().add(new Image(App.class.getResourceAsStream("logo.png")));
+                        stage.setTitle("Terminerstellung");
                         stage.show();
                     } catch (IOException ex) {
                         ex.printStackTrace();
@@ -101,6 +104,7 @@ public class DetailController implements Initializable {
         scrollPane.setContent(anchorEvents);
 
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

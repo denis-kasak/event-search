@@ -23,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -96,9 +97,9 @@ public class MainController implements Initializable {
 
         updateMap(false, false, false);
     }
-    
-    public void setHostServices(HostServices hostServices){
-        this.hostServices=hostServices;
+
+    public void setHostServices(HostServices hostServices) {
+        this.hostServices = hostServices;
     }
 
     @FXML
@@ -106,7 +107,7 @@ public class MainController implements Initializable {
 
         Button b = (Button) e.getSource();
         String ort = buttonMap.get(b);
-        
+
         try {
             //String ort
             Stage stage = new Stage();
@@ -116,13 +117,15 @@ public class MainController implements Initializable {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(App.class.getResource("DetailView.fxml"));
             Scene scene = new Scene(loader.load());
-            
+
             DetailController d = loader.getController();
             d.fillDetails(ort);
             d.setHostServices(hostServices);
             scene.getStylesheets().add("../resource/design.css");
             stage.setScene(scene);
             stage.setResizable(false);
+            stage.getIcons().add(new Image(App.class.getResourceAsStream("logo.png")));
+            stage.setTitle(ort);
             stage.show();
         } catch (IOException ex) {
             ex.printStackTrace();
