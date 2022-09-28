@@ -57,7 +57,7 @@ public class MainController implements Initializable {
     @FXML
     private AnchorPane paneRoot;
     @FXML
-    private Button btnBodeMuseum, btnUciLux, btnAltMuseum, btnFriedKirche, btnGemGalerie, btnHambBahnhof, btnJamSimGalerie, btnKunstBib, btnKunstGewMuseum, btnKupfKabinett, btnMuseumFoto, btnNeuNatGalerie, btnNeuMuseum, btnPergMuseum, btnPergMusPanoram, btnHumbForum, btnBerlGalerie, btnAltNatGalerie;
+    private Button btnMarktRaw, btnMarktHalle, btnMarktMarheineke, btnMarktFehrbelliner, btnMarktMaybach, btnMarktJuni, btnMarktBode, btnBodeMuseum, btnUciLux, btnAltMuseum, btnFriedKirche, btnGemGalerie, btnHambBahnhof, btnJamSimGalerie, btnKunstBib, btnKunstGewMuseum, btnKupfKabinett, btnMuseumFoto, btnNeuNatGalerie, btnNeuMuseum, btnPergMuseum, btnPergMusPanoram, btnHumbForum, btnBerlGalerie, btnAltNatGalerie;
 
     private Map<Button, String> buttonMap;
     private float mapRatio = (float) 1.85; //Breite:Höhe -> mapRatio:1
@@ -158,6 +158,17 @@ public class MainController implements Initializable {
                 b.setVisible(true);
             }
         }
+        if (!flohmarkt) {
+            orte = Model.getAllType("flohmarkt");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(false);
+            }
+        } else {
+            orte = Model.getAllType("flohmarkt");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(true);
+            }
+        }
     }
 
     public List<Button> valueToKey(List<String> orte) {
@@ -200,6 +211,15 @@ public class MainController implements Initializable {
         buttonMap.put(btnHumbForum, "Humboldt Forum");
         buttonMap.put(btnBerlGalerie, "Berlinische Galerie");
         buttonMap.put(btnAltNatGalerie, "Alte Nationalgalerie");
+        
+        //Flohmärkte
+        buttonMap.put(btnMarktBode, "Antik- und Buchmarkt am Bode-Museum");
+        buttonMap.put(btnMarktFehrbelliner, "Kunst- & Trödelmarkt Fehrbelliner Platz");
+        buttonMap.put(btnMarktHalle, "Hallenflohmarkt an der Arena");
+        buttonMap.put(btnMarktJuni, "Trödelmarkt Straße des 17. Juni");
+        buttonMap.put(btnMarktMarheineke, "Trödelmarkt Marheinekeplatz");
+        buttonMap.put(btnMarktMaybach, "Neuköllner Wochenmarkte Maybachufer");
+        buttonMap.put(btnMarktRaw, "RAW Flohmarkt");
 
     }
 

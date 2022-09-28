@@ -35,9 +35,9 @@
                         <Button fx:id="btnAltMuseum" layoutX="537.0" layoutY="228.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
                             <tooltip><Tooltip style="-fx-font-size: 14" text="Altes Museum" /></tooltip>
                         </Button>
-                        <Button layoutX="478.0" layoutY="199.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
-                        <Button layoutX="498.0" layoutY="195.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
-                        <Button layoutX="178.0" layoutY="268.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button fx:id="btnMarktBode" layoutX="478.0" layoutY="199.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button fx:id="btnMarktJuni" layoutX="498.0" layoutY="195.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button fx:id="btnMarktMaybach" layoutX="178.0" layoutY="268.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
                         <Button fx:id="btnFriedKirche" layoutX="519.0" layoutY="268.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
                             <tooltip><Tooltip style="-fx-font-size: 14" text="Friedrichswerdersche Kirche" /></tooltip>
                         </Button>
@@ -83,6 +83,10 @@
                         <Button fx:id="btnAltNatGalerie" layoutX="532.0" layoutY="216.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-museen" stylesheets="@design.css">
                             <tooltip><Tooltip style="-fx-font-size: 14" text="Alte Nationalgalerie" /></tooltip>
                         </Button>
+                        <Button fx:id="btnMarktFehrbelliner" layoutX="188.0" layoutY="278.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button fx:id="btnMarktMarheineke" layoutX="198.0" layoutY="288.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button fx:id="btnMarktHalle" layoutX="208.0" layoutY="298.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
+                        <Button fx:id="btnMarktRaw" layoutX="218.0" layoutY="308.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="11.0" prefWidth="12.0" styleClass="button-floh" stylesheets="@design.css" />
                      </children></AnchorPane>
                </children>
                <padding>
