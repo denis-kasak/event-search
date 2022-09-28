@@ -8,29 +8,69 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.converter.LocalTimeStringConverter;
 
 /**
  *
  * @author d-kas
  */
-public class TerminController implements Initializable{
+public class TerminController implements Initializable {
 
     Stage stage;
-    @FXML private TextField txtTitel;
-    @FXML private TextField txtAdresse;
-    @FXML private ComboBox cbDauer;
-    
-    
+    @FXML
+    private TextField txtTitel;
+    @FXML
+    private TextField txtAdresse;
+    @FXML
+    private ComboBox cbDauer;
+    @FXML
+    private Spinner<String> spinnerTime;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        SpinnerValueFactory valueFactory = new SpinnerValueFactory<LocalTime>() {
+            {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+                setConverter(new LocalTimeStringConverter(formatter,null));
+            }
+
+            @Override
+            public void decrement(int steps) {
+                if (getValue() == null) {
+                    setValue(LocalTime.now());
+                } else {
+                    LocalTime time = (LocalTime) getValue();
+                    setValue(time.minusMinutes(steps));
+                }
+            }
+
+            @Override
+            public void increment(int steps) {
+                if (this.getValue() == null) {
+                    setValue(LocalTime.now());
+                } else {
+                    LocalTime time = (LocalTime) getValue();
+                    setValue(time.plusMinutes(steps));
+                }
+            }
+
+        };
+        spinnerTime.setValueFactory(valueFactory);
+
         cbDauer.setItems(FXCollections.observableArrayList(
                 new String("0,5 Stunden"),
                 new String("1 Stunde"),
@@ -40,7 +80,7 @@ public class TerminController implements Initializable{
                 new String("3 Stunden")
         ));
     }
-    
+
     public void createEvent(String titel, String beschreibung, String datum, String dauer, String ort) {
         String event = "BEGIN:VCALENDAR\n"
                 + System.lineSeparator() + "VERSION:2.0"
@@ -75,15 +115,15 @@ public class TerminController implements Initializable{
         }
 
     }
-    
+
     @FXML
-    private void saveTermin(){
-        
+    private void saveTermin() {
+
     }
-    
+
     public void fillDetails(String ort, String titel) {
         txtTitel.setText(titel);
-        
+
         String adress = Model.getAdress(ort);
         txtAdresse.setText(adress);
     }
