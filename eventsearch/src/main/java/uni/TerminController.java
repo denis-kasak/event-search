@@ -42,7 +42,6 @@ public class TerminController implements Initializable {
     private Spinner<String> spinnerTime;
     @FXML
     private DatePicker datePicker;
-    private String ort;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -129,7 +128,7 @@ public class TerminController implements Initializable {
     @FXML
     private void saveTermin() {
         String titel = txtTitel.getText();
-        String adresse = ort + ", " + txtAdresse.getText();
+        String adresse = txtAdresse.getText();
         LocalDate date = datePicker.getValue();
         Object time = spinnerTime.getValue();
         String dauer = (String) cbDauer.getValue();
@@ -139,9 +138,7 @@ public class TerminController implements Initializable {
     public void fillDetails(String ort, String titel) {
         txtTitel.setText(titel);
 
-        this.ort = ort;
-
-        String adress = Model.getAdress(ort);
+        String adress = ort + ", " +Model.getAdress(ort);
         txtAdresse.setText(adress);
     }
 }

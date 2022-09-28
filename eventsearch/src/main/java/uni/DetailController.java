@@ -88,6 +88,32 @@ public class DetailController implements Initializable {
             });
             eventList.getChildren().add(termin);
         }
+
+        String adresse = Model.getAdress(ort);
+        Label text = new Label("Adresse:");
+        text.getStyleClass().add("label-EventTitel");
+        eventList.getChildren().add(text);
+        for (int i = 0; i < adresse.length(); i++) {
+            if (adresse.charAt(i) == ',') {
+                Label detail = new Label(adresse.substring(0, i));
+                detail.getStyleClass().add("label-Adresse");
+                eventList.getChildren().add(detail);
+                adresse = adresse.substring(i + 1).trim();
+                i = -1;
+                continue;
+            } else if (i == adresse.length() - 1) {
+                Label detail = new Label(adresse.substring(0));
+                detail.getStyleClass().add("label-Adresse");
+                eventList.getChildren().add(detail);
+            }
+        }
+
+        while (adresse.contains(",")) {//in do while umwandeln
+            Label detail = new Label(adresse.substring(0, adresse.indexOf(",")));
+            adresse = adresse.substring(adresse.indexOf(","));
+
+        }
+
         Hyperlink weblink = new Hyperlink();
         weblink.setText("Zur Webseite");
         weblink.getStyleClass().add("hyper-link-info");
