@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -28,6 +29,8 @@ public class DetailController implements Initializable {
     private VBox eventList;
     @FXML
     private AnchorPane rootPane;
+    @FXML
+    private Scene scene;
 
     public void fillDetails(String ort) {
         List<List<String>> events = new ArrayList<>();
@@ -37,18 +40,21 @@ public class DetailController implements Initializable {
 
             for (int i = 0; i < event.size(); i++) {
                 Label detail = new Label(event.get(i));
+
+                if (i == 0) {
+                    detail.getStyleClass().add("label-EventTitel");
+                } else {
+                    detail.getStyleClass().add("label-EventDetails");
+                }
                 eventList.getChildren().add(detail);
             }
-            eventList.getChildren().add(new VBox());
         }
-        
-        
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
-        
+
     }
 
 }

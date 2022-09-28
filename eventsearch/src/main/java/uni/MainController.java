@@ -79,7 +79,7 @@ public class MainController implements Initializable {
             
             DetailController d = f.getController();
             d.fillDetails("Berlinische Galerie");
-            
+            scene.getStylesheets().add("../resource/design.css");
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
