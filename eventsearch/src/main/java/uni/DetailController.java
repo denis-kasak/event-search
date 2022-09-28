@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -25,16 +26,20 @@ public class DetailController implements Initializable {
     Stage stage;
     Model model;
 
-    @FXML
-    private VBox eventList;
+    
     @FXML
     private AnchorPane rootPane;
     @FXML
     private Scene scene;
+    
+    @FXML
+    private ScrollPane scrollPane;
 
     public void fillDetails(String ort) {
         List<List<String>> events = new ArrayList<>();
         events = Model.getEvents(ort);
+        
+        VBox eventList = new VBox();
 
         for (List<String> event : events) {
 
@@ -49,6 +54,9 @@ public class DetailController implements Initializable {
                 eventList.getChildren().add(detail);
             }
         }
+        AnchorPane anchorEvents = new AnchorPane();
+        anchorEvents.getChildren().add(eventList);
+        scrollPane.setContent(anchorEvents);
 
     }
 
