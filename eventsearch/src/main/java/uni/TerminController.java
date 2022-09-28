@@ -9,8 +9,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -24,11 +26,19 @@ public class TerminController implements Initializable{
     Stage stage;
     @FXML private TextField txtTitel;
     @FXML private TextField txtAdresse;
+    @FXML private ComboBox cbDauer;
     
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        cbDauer.setItems(FXCollections.observableArrayList(
+                new String("0,5 Stunden"),
+                new String("1 Stunde"),
+                new String("1,5 Stunden"),
+                new String("2 Stunden"),
+                new String("2,5 Stunden"),
+                new String("3 Stunden")
+        ));
     }
     
     public void createEvent(String titel, String beschreibung, String datum, String dauer, String ort) {
@@ -65,8 +75,13 @@ public class TerminController implements Initializable{
         }
 
     }
-
-    void fillDetails(String ort, String titel) {
+    
+    @FXML
+    private void saveTermin(){
+        
+    }
+    
+    public void fillDetails(String ort, String titel) {
         txtTitel.setText(titel);
         
         String adress = Model.getAdress(ort);

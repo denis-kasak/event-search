@@ -65,7 +65,7 @@
                   <DatePicker fx:id="datePicker" layoutX="132.0" layoutY="123.0" prefHeight="27.0" prefWidth="162.0" />
                   <Spinner fx:id="timeSpinner" layoutX="133.0" layoutY="179.0" prefHeight="26.0" prefWidth="115.0" />
                   <ComboBox fx:id="cbDauer" layoutX="261.0" layoutY="179.0" prefHeight="24.0" prefWidth="125.0" value="0,5 Stunden" />
-                  <Button fx:id="btnSpeichern" layoutX="154.0" layoutY="226.0" mnemonicParsing="false" style="-fx-font-family: &quot;Trebuchet MS&quot;;" text="Speichern">
+                  <Button fx:id="btnSpeichern" layoutX="154.0" layoutY="226.0" mnemonicParsing="false" onAction="#saveTermin" style="-fx-font-family: &quot;Trebuchet MS&quot;;" text="Speichern">
                      <font>
                         <Font name="DIN Alternate Bold" size="15.0" />
                      </font>
