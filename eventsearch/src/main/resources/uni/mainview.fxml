@@ -123,6 +123,7 @@
                   <ToggleButton fx:id="tglMuseum" mnemonicParsing="false" onAction="#toggle" prefHeight="28.0" prefWidth="64.0" styleClass="toggle-button-museen" stylesheets="@design.css" text="Museen" />
                   <ToggleButton fx:id="tglKino" mnemonicParsing="false" onAction="#toggle" prefHeight="26.0" prefWidth="64.0" styleClass="toggle-button-kinos" stylesheets="@design.css" text="Kinos" />
                   <ToggleButton fx:id="tglMarkt" mnemonicParsing="false" onAction="#toggle" prefHeight="27.0" prefWidth="84.0" styleClass="toggle-button-floh" stylesheets="@design.css" text="Flohmärkte" />
+                  <Button fx:id="test" mnemonicParsing="false" onAction="#test" text="Button" />
 
                </children>
             </HBox>

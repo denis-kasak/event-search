@@ -4,6 +4,7 @@
  */
 package uni;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,7 +16,9 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ToggleButton;
@@ -23,12 +26,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 /**
  *
  * @author d-kas
  */
 public class MainController implements Initializable {
+
+    @FXML
+    private Button test;
 
     @FXML
     private ToggleButton tglAlle;
@@ -59,9 +66,31 @@ public class MainController implements Initializable {
     double trueImgWidth;
     double trueImgHeight;
 
+    @FXML
+    private void test() {
+        try {
+            //String ort
+            Stage stage = new Stage();
+
+//        Parent root = FXMLLoader.load(DetailController.class.getResource("DetailView.fxml"));
+//        scene = new Scene((Parent) root);
+            FXMLLoader f = new FXMLLoader();
+            f.setLocation(App.class.getResource("DetailView.fxml"));
+            Scene scene = new Scene(f.load());
+            stage.setScene(scene);
+            stage.setResizable(false);
+
+            stage.show();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //BEI NULL POINTER CHECKEN, DASS AUCH ID IN FXML GEPFLEGT IST
+
         model = new Model();
         initButtonMap();
 
@@ -86,17 +115,16 @@ public class MainController implements Initializable {
                 correctPane(stackPaneImg.widthProperty().doubleValue(), (double) newPaneHeight);
             }
         });
-        
-        updateMap(false,false,false);
+
+        updateMap(false, false, false);
     }
 
     @FXML
     private void showDetails(ActionEvent e) {
-        
+
         Button raw = (Button) e.getSource();
         System.out.println(buttonMap.get(raw));
-        
-        
+
     }
 
     private void updateMap(boolean museum, boolean kino, boolean flohmarkt) {
@@ -107,7 +135,7 @@ public class MainController implements Initializable {
             for (Button b : valueToKey(orte)) {
                 b.setVisible(false);
             }
-        }else{
+        } else {
             orte = model.getType("museum");
             for (Button b : valueToKey(orte)) {
                 b.setVisible(true);
@@ -118,7 +146,7 @@ public class MainController implements Initializable {
             for (Button b : valueToKey(orte)) {
                 b.setVisible(false);
             }
-        }else{
+        } else {
             orte = model.getType("kino");
             for (Button b : valueToKey(orte)) {
                 b.setVisible(true);
@@ -194,7 +222,7 @@ public class MainController implements Initializable {
         for (Map.Entry<Button, String> entry : buttonMap.entrySet()) {
             Button b = entry.getKey();
             String ort = entry.getValue();
-            
+
             int x = model.getX(ort);
             int y = model.getY(ort);
             b.setLayoutX(x * scaleWidth);

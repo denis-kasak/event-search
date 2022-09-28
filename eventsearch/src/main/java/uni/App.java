@@ -19,6 +19,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         MainController c = new MainController();
         //TerminController t = new TerminController(stage);
+        
+        
         scene = new Scene(loadFXML("MainView"), 1200, 700);
         stage.setScene(scene);
         stage.setMaximized(true);
