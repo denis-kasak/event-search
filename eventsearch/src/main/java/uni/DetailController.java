@@ -57,6 +57,8 @@ public class DetailController implements Initializable {
                 } else {
                     detail.getStyleClass().add("label-EventDetails");
                 }
+                detail.setWrapText(true);
+                detail.setMaxWidth(600);
                 eventList.getChildren().add(detail);
             }
             Hyperlink termin = new Hyperlink();
