@@ -31,11 +31,13 @@ public class DetailController implements Initializable {
     private AnchorPane rootPane;
     @FXML
     private Scene scene;
-    
+    @FXML
+    private Label veranstalterName;
     @FXML
     private ScrollPane scrollPane;
 
     public void fillDetails(String ort) {
+        veranstalterName.setText(ort);
         List<List<String>> events = new ArrayList<>();
         events = Model.getEvents(ort);
         

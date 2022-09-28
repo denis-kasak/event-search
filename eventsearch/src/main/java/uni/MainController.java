@@ -35,9 +35,6 @@ import javafx.stage.Stage;
 public class MainController implements Initializable {
 
     @FXML
-    private Button test;
-
-    @FXML
     private ToggleButton tglAlle;
     @FXML
     private ToggleButton tglMuseum;
@@ -64,29 +61,6 @@ public class MainController implements Initializable {
     private float mapRatio = (float) 1.85; //Breite:Höhe -> mapRatio:1
     double trueImgWidth;
     double trueImgHeight;
-
-    @FXML
-    private void test() {
-        try {
-            //String ort
-            Stage stage = new Stage();
-
-//        Parent root = FXMLLoader.load(DetailController.class.getResource("DetailView.fxml"));
-//        scene = new Scene((Parent) root);
-            FXMLLoader f = new FXMLLoader();
-            f.setLocation(App.class.getResource("DetailView.fxml"));
-            Scene scene = new Scene(f.load());
-            
-            DetailController d = f.getController();
-            d.fillDetails("Berlinische Galerie");
-            scene.getStylesheets().add("../resource/design.css");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.show();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -124,8 +98,28 @@ public class MainController implements Initializable {
     @FXML
     private void showDetails(ActionEvent e) {
 
-        Button raw = (Button) e.getSource();
-        System.out.println(buttonMap.get(raw));
+        Button b = (Button) e.getSource();
+        String ort = buttonMap.get(b);
+        
+        try {
+            //String ort
+            Stage stage = new Stage();
+
+//        Parent root = FXMLLoader.load(DetailController.class.getResource("DetailView.fxml"));
+//        scene = new Scene((Parent) root);
+            FXMLLoader f = new FXMLLoader();
+            f.setLocation(App.class.getResource("DetailView.fxml"));
+            Scene scene = new Scene(f.load());
+            
+            DetailController d = f.getController();
+            d.fillDetails(ort);
+            scene.getStylesheets().add("../resource/design.css");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
