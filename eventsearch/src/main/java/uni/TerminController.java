@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -16,6 +17,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
@@ -38,6 +40,7 @@ public class TerminController implements Initializable {
     private ComboBox cbDauer;
     @FXML
     private Spinner<String> spinnerTime;
+    @FXML private DatePicker datePicker;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -81,15 +84,24 @@ public class TerminController implements Initializable {
         ));
     }
 
-    public void createEvent(String titel, String beschreibung, String datum, String dauer, String ort) {
+    public void createEvent(String titel, String ort, String datum,String zeit, String dauer) {
+        
+        datum=datum.replace("-",""); //aus YYYY-MM-DD mach YYYYMMDD
+        zeit=zeit.replace(":","")+"00";
+        
+        if(dauer.charAt(1)==','){
+            dauer = dauer.substring(0,1)+"H"+"30M";
+        }else{
+            dauer = dauer.substring(0,1)+"H";
+        }
+        
         String event = "BEGIN:VCALENDAR\n"
                 + System.lineSeparator() + "VERSION:2.0"
                 + System.lineSeparator() + "PRODID:-//ABC Corporation//NONSGML My Product//EN"
                 + System.lineSeparator() + "BEGIN:VEVENT"
                 + System.lineSeparator() + "SUMMARY:" + titel
-                + System.lineSeparator() + "DTSTART;TZID=America/New_York:20160420T120000"
-                + System.lineSeparator() + "DURATION:PT1H"
-                + System.lineSeparator() + "DESCRIPTION:" + beschreibung
+                + System.lineSeparator() + "DTSTART;TZID=Germany/Berlin:"+datum+"T"+zeit
+                + System.lineSeparator() + "DURATION:P"+dauer
                 + System.lineSeparator() + "LOCATION:" + ort
                 + System.lineSeparator() + "END:VEVENT"
                 + System.lineSeparator() + "END:VCALENDAR";
@@ -118,7 +130,17 @@ public class TerminController implements Initializable {
 
     @FXML
     private void saveTermin() {
-
+        String titel = txtTitel.getText();
+        String adresse = txtAdresse.getText();
+        LocalDate date = datePicker.getValue();
+        Object time = spinnerTime.getValue();
+        String dauer =(String) cbDauer.getValue();
+        System.out.println(titel);
+        System.out.println(adresse);
+        System.out.println(date);
+        System.out.println(time);
+        System.out.println(dauer);
+        createEvent(titel,adresse,date.toString(),time.toString(),dauer);
     }
 
     public void fillDetails(String ort, String titel) {
