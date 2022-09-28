@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -41,6 +42,7 @@ public class TerminController implements Initializable {
     @FXML
     private Spinner<String> spinnerTime;
     @FXML private DatePicker datePicker;
+    private String ort;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -84,9 +86,12 @@ public class TerminController implements Initializable {
         ));
     }
 
-    public void createEvent(String titel, String ort, String datum,String zeit, String dauer) {
+    public void createEvent(String titel, String ort, LocalDate date,LocalTime time, String dauer) {
         
+        String datum = date.toString();
         datum=datum.replace("-",""); //aus YYYY-MM-DD mach YYYYMMDD
+        time=time.minus(2,ChronoUnit.HOURS);
+        String zeit = time.toString();
         zeit=zeit.replace(":","")+"00";
         
         if(dauer.charAt(1)==','){
@@ -131,21 +136,18 @@ public class TerminController implements Initializable {
     @FXML
     private void saveTermin() {
         String titel = txtTitel.getText();
-        String adresse = txtAdresse.getText();
+        String adresse = ort+", "+txtAdresse.getText();
         LocalDate date = datePicker.getValue();
         Object time = spinnerTime.getValue();
         String dauer =(String) cbDauer.getValue();
-        System.out.println(titel);
-        System.out.println(adresse);
-        System.out.println(date);
-        System.out.println(time);
-        System.out.println(dauer);
-        createEvent(titel,adresse,date.toString(),time.toString(),dauer);
+        createEvent(titel,adresse,date, (LocalTime) time,dauer);
     }
 
     public void fillDetails(String ort, String titel) {
         txtTitel.setText(titel);
-
+        
+        this.ort=ort;
+        
         String adress = Model.getAdress(ort);
         txtAdresse.setText(adress);
     }
