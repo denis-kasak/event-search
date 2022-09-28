@@ -107,11 +107,11 @@ public class MainController implements Initializable {
 
 //        Parent root = FXMLLoader.load(DetailController.class.getResource("DetailView.fxml"));
 //        scene = new Scene((Parent) root);
-            FXMLLoader f = new FXMLLoader();
-            f.setLocation(App.class.getResource("DetailView.fxml"));
-            Scene scene = new Scene(f.load());
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("DetailView.fxml"));
+            Scene scene = new Scene(loader.load());
             
-            DetailController d = f.getController();
+            DetailController d = loader.getController();
             d.fillDetails(ort);
             scene.getStylesheets().add("../resource/design.css");
             stage.setScene(scene);

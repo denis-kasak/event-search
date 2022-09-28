@@ -149,4 +149,13 @@ public class Model {
         return ort;
 
     }
+
+    static String getAdress(String ort) {
+        if(museum.containsKey(ort)){
+            return (String) museum.get(ort).get("Adresse");
+        }else if(kino.containsKey(ort)){
+            return (String) kino.get(ort).get("Adresse");
+        }
+        return null;
+    }
 }

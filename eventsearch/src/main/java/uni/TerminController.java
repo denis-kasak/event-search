@@ -7,32 +7,30 @@ package uni;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javafx.scene.Scene;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
-import static uni.App.loadFXML;
-import static uni.App.scene;
 
 /**
  *
  * @author d-kas
  */
-public class TerminController {
+public class TerminController implements Initializable{
 
     Stage stage;
-
-    public TerminController(Stage stage) throws IOException {
-        stage = new Stage();
-        scene = new Scene(loadFXML("TerminView"));
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void initWindow(String titel, String adresse, String datum, String ort) throws IOException {
+    @FXML private TextField txtTitel;
+    @FXML private TextField txtAdresse;
+    
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
     }
-
+    
     public void createEvent(String titel, String beschreibung, String datum, String dauer, String ort) {
         String event = "BEGIN:VCALENDAR\n"
                 + System.lineSeparator() + "VERSION:2.0"
@@ -66,5 +64,12 @@ public class TerminController {
             }
         }
 
+    }
+
+    void fillDetails(String ort, String titel) {
+        txtTitel.setText(titel);
+        
+        String adress = Model.getAdress(ort);
+        txtAdresse.setText(adress);
     }
 }
