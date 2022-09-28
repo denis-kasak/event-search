@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="677.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.DetailController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="677.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.DetailController">
    <children>
       <AnchorPane layoutX="-3.0" layoutY="-1.0" prefHeight="545.0" prefWidth="681.0" style="-fx-front-family: DIN AlternateDIN Alternate;">
          <children>
@@ -35,64 +33,9 @@
                <children>
                   <ScrollPane hbarPolicy="NEVER" layoutX="3.0" layoutY="-2.0" prefHeight="448.0" prefWidth="676.0" stylesheets="@design.css" vbarPolicy="ALWAYS">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="725.0" prefWidth="367.0" style="-fx-background-color: transparent;">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="446.0" prefWidth="367.0" style="-fx-background-color: transparent;">
                            <children>
-                              <VBox fx:id="eventList" layoutX="43.0" layoutY="3.0" prefHeight="718.0" prefWidth="298.0" style="-fx-background-color: transparent;">
-                                 <children>
-                                    <Label fx:id="eventTitel" prefHeight="61.0" prefWidth="298.0" styleClass="label-EventTitel" stylesheets="@design.css" text="Sibylle Bergemann ">
-
-                                       <font>
-                                          <Font name="Arial" size="22.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </Label>
-
-                                    <Label fx:id="eventDetail1" prefHeight="31.0" prefWidth="301.0" styleClass="label-EventDetails" stylesheets="@design.css" text="Stadt Land Hund">
-                                       <font>
-                                          <Font name="DIN Alternate Bold" size="20.0" />
-
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </Label>
-
-                                    <Label fx:id="eventDetail2" prefWidth="299.0" styleClass="label-EventDetails" stylesheets="@design.css" text="Fotografien 1966-2010">
-                                       <font>
-                                          <Font name="DIN Alternate Bold" size="20.0" />
-
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </Label>
-                                    <Label fx:id="eventDetail3" styleClass="label-EventDetails" stylesheets="@design.css" text="bis 10.10.22">
-                                       <font>
-                                          <Font name="DIN Alternate Bold" size="20.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </Label>
-                                    <Hyperlink prefHeight="41.0" prefWidth="228.0" styleClass="hyper-link-termin" stylesheets="@design.css" text="Termin erstellen " />
-                                    <Label styleClass="label-EventTitel" stylesheets="@design.css" text="Pallavi Paul" />
-                                    <Label styleClass="label-EventDetails" stylesheets="@design.css" text="Im IBB-Videoraum" />
-                                    <Label styleClass="label-EventDetails" stylesheets="@design.css" text="bis 17.10.22" />
-                                    <Hyperlink styleClass="hyper-link-termin" stylesheets="@design.css" text="Termin erstellen" />
-                                    <Label styleClass="label-EventTitel" stylesheets="@design.css" text="ZusammenSpiel" />
-                                    <Label styleClass="label-EventDetails" stylesheets="@design.css" text="Tabea Blumenschein" />
-                                    <Label styleClass="label-EventDetails" stylesheets="@design.css" text="Ulrike Ottinger" />
-                                    <Label styleClass="label-EventDetails" stylesheets="@design.css" text="bis 31.10.22" />
-                                    <Hyperlink styleClass="hyper-link-termin" stylesheets="@design.css" text="Termin erstellen" />
-                                    <Label styleClass="label-EventTitel" stylesheets="@design.css" text="Kunst in Berlin" />
-                                    <Label styleClass="label-EventDetails" stylesheets="@design.css" text="1880-1980" />
-                                    <Label styleClass="label-EventDetails" stylesheets="@design.css" text="Dauerausstellung" />
-                                    <Hyperlink styleClass="hyper-link-termin" stylesheets="@design.css" text="Termin erstellen " />
-                                    <Hyperlink styleClass="hyper-link-info" stylesheets="@design.css" text="Mehr Infos hier." />
-                                 </children>
-                              </VBox>
+                              <VBox fx:id="eventList" layoutX="35.0" layoutY="6.0" prefHeight="446.0" prefWidth="298.0" style="-fx-background-color: transparent;" />
                            </children>
                         </AnchorPane>
                     </content>

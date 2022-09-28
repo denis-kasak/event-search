@@ -15,15 +15,13 @@ import java.util.Map;
  */
 public class Model {
 
-    public Map<String, Map<String, Object>> museum = new HashMap<>();
+    public static Map<String, Map<String, Object>> museum = new HashMap<>();
 
-    public Map<String, Map<String, Object>> kino = new HashMap<>();
+    public static Map<String, Map<String, Object>> kino = new HashMap<>();
 
-    public Model() {
-        initEvents();
-    }
+    private static boolean init = false;
 
-    public List<String> getType(String type) {
+    public static List<String> getAllType(String type) {
         List<String> orte = new ArrayList<>();
 
         if (type.equals("museum")) {
@@ -38,7 +36,18 @@ public class Model {
         return orte;
     }
 
-    public int getX(String ort) {
+    public static List<List<String>> getEvents(String ort) {
+        
+        if (museum.containsKey(ort)) {
+            return (List<List<String>>) museum.get(ort).get("Events");
+        } else if (kino.containsKey(ort)) {
+            return (List<List<String>>) kino.get(ort).get("Events");
+        }
+        return null;
+
+    }
+
+    public static int getX(String ort) {
 
         if (museum.containsKey(ort)) {
             return (int) museum.get(ort).get("x");
@@ -55,7 +64,7 @@ public class Model {
 
     }
 
-    public int getY(String ort) {
+    public static int getY(String ort) {
 
         if (museum.containsKey(ort)) {
             return (int) museum.get(ort).get("y");
@@ -72,7 +81,7 @@ public class Model {
 
     }
 
-    private void initEvents() {
+    public static void initEvents() {
 
         //Berlinische Galerie
         List<List<String>> events = BerlinischeGalerie.getEvents();
@@ -125,7 +134,7 @@ public class Model {
 
     }
 
-    private Map<String, Object> createOrt(String adresse, int x, int y, List<List<String>> events) {
+    private static Map<String, Object> createOrt(String adresse, int x, int y, List<List<String>> events) {
 
         Map<String, Object> ort = new HashMap<>();
 

@@ -18,7 +18,6 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         MainController c = new MainController();
-        //TerminController t = new TerminController(stage);
         
         
         scene = new Scene(loadFXML("MainView"), 1200, 700);

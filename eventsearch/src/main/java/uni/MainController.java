@@ -60,7 +60,6 @@ public class MainController implements Initializable {
     @FXML
     private Button btnBodeMuseum, btnUciLux, btnAltMuseum, btnFriedKirche, btnGemGalerie, btnHambBahnhof, btnJamSimGalerie, btnKunstBib, btnKunstGewMuseum, btnKupfKabinett, btnMuseumFoto, btnNeuNatGalerie, btnNeuMuseum, btnPergMuseum, btnPergMusPanoram, btnHumbForum, btnBerlGalerie, btnAltNatGalerie;
 
-    private Model model;
     private Map<Button, String> buttonMap;
     private float mapRatio = (float) 1.85; //Breite:Höhe -> mapRatio:1
     double trueImgWidth;
@@ -77,11 +76,13 @@ public class MainController implements Initializable {
             FXMLLoader f = new FXMLLoader();
             f.setLocation(App.class.getResource("DetailView.fxml"));
             Scene scene = new Scene(f.load());
+            
+            DetailController d = f.getController();
+            d.fillDetails("Berlinische Galerie");
+            
             stage.setScene(scene);
             stage.setResizable(false);
-
             stage.show();
-
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -91,7 +92,8 @@ public class MainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //BEI NULL POINTER CHECKEN, DASS AUCH ID IN FXML GEPFLEGT IST
 
-        model = new Model();
+        Model.initEvents();
+
         initButtonMap();
 
         imgBerlin.fitWidthProperty().bind(stackPaneImg.widthProperty());
@@ -131,23 +133,23 @@ public class MainController implements Initializable {
         List<String> orte = new ArrayList<String>();
 
         if (!museum) {
-            orte = model.getType("museum");
+            orte = Model.getAllType("museum");
             for (Button b : valueToKey(orte)) {
                 b.setVisible(false);
             }
         } else {
-            orte = model.getType("museum");
+            orte = Model.getAllType("museum");
             for (Button b : valueToKey(orte)) {
                 b.setVisible(true);
             }
         }
         if (!kino) {
-            orte = model.getType("kino");
+            orte = Model.getAllType("kino");
             for (Button b : valueToKey(orte)) {
                 b.setVisible(false);
             }
         } else {
-            orte = model.getType("kino");
+            orte = Model.getAllType("kino");
             for (Button b : valueToKey(orte)) {
                 b.setVisible(true);
             }
@@ -223,8 +225,8 @@ public class MainController implements Initializable {
             Button b = entry.getKey();
             String ort = entry.getValue();
 
-            int x = model.getX(ort);
-            int y = model.getY(ort);
+            int x = Model.getX(ort);
+            int y = Model.getY(ort);
             b.setLayoutX(x * scaleWidth);
             b.setLayoutY(y * scaleHeight);
         }
