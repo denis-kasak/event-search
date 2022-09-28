@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.application.HostServices;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,17 +29,15 @@ import javafx.stage.Stage;
  */
 public class DetailController implements Initializable {
 
-    Stage stage;
-    Model model;
-
-    @FXML
-    private AnchorPane rootPane;
-    @FXML
-    private Scene scene;
+    private HostServices hostServices;
     @FXML
     private Label veranstalterName;
     @FXML
     private ScrollPane scrollPane;
+
+    public void setHostServices(HostServices hostServices) {
+        this.hostServices = hostServices;
+    }
 
     public void fillDetails(String ort) {
         veranstalterName.setText(ort);
@@ -74,7 +73,7 @@ public class DetailController implements Initializable {
                         Scene scene = new Scene(loader.load());
 
                         TerminController t = loader.getController();
-                        t.fillDetails(ort,event.get(0));
+                        t.fillDetails(ort, event.get(0));
                         Stage stage = new Stage();
                         stage.setScene(scene);
                         stage.show();
@@ -86,12 +85,22 @@ public class DetailController implements Initializable {
             });
             eventList.getChildren().add(termin);
         }
+        Hyperlink weblink = new Hyperlink();
+        weblink.setText("Zur Webseite");
+        weblink.getStyleClass().add("hyper-link-info");
+        weblink.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+
+                hostServices.showDocument(Model.getLink(ort));
+            }
+        });
+        eventList.getChildren().add(weblink);
         AnchorPane anchorEvents = new AnchorPane();
         anchorEvents.getChildren().add(eventList);
         scrollPane.setContent(anchorEvents);
 
     }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

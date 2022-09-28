@@ -85,26 +85,26 @@ public class Model {
 
         //Berlinische Galerie
         List<List<String>> events = BerlinischeGalerie.getEvents();
-        museum.put("Berlinische Galerie", createOrt("Alte Jakobstraße 124-128, 10969 Berlin", 828, 669, events));
+        museum.put("Berlinische Galerie", createOrt("Alte Jakobstraße 124-128, 10969 Berlin", 828, 669, events,"https://berlinischegalerie.de/ausstellungen/aktuell/"));
 
         //Staatliche Museen zu Berlin
         events = Smb.getEvents();
-        museum.put("Alte Nationalgalerie", createOrt("Bodestraße 1-3, 10178 Berlin", 834, 363, null));
-        museum.put("Altes Museum", createOrt("Bodestraße 1-3, 10178 Berlin", 838, 395, null));
-        museum.put("Bode-Museum", createOrt("Am Kupfergraben, 10117 Berlin", 793, 340, null));
-        museum.put("Friedrichswerdersche Kirche", createOrt("Werderscher Markt, 10117 Berlin", 823, 448, null));
-        museum.put("Gemäldegalerie", createOrt("Matthäikirchplatz, 10785 Berlin", 475, 590, null));
-        museum.put("Hamburger Bahnhof – Museum für Gegenwart – Berlin", createOrt("Invalidenstraße 50-51, 10557 Berlin", 546, 230, null));
-        museum.put("Humboldt Forum", createOrt("Schlossplatz, 10178 Berlin", 865, 415, null));
-        museum.put("James-Simon-Galerie", createOrt("Bodestraße, 10178 Berlin", 818, 375, null));
-        museum.put("Kunstbibliothek", createOrt("Matthäikirchplatz 6, 10785 Berlin", 487, 585, null));
-        museum.put("Kunstgewerbemuseum", createOrt("Matthäikirchplatz, 10785 Berlin", 489, 560, null));
-        museum.put("Kupferstichkabinett", createOrt("Gemäldegalerie, Matthäikirchplatz, 10785 Berlin", 475, 570, null));
-        museum.put("Museum für Fotografie", createOrt("Jebensstraße 2, 10623 Berlin", 100, 600, null));
-        museum.put("Neue Nationalgalerie", createOrt("Potsdamer Str. 50, 10785 Berlin", 495, 608, null));
-        museum.put("Neues Museum", createOrt("Bodestraße 1-3, 10178 Berlin", 832, 382, null));
-        museum.put("Pergamonmuseum", createOrt("Bodestraße 1-3, 10178 Berlin", 816, 355, null));
-        museum.put("Pergamonmuseum. Das Panorama", createOrt("Am Kupfergraben 2, 10117 Berlin", 775, 350, null));
+        museum.put("Alte Nationalgalerie", createOrt("Bodestraße 1-3, 10178 Berlin", 834, 363, null,"https://www.smb.museum/museen-einrichtungen/alte-nationalgalerie/home/"));
+        museum.put("Altes Museum", createOrt("Bodestraße 1-3, 10178 Berlin", 838, 395, null,"https://www.smb.museum/museen-einrichtungen/altes-museum/home/"));
+        museum.put("Bode-Museum", createOrt("Am Kupfergraben, 10117 Berlin", 793, 340, null,"https://www.smb.museum/museen-einrichtungen/bode-museum/home/"));
+        museum.put("Friedrichswerdersche Kirche", createOrt("Werderscher Markt, 10117 Berlin", 823, 448, null,"https://www.smb.museum/museen-einrichtungen/friedrichswerdersche-kirche/home/"));
+        museum.put("Gemäldegalerie", createOrt("Matthäikirchplatz, 10785 Berlin", 475, 590, null,"https://www.smb.museum/museen-einrichtungen/gemaeldegalerie/home/"));
+        museum.put("Hamburger Bahnhof – Museum für Gegenwart – Berlin", createOrt("Invalidenstraße 50-51, 10557 Berlin", 546, 230, null,"https://www.smb.museum/museen-einrichtungen/hamburger-bahnhof/home/"));
+        museum.put("Humboldt Forum", createOrt("Schlossplatz, 10178 Berlin", 865, 415, null,"https://www.humboldtforum.org/de/programm/"));
+        museum.put("James-Simon-Galerie", createOrt("Bodestraße, 10178 Berlin", 818, 375, null,"https://www.smb.museum/museen-einrichtungen/james-simon-galerie/home/"));
+        museum.put("Kunstbibliothek", createOrt("Matthäikirchplatz 6, 10785 Berlin", 487, 585, null,"https://www.smb.museum/museen-einrichtungen/kunstbibliothek/home/"));
+        museum.put("Kunstgewerbemuseum", createOrt("Matthäikirchplatz, 10785 Berlin", 489, 560, null,"https://www.smb.museum/museen-einrichtungen/kunstgewerbemuseum/home/"));
+        museum.put("Kupferstichkabinett", createOrt("Gemäldegalerie, Matthäikirchplatz, 10785 Berlin", 475, 570, null,"https://www.smb.museum/museen-einrichtungen/kupferstichkabinett/home/"));
+        museum.put("Museum für Fotografie", createOrt("Jebensstraße 2, 10623 Berlin", 100, 600, null,"https://www.smb.museum/museen-einrichtungen/museum-fuer-fotografie/home/"));
+        museum.put("Neue Nationalgalerie", createOrt("Potsdamer Str. 50, 10785 Berlin", 495, 608, null,"https://www.smb.museum/museen-einrichtungen/neue-nationalgalerie/home/"));
+        museum.put("Neues Museum", createOrt("Bodestraße 1-3, 10178 Berlin", 832, 382, null,"https://www.smb.museum/museen-einrichtungen/neues-museum/home/"));
+        museum.put("Pergamonmuseum", createOrt("Bodestraße 1-3, 10178 Berlin", 816, 355, null,"https://www.smb.museum/museen-einrichtungen/pergamonmuseum/home/"));
+        museum.put("Pergamonmuseum. Das Panorama", createOrt("Am Kupfergraben 2, 10117 Berlin", 775, 350, null,"https://www.smb.museum/museen-einrichtungen/pergamonmuseum-das-panorama/home/"));
 
         for (int i = 0; i < events.size(); i++) {
             String ort = events.get(i).get(0);
@@ -130,11 +130,21 @@ public class Model {
 
         //UCI Kino
         events = Uci.getEvents();
-        kino.put("UCI Kino Berlin - Mercedes Platz | Luxe", createOrt("Märkische Allee 176 - 178 , 12681 Berlin", 1316, 625, events));
+        kino.put("UCI Kino Berlin - Mercedes Platz | Luxe", createOrt("Märkische Allee 176 - 178 , 12681 Berlin", 1316, 625, events,"https://www.uci-kinowelt.de/kinoprogramm/berlin-mercedes-platz/82/day"));
 
     }
-
-    private static Map<String, Object> createOrt(String adresse, int x, int y, List<List<String>> events) {
+    
+    public static String getLink(String ort){
+        if(museum.containsKey(ort)){
+            return (String) museum.get(ort).get("link");
+        }else if(kino.containsKey(ort)){
+            return (String) kino.get(ort).get("link");
+        }else{
+            return null;
+        }
+    }
+    
+    private static Map<String, Object> createOrt(String adresse, int x, int y, List<List<String>> events,String link) {
 
         Map<String, Object> ort = new HashMap<>();
 
@@ -145,6 +155,8 @@ public class Model {
         if (events != null) {
             ort.put("Events", events);
         }
+        
+        ort.put("link",link);
 
         return ort;
 

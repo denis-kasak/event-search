@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+import javafx.application.HostServices;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -61,6 +62,7 @@ public class MainController implements Initializable {
     private float mapRatio = (float) 1.85; //Breite:Höhe -> mapRatio:1
     double trueImgWidth;
     double trueImgHeight;
+    private HostServices hostServices;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -94,6 +96,10 @@ public class MainController implements Initializable {
 
         updateMap(false, false, false);
     }
+    
+    public void setHostServices(HostServices hostServices){
+        this.hostServices=hostServices;
+    }
 
     @FXML
     private void showDetails(ActionEvent e) {
@@ -113,6 +119,7 @@ public class MainController implements Initializable {
             
             DetailController d = loader.getController();
             d.fillDetails(ort);
+            d.setHostServices(hostServices);
             scene.getStylesheets().add("../resource/design.css");
             stage.setScene(scene);
             stage.setResizable(false);

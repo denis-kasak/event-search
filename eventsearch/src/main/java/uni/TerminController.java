@@ -11,7 +11,6 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -41,7 +40,8 @@ public class TerminController implements Initializable {
     private ComboBox cbDauer;
     @FXML
     private Spinner<String> spinnerTime;
-    @FXML private DatePicker datePicker;
+    @FXML
+    private DatePicker datePicker;
     private String ort;
 
     @Override
@@ -50,7 +50,7 @@ public class TerminController implements Initializable {
         SpinnerValueFactory valueFactory = new SpinnerValueFactory<LocalTime>() {
             {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-                setConverter(new LocalTimeStringConverter(formatter,null));
+                setConverter(new LocalTimeStringConverter(formatter, null));
             }
 
             @Override
@@ -76,37 +76,30 @@ public class TerminController implements Initializable {
         };
         spinnerTime.setValueFactory(valueFactory);
 
-        cbDauer.setItems(FXCollections.observableArrayList(
-                new String("0,5 Stunden"),
-                new String("1 Stunde"),
-                new String("1,5 Stunden"),
-                new String("2 Stunden"),
-                new String("2,5 Stunden"),
-                new String("3 Stunden")
-        ));
+        cbDauer.setItems(FXCollections.observableArrayList("0,5 Stunden", "1 Stunde", "1,5 Stunden", "2 Stunden", "2,5 Stunden", "3 Stunden"));
     }
 
-    public void createEvent(String titel, String ort, LocalDate date,LocalTime time, String dauer) {
-        
+    public void createEvent(String titel, String ort, LocalDate date, LocalTime time, String dauer) {
+
         String datum = date.toString();
-        datum=datum.replace("-",""); //aus YYYY-MM-DD mach YYYYMMDD
-        time=time.minus(2,ChronoUnit.HOURS);
+        datum = datum.replace("-", ""); //aus YYYY-MM-DD mach YYYYMMDD
+        time = time.minus(2, ChronoUnit.HOURS);
         String zeit = time.toString();
-        zeit=zeit.replace(":","")+"00";
-        
-        if(dauer.charAt(1)==','){
-            dauer = dauer.substring(0,1)+"H"+"30M";
-        }else{
-            dauer = dauer.substring(0,1)+"H";
+        zeit = zeit.replace(":", "") + "00";
+
+        if (dauer.charAt(1) == ',') {
+            dauer = dauer.substring(0, 1) + "H" + "30M";
+        } else {
+            dauer = dauer.substring(0, 1) + "H";
         }
-        
+
         String event = "BEGIN:VCALENDAR\n"
                 + System.lineSeparator() + "VERSION:2.0"
                 + System.lineSeparator() + "PRODID:-//ABC Corporation//NONSGML My Product//EN"
                 + System.lineSeparator() + "BEGIN:VEVENT"
                 + System.lineSeparator() + "SUMMARY:" + titel
-                + System.lineSeparator() + "DTSTART;TZID=Germany/Berlin:"+datum+"T"+zeit
-                + System.lineSeparator() + "DURATION:P"+dauer
+                + System.lineSeparator() + "DTSTART;TZID=Germany/Berlin:" + datum + "T" + zeit
+                + System.lineSeparator() + "DURATION:P" + dauer
                 + System.lineSeparator() + "LOCATION:" + ort
                 + System.lineSeparator() + "END:VEVENT"
                 + System.lineSeparator() + "END:VCALENDAR";
@@ -136,18 +129,18 @@ public class TerminController implements Initializable {
     @FXML
     private void saveTermin() {
         String titel = txtTitel.getText();
-        String adresse = ort+", "+txtAdresse.getText();
+        String adresse = ort + ", " + txtAdresse.getText();
         LocalDate date = datePicker.getValue();
         Object time = spinnerTime.getValue();
-        String dauer =(String) cbDauer.getValue();
-        createEvent(titel,adresse,date, (LocalTime) time,dauer);
+        String dauer = (String) cbDauer.getValue();
+        createEvent(titel, adresse, date, (LocalTime) time, dauer);
     }
 
     public void fillDetails(String ort, String titel) {
         txtTitel.setText(titel);
-        
-        this.ort=ort;
-        
+
+        this.ort = ort;
+
         String adress = Model.getAdress(ort);
         txtAdresse.setText(adress);
     }

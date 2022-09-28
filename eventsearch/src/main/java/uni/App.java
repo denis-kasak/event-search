@@ -17,21 +17,17 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        MainController c = new MainController();
-        
-        
-        scene = new Scene(loadFXML("MainView"), 1200, 700);
+
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("MainView.fxml"));
+        scene = new Scene(fxmlLoader.load(), 1200, 700);
+        MainController c = fxmlLoader.getController();
+        c.setHostServices(getHostServices());
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.getIcons().add(new Image(App.class.getResourceAsStream("logo.png")));
         stage.setTitle("Event Search");
         stage.show();
-        
-    }
 
-    public static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
     }
 
     public static void main(String[] args) {
