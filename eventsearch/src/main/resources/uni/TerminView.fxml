@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="518.0" style="-fx-background-color: white; -fx-font-family: &quot;Trebuchet MS&quot;;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="518.0" style="-fx-background-color: white; -fx-font-family: &quot;Trebuchet MS&quot;;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.TerminController">
    <children>
       <Label layoutX="105.0" layoutY="11.0" prefHeight="38.0" prefWidth="289.0" text="TERMINERSTELLUNG">
          <font>
@@ -60,12 +60,12 @@
                         <Font name="Trebuchet MS Bold" size="23.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txfTitel" layoutX="132.0" layoutY="20.0" prefHeight="28.0" prefWidth="164.0" styleClass="Text-Fields" stylesheets="@design.css" />
-                  <TextField fx:id="txfAdresse" layoutX="132.0" layoutY="74.0" prefHeight="28.0" prefWidth="162.0" styleClass="Text-Fields" stylesheets="@design.css" />
+                  <TextField fx:id="txtTitel" layoutX="132.0" layoutY="20.0" prefHeight="28.0" prefWidth="164.0" styleClass="Text-Fields" stylesheets="@design.css" />
+                  <TextField fx:id="txtAdresse" layoutX="132.0" layoutY="74.0" prefHeight="28.0" prefWidth="162.0" styleClass="Text-Fields" stylesheets="@design.css" />
                   <DatePicker fx:id="datePicker" layoutX="132.0" layoutY="123.0" prefHeight="27.0" prefWidth="162.0" />
-                  <Spinner fx:id="timeSpinner" layoutX="133.0" layoutY="179.0" prefHeight="26.0" prefWidth="115.0" />
+                  <Spinner fx:id="spinnerTime" editable="true" layoutX="133.0" layoutY="179.0" prefHeight="26.0" prefWidth="115.0" />
                   <ComboBox fx:id="cbDauer" layoutX="261.0" layoutY="179.0" prefHeight="24.0" prefWidth="125.0" value="0,5 Stunden" />
-                  <Button fx:id="btnSpeichern" layoutX="154.0" layoutY="226.0" mnemonicParsing="false" style="-fx-font-family: &quot;Trebuchet MS&quot;;" text="Speichern">
+                  <Button fx:id="btnSpeichern" layoutX="154.0" layoutY="226.0" mnemonicParsing="false" onAction="#saveTermin" style="-fx-font-family: &quot;Trebuchet MS&quot;;" text="Speichern">
                      <font>
                         <Font name="DIN Alternate Bold" size="15.0" />
                      </font>

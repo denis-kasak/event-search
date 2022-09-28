@@ -7,41 +7,98 @@ package uni;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javafx.scene.Scene;
+import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
-import static uni.App.loadFXML;
-import static uni.App.scene;
+import javafx.util.converter.LocalTimeStringConverter;
 
 /**
  *
  * @author d-kas
  */
-public class TerminController {
+public class TerminController implements Initializable {
 
     Stage stage;
+    @FXML
+    private TextField txtTitel;
+    @FXML
+    private TextField txtAdresse;
+    @FXML
+    private ComboBox cbDauer;
+    @FXML
+    private Spinner<String> spinnerTime;
+    @FXML
+    private DatePicker datePicker;
 
-    public TerminController(Stage stage) throws IOException {
-        stage = new Stage();
-        scene = new Scene(loadFXML("TerminView"));
-        stage.setScene(scene);
-        stage.show();
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        SpinnerValueFactory valueFactory = new SpinnerValueFactory<LocalTime>() {
+            {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+                setConverter(new LocalTimeStringConverter(formatter, null));
+            }
+
+            @Override
+            public void decrement(int steps) {
+                if (getValue() == null) {
+                    setValue(LocalTime.now());
+                } else {
+                    LocalTime time = (LocalTime) getValue();
+                    setValue(time.minusMinutes(steps));
+                }
+            }
+
+            @Override
+            public void increment(int steps) {
+                if (this.getValue() == null) {
+                    setValue(LocalTime.now());
+                } else {
+                    LocalTime time = (LocalTime) getValue();
+                    setValue(time.plusMinutes(steps));
+                }
+            }
+
+        };
+        spinnerTime.setValueFactory(valueFactory);
+
+        cbDauer.setItems(FXCollections.observableArrayList("0,5 Stunden", "1 Stunde", "1,5 Stunden", "2 Stunden", "2,5 Stunden", "3 Stunden"));
     }
 
-    public void initWindow(String titel, String adresse, String datum, String ort) throws IOException {
+    public void createEvent(String titel, String ort, LocalDate date, LocalTime time, String dauer) {
 
-    }
+        String datum = date.toString();
+        datum = datum.replace("-", ""); //aus YYYY-MM-DD mach YYYYMMDD
+        time = time.minus(2, ChronoUnit.HOURS);
+        String zeit = time.toString();
+        zeit = zeit.replace(":", "") + "00";
 
-    public void createEvent(String titel, String beschreibung, String datum, String dauer, String ort) {
+        if (dauer.charAt(1) == ',') {
+            dauer = dauer.substring(0, 1) + "H" + "30M";
+        } else {
+            dauer = dauer.substring(0, 1) + "H";
+        }
+
         String event = "BEGIN:VCALENDAR\n"
                 + System.lineSeparator() + "VERSION:2.0"
                 + System.lineSeparator() + "PRODID:-//ABC Corporation//NONSGML My Product//EN"
                 + System.lineSeparator() + "BEGIN:VEVENT"
                 + System.lineSeparator() + "SUMMARY:" + titel
-                + System.lineSeparator() + "DTSTART;TZID=America/New_York:20160420T120000"
-                + System.lineSeparator() + "DURATION:PT1H"
-                + System.lineSeparator() + "DESCRIPTION:" + beschreibung
+                + System.lineSeparator() + "DTSTART;TZID=Germany/Berlin:" + datum + "T" + zeit
+                + System.lineSeparator() + "DURATION:P" + dauer
                 + System.lineSeparator() + "LOCATION:" + ort
                 + System.lineSeparator() + "END:VEVENT"
                 + System.lineSeparator() + "END:VCALENDAR";
@@ -66,5 +123,22 @@ public class TerminController {
             }
         }
 
+    }
+
+    @FXML
+    private void saveTermin() {
+        String titel = txtTitel.getText();
+        String adresse = txtAdresse.getText();
+        LocalDate date = datePicker.getValue();
+        Object time = spinnerTime.getValue();
+        String dauer = (String) cbDauer.getValue();
+        createEvent(titel, adresse, date, (LocalTime) time, dauer);
+    }
+
+    public void fillDetails(String ort, String titel) {
+        txtTitel.setText(titel);
+
+        String adress = ort + ", " +Model.getAdress(ort);
+        txtAdresse.setText(adress);
     }
 }

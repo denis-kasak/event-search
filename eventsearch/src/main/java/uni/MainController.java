@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+import javafx.application.HostServices;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -22,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -55,12 +57,13 @@ public class MainController implements Initializable {
     @FXML
     private AnchorPane paneRoot;
     @FXML
-    private Button btnBodeMuseum, btnUciLux, btnAltMuseum, btnFriedKirche, btnGemGalerie, btnHambBahnhof, btnJamSimGalerie, btnKunstBib, btnKunstGewMuseum, btnKupfKabinett, btnMuseumFoto, btnNeuNatGalerie, btnNeuMuseum, btnPergMuseum, btnPergMusPanoram, btnHumbForum, btnBerlGalerie, btnAltNatGalerie;
+    private Button btnMarktRaw, btnMarktHalle, btnMarktMarheineke, btnMarktFehrbelliner, btnMarktMaybach, btnMarktJuni, btnMarktBode, btnBodeMuseum, btnUciLux, btnAltMuseum, btnFriedKirche, btnGemGalerie, btnHambBahnhof, btnJamSimGalerie, btnKunstBib, btnKunstGewMuseum, btnKupfKabinett, btnMuseumFoto, btnNeuNatGalerie, btnNeuMuseum, btnPergMuseum, btnPergMusPanoram, btnHumbForum, btnBerlGalerie, btnAltNatGalerie;
 
     private Map<Button, String> buttonMap;
     private float mapRatio = (float) 1.85; //Breite:Höhe -> mapRatio:1
     double trueImgWidth;
     double trueImgHeight;
+    private HostServices hostServices;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -95,27 +98,34 @@ public class MainController implements Initializable {
         updateMap(false, false, false);
     }
 
+    public void setHostServices(HostServices hostServices) {
+        this.hostServices = hostServices;
+    }
+
     @FXML
     private void showDetails(ActionEvent e) {
 
         Button b = (Button) e.getSource();
         String ort = buttonMap.get(b);
-        
+
         try {
             //String ort
             Stage stage = new Stage();
 
 //        Parent root = FXMLLoader.load(DetailController.class.getResource("DetailView.fxml"));
 //        scene = new Scene((Parent) root);
-            FXMLLoader f = new FXMLLoader();
-            f.setLocation(App.class.getResource("DetailView.fxml"));
-            Scene scene = new Scene(f.load());
-            
-            DetailController d = f.getController();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("DetailView.fxml"));
+            Scene scene = new Scene(loader.load());
+
+            DetailController d = loader.getController();
             d.fillDetails(ort);
+            d.setHostServices(hostServices);
             scene.getStylesheets().add("../resource/design.css");
             stage.setScene(scene);
             stage.setResizable(false);
+            stage.getIcons().add(new Image(App.class.getResourceAsStream("logo.png")));
+            stage.setTitle(ort);
             stage.show();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -144,6 +154,17 @@ public class MainController implements Initializable {
             }
         } else {
             orte = Model.getAllType("kino");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(true);
+            }
+        }
+        if (!flohmarkt) {
+            orte = Model.getAllType("flohmarkt");
+            for (Button b : valueToKey(orte)) {
+                b.setVisible(false);
+            }
+        } else {
+            orte = Model.getAllType("flohmarkt");
             for (Button b : valueToKey(orte)) {
                 b.setVisible(true);
             }
@@ -190,6 +211,15 @@ public class MainController implements Initializable {
         buttonMap.put(btnHumbForum, "Humboldt Forum");
         buttonMap.put(btnBerlGalerie, "Berlinische Galerie");
         buttonMap.put(btnAltNatGalerie, "Alte Nationalgalerie");
+        
+        //Flohmärkte
+        buttonMap.put(btnMarktBode, "Antik- und Buchmarkt am Bode-Museum");
+        buttonMap.put(btnMarktFehrbelliner, "Kunst- & Trödelmarkt Fehrbelliner Platz");
+        buttonMap.put(btnMarktHalle, "Hallenflohmarkt an der Arena");
+        buttonMap.put(btnMarktJuni, "Trödelmarkt Straße des 17. Juni");
+        buttonMap.put(btnMarktMarheineke, "Trödelmarkt Marheinekeplatz");
+        buttonMap.put(btnMarktMaybach, "Neuköllner Wochenmarkte Maybachufer");
+        buttonMap.put(btnMarktRaw, "RAW Flohmarkt");
 
     }
 
