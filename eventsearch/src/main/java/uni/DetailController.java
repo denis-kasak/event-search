@@ -79,6 +79,7 @@ public class DetailController implements Initializable {
                         stage.setScene(scene);
                         stage.getIcons().add(new Image(App.class.getResourceAsStream("logo.png")));
                         stage.setTitle("Terminerstellung");
+                        stage.setResizable(false);
                         stage.show();
                     } catch (IOException ex) {
                         ex.printStackTrace();
