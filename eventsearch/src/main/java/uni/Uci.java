@@ -5,6 +5,7 @@
 package uni;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -85,11 +86,12 @@ public class Uci {
     static private List<List<String>> formatEvents(List<List<String>> events) {
 
         for (int i = 0; i < events.size(); i++) {
-            String title = events.get(i).get(1);
-
+            String title = events.get(i).get(0);
+            
+            //Merge zwei Filme, wenn sie denselben Titel haben. Nötig weil ein Film manchmal mehrere Listen hat
             for (int j = i + 1; j < events.size(); j++) {
-                if (events.get(j).get(1).equals(title)) {
-                    for (int k = 2; k < events.get(j).size(); k++) {
+                if (events.get(j).get(0).equals(title)) {
+                    for (int k = 1; k < events.get(j).size(); k++) {
                         events.get(i).add(events.get(j).get(k));
                     }
                     events.remove(j);
@@ -101,18 +103,22 @@ public class Uci {
 
         for (int i = 0; i < events.size(); i++) {
             List<String> event = new ArrayList<>();
-            event = events.get(i).subList(0, 2);
+            event.add(events.get(i).get(0));
+            events.get(i).remove(0);
+            Collections.sort(events.get(i));
+            
             String time = "";
 
-            for (int j = 2; j < events.get(i).size(); j++) {
-                if (j != 2) {
+            for (int j = 0; j < events.get(i).size(); j++) {
+                if (j != 0) {
                     time = time + ", " + events.get(i).get(j);
                 } else {
                     time = time + events.get(i).get(j);
                 }
+                
             }
-
             event.add(time);
+            
             events.set(i, event);
 
         }
