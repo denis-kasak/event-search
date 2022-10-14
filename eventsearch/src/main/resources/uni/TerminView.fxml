@@ -19,15 +19,15 @@
             <Font name="Trebuchet MS Bold" size="30.0" />
          </font>
       </Label>
-      <Circle fill="#95c1e530" layoutX="504.0" layoutY="418.0" radius="119.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#a1dbff30" layoutX="504.0" layoutY="418.0" radius="119.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#f5e3bc00" layoutX="539.0" layoutY="484.0" radius="113.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#f5e3bc00" layoutX="577.0" layoutY="397.0" radius="119.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#81aef026" layoutX="346.0" layoutY="542.0" radius="124.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#a1dbff26" layoutX="346.0" layoutY="542.0" radius="124.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#1f93ff00" layoutX="385.0" layoutY="496.0" radius="124.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#1f93ff00" layoutX="246.0" layoutY="516.0" radius="124.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#81aff026" layoutX="138.0" layoutY="516.0" radius="124.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#a1dbff26" layoutX="138.0" layoutY="516.0" radius="124.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#1f93ff00" layoutY="506.0" radius="124.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#5fa6e417" layoutX="-65.0" layoutY="382.0" radius="124.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#a1dbff17" layoutX="-65.0" layoutY="382.0" radius="124.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#96c0e300" layoutX="580.0" layoutY="275.0" radius="119.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#96c0e300" layoutX="-88.0" layoutY="255.0" radius="119.0" stroke="BLACK" strokeType="INSIDE" />
       <VBox layoutX="40.0" layoutY="60.0" prefHeight="269.0" prefWidth="400.0" styleClass="VBox-Details" stylesheets="@design.css">
