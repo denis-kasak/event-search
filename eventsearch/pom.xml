@@ -42,7 +42,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>uni.App</mainClass>
+                    <mainClass>uni.Main</mainClass>
                 </configuration>
                 <executions>
                     <execution>
