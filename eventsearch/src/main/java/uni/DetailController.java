@@ -41,7 +41,7 @@ public class DetailController implements Initializable {
     }
 
     public void fillDetails(String ort) {
-        veranstalterName.setText(ort);
+        veranstalterName.setText(ort.toUpperCase());
         List<List<String>> events = new ArrayList<>();
         events = Model.getEvents(ort);
 
