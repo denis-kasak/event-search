@@ -8,11 +8,15 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
+import java.util.UUID;
+
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -78,28 +82,58 @@ public class TerminController implements Initializable {
         cbDauer.setItems(FXCollections.observableArrayList("0,5 Stunden", "1 Stunde", "1,5 Stunden", "2 Stunden", "2,5 Stunden", "3 Stunden"));
     }
 
-    public void createEvent(String titel, String ort, LocalDate date, LocalTime time, String dauer) {
-
-        String datum = date.toString();
-        datum = datum.replace("-", ""); //aus YYYY-MM-DD mach YYYYMMDD
-        time = time.minus(2, ChronoUnit.HOURS);
-        String zeit = time.toString();
-        zeit = zeit.replace(":", "") + "00";
-
-        if (dauer.charAt(1) == ',') {
-            dauer = dauer.substring(0, 1) + "H" + "30M";
-        } else {
-            dauer = dauer.substring(0, 1) + "H";
-        }
-
-        String event = "BEGIN:VCALENDAR\n"
-                + System.lineSeparator() + "VERSION:2.0"
-                + System.lineSeparator() + "PRODID:-//ABC Corporation//NONSGML My Product//EN"
+    public void createEvent(String titel, String ort, LocalDate sDate, LocalTime sTime, String dauer) {
+    	
+    	sTime=sTime.minusHours(2);
+    	
+    	Object[] eDateTime = addHours(sDate, sTime, dauer);
+    	
+    	LocalDate eDate = (LocalDate) eDateTime[0];
+    	LocalTime eTime = (LocalTime) eDateTime[1];
+    	  	
+    	String nsDate = sDate.toString();
+    	nsDate = nsDate.replace("-", ""); //aus YYYY-MM-DD mach YYYYMMDD
+    	String neDate = eDate.toString();
+    	neDate = neDate.replace("-", "");
+    	String nsTime = sTime.toString();
+    	nsTime = nsTime.replace(":", "") + "00"; //aus HH:MM mach HHMMSS
+    	String neTime = eTime.toString();
+    	neTime = neTime.replace(":", "") + "00";
+    	
+    	Instant instant= Instant.now();
+    	ZoneId zone = ZoneId.of("UTC");
+    	LocalDate stampDate = LocalDate.ofInstant(instant, zone);
+    	LocalTime stampTime = LocalTime.ofInstant(instant, zone).truncatedTo(ChronoUnit.SECONDS);
+    	LocalTime stampTimeModified = stampTime;
+    	
+    	String stampD = stampDate.toString();
+    	stampD = stampD.replace("-", "");
+    	
+    	String stampT = stampTime.toString();
+    	stampT = stampT.replace(":","");
+    	
+    	String stampTM = stampTimeModified.toString();
+    	stampTM = stampTM.replace(":", "");
+    	
+        
+    	String event = "BEGIN:VCALENDAR"
+        		+ System.lineSeparator() + "PRODID:-//Uni//Event Search//EN"
+        		+ System.lineSeparator() + "VERSION:2.0"
+        		+ System.lineSeparator() + "CALSCALE:GREGORIAN"
+        		+ System.lineSeparator() + "METHOD:PUBLISH"
+                + System.lineSeparator() + "X-WR-TIMEZONE:UTC+2"
+                //+ System.lineSeparator() + "X-WR-CALNAME:Event Search"
                 + System.lineSeparator() + "BEGIN:VEVENT"
+                //+ System.lineSeparator() + "UID:"+UUID.randomUUID().toString()
+                //+ System.lineSeparator() + "DTSTAMP:"+stampD+"T"+stampT+"Z"
+                //+ System.lineSeparator() + "CREATED:"+stampD+"T"+stampT+"Z"
+                //+ System.lineSeparator() + "LAST-MODIFIED"+stampD+"T"+stampTM+"Z"
+                + System.lineSeparator() + "DTSTART:"+nsDate+"T"+nsTime+"Z"
+                + System.lineSeparator() + "DTEND:"+neDate+"T"+neTime+"Z"
                 + System.lineSeparator() + "SUMMARY:" + titel
-                + System.lineSeparator() + "DTSTART;TZID=Germany/Berlin:" + datum + "T" + zeit
-                + System.lineSeparator() + "DURATION:P" + dauer
                 + System.lineSeparator() + "LOCATION:" + ort
+                //+ System.lineSeparator() + "SEQUENCE:0"
+                //+ System.lineSeparator() + "STATUS:CONFIRMED"
                 + System.lineSeparator() + "END:VEVENT"
                 + System.lineSeparator() + "END:VCALENDAR";
 
@@ -125,6 +159,24 @@ public class TerminController implements Initializable {
 
     }
 
+    private Object[] addHours(LocalDate sDate, LocalTime sTime, String dauer) {
+    	LocalTime eTime = sTime;
+    	if(dauer.charAt(1)==',') { //Dauer ist H,5
+    		eTime =eTime.plusHours(Character.getNumericValue(dauer.charAt(0)));
+    		eTime = eTime.plusMinutes(30);
+    	}else {//Dauer ist nur H
+    		eTime.plusHours(Character.getNumericValue(dauer.charAt(0)));
+    	}
+    	
+    	LocalDate eDate = sDate;
+    	if(0<sTime.compareTo(eTime)) {//Ende ist einen Tag später
+    		eDate = eDate.plusDays(1);
+    	}
+    	
+    	Object[] dateTime = {eDate, eTime};
+    	return dateTime;
+    }
+    
     @FXML
     private void saveTermin() {
         String titel = txtTitel.getText();
