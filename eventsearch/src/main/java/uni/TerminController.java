@@ -15,8 +15,6 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
-import java.util.UUID;
-
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -106,34 +104,17 @@ public class TerminController implements Initializable {
     	LocalTime stampTime = LocalTime.ofInstant(instant, zone).truncatedTo(ChronoUnit.SECONDS);
     	LocalTime stampTimeModified = stampTime;
     	
-    	String stampD = stampDate.toString();
-    	stampD = stampD.replace("-", "");
-    	
-    	String stampT = stampTime.toString();
-    	stampT = stampT.replace(":","");
-    	
-    	String stampTM = stampTimeModified.toString();
-    	stampTM = stampTM.replace(":", "");
-    	
-        
     	String event = "BEGIN:VCALENDAR"
         		+ System.lineSeparator() + "PRODID:-//Uni//Event Search//EN"
         		+ System.lineSeparator() + "VERSION:2.0"
         		+ System.lineSeparator() + "CALSCALE:GREGORIAN"
         		+ System.lineSeparator() + "METHOD:PUBLISH"
                 + System.lineSeparator() + "X-WR-TIMEZONE:UTC+2"
-                //+ System.lineSeparator() + "X-WR-CALNAME:Event Search"
                 + System.lineSeparator() + "BEGIN:VEVENT"
-                //+ System.lineSeparator() + "UID:"+UUID.randomUUID().toString()
-                //+ System.lineSeparator() + "DTSTAMP:"+stampD+"T"+stampT+"Z"
-                //+ System.lineSeparator() + "CREATED:"+stampD+"T"+stampT+"Z"
-                //+ System.lineSeparator() + "LAST-MODIFIED"+stampD+"T"+stampTM+"Z"
                 + System.lineSeparator() + "DTSTART:"+nsDate+"T"+nsTime+"Z"
                 + System.lineSeparator() + "DTEND:"+neDate+"T"+neTime+"Z"
                 + System.lineSeparator() + "SUMMARY:" + titel
                 + System.lineSeparator() + "LOCATION:" + ort
-                //+ System.lineSeparator() + "SEQUENCE:0"
-                //+ System.lineSeparator() + "STATUS:CONFIRMED"
                 + System.lineSeparator() + "END:VEVENT"
                 + System.lineSeparator() + "END:VCALENDAR";
 
