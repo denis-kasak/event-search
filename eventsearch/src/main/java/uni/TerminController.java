@@ -146,7 +146,7 @@ public class TerminController implements Initializable {
     		eTime =eTime.plusHours(Character.getNumericValue(dauer.charAt(0)));
     		eTime = eTime.plusMinutes(30);
     	}else {//Dauer ist nur H
-    		eTime.plusHours(Character.getNumericValue(dauer.charAt(0)));
+    		eTime =eTime.plusHours(Character.getNumericValue(dauer.charAt(0)));
     	}
     	
     	LocalDate eDate = sDate;
